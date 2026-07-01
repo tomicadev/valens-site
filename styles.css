@@ -161,7 +161,7 @@ section { padding-block: 72px; }
   border-radius: var(--radius);
   padding: 24px;
 }
-.feature-card__icon { filter: invert(58%) sepia(28%) saturate(1074%) hue-rotate(216deg); margin-bottom: 16px; }
+.feature-card__icon { margin-bottom: 16px; color: var(--light-purple); }
 .feature-card h3 { font-size: 1.05rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .feature-card p { font-size: 0.9rem; }
 
