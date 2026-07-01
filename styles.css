@@ -147,3 +147,27 @@ section { padding-block: 72px; }
   .hero .play-badge { margin-inline: 0; }
   .hero__art { flex: 1; display: flex; justify-content: center; }
 }
+
+/* ---------- Features ---------- */
+#features h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); margin-top: 8px; margin-bottom: 40px; }
+.features__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.feature-card__icon { filter: invert(58%) sepia(28%) saturate(1074%) hue-rotate(216deg); margin-bottom: 16px; }
+.feature-card h3 { font-size: 1.05rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.feature-card p { font-size: 0.9rem; }
+
+@media (min-width: 640px) {
+  .features__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 960px) {
+  .features__grid { grid-template-columns: repeat(3, 1fr); }
+}
