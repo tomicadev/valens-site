@@ -257,3 +257,30 @@ section { padding-block: 72px; }
 @media (min-width: 960px) {
   .capture { grid-template-columns: 1fr 1fr; align-items: center; padding: 56px; }
 }
+
+/* ---------- Final CTA band ---------- */
+.cta-band {
+  background:
+    radial-gradient(60% 80% at 50% 50%, rgba(111,77,179,0.35), transparent 70%),
+    var(--surface);
+  text-align: center;
+}
+.cta-band__inner { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.cta-band h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+
+/* ---------- Footer ---------- */
+.footer { border-top: 1px solid var(--border); padding-block: 32px; }
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+}
+.footer__brand { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.85rem; }
+.footer__links { display: flex; gap: 20px; font-size: 0.85rem; color: var(--muted); }
+.footer__links a:hover { color: var(--ink); }
+
+@media (min-width: 720px) {
+  .footer__inner { flex-direction: row; justify-content: space-between; text-align: left; }
+}
