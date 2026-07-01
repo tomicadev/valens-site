@@ -121,7 +121,26 @@
         <div class="showcase__dots" data-showcase-dots></div>
       </div>
     </section>
-    <!-- CAPTURE_SECTION -->
+    <section id="capture">
+      <div class="container capture">
+        <div data-reveal>
+          <p class="eyebrow">Get launch updates</p>
+          <h2>Be first to know when VALENS ships new features</h2>
+          <p class="capture__sub">No spam — just launch news and the occasional program drop.</p>
+        </div>
+        <form class="capture__form" data-capture-form data-reveal novalidate>
+          <label class="visually-hidden" for="capture-email">Email address</label>
+          <input id="capture-email" type="email" name="email" placeholder="you@example.com" required data-capture-email>
+          <div class="visually-hidden" aria-hidden="true">
+            <label for="capture-website">Website</label>
+            <input id="capture-website" type="text" name="website" tabindex="-1" autocomplete="off" data-capture-honeypot>
+          </div>
+          <button type="submit" data-capture-submit>Subscribe</button>
+          <noscript><p class="capture__status">Enable JavaScript to subscribe, or email us at valens.gym.app@gmail.com.</p></noscript>
+          <p class="capture__status" data-capture-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
     <!-- CTA_BAND_SECTION -->
   </main>
 

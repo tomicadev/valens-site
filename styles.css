@@ -219,3 +219,41 @@ section { padding-block: 72px; }
 @media (max-width: 640px) {
   .showcase__btn { display: none; }
 }
+
+/* ---------- Email capture ---------- */
+.capture {
+  display: grid;
+  gap: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 24px;
+}
+.capture h2 { font-size: clamp(1.25rem, 3.5vw, 1.75rem); margin-top: 8px; }
+.capture__sub { margin-top: 8px; }
+.capture__form { display: flex; flex-direction: column; gap: 12px; }
+.capture__form input[type="email"] {
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--ink);
+}
+.capture__form button {
+  background: var(--purple);
+  color: var(--ink);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.capture__form button:hover { background: var(--light-purple); }
+.capture__form button:disabled { opacity: 0.6; cursor: not-allowed; }
+.capture__status { font-size: 0.85rem; min-height: 1.2em; }
+.capture__status[data-kind="success"] { color: #7CD992; }
+.capture__status[data-kind="error"] { color: var(--premium-red); }
+
+@media (min-width: 960px) {
+  .capture { grid-template-columns: 1fr 1fr; align-items: center; padding: 56px; }
+}
