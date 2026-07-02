@@ -427,15 +427,16 @@ a:hover > .play-badge {
 /* ============ Showcase ============ */
 #screens .section-head { text-align: center; }
 
-.showcase { position: relative; display: flex; align-items: center; gap: 14px; }
+.showcase { --slide-w: min(260px, 68vw); position: relative; display: flex; align-items: center; gap: 14px; }
 .showcase__viewport { overflow: hidden; flex: 1; }
 .showcase__track {
   display: flex;
   gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-block: 24px;
-  padding-inline: calc(50% - 130px);
+  padding-block: 60px;
+  margin-block: -36px;
+  padding-inline: calc(50% - var(--slide-w) / 2);
   scrollbar-width: none;
   cursor: grab;
 }
@@ -444,7 +445,7 @@ a:hover > .play-badge {
 
 .showcase__slide {
   flex: 0 0 auto;
-  width: min(260px, 68vw);
+  width: var(--slide-w);
   scroll-snap-align: center;
   transform: scale(0.88);
   opacity: 0.5;
