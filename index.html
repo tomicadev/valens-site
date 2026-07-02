@@ -154,28 +154,33 @@
       </div>
     </section>
     <section id="capture">
-      <div class="container capture">
-        <div data-reveal>
-          <p class="eyebrow">Get launch updates</p>
-          <h2>Be first to know when VALENS ships new features</h2>
-          <p class="capture__sub">No spam — just launch news and the occasional program drop.</p>
-        </div>
-        <form class="capture__form" data-capture-form data-reveal novalidate>
-          <label class="visually-hidden" for="capture-email">Email address</label>
-          <input id="capture-email" type="email" name="email" placeholder="you@example.com" required data-capture-email>
-          <div class="visually-hidden" aria-hidden="true">
-            <label for="capture-website">Website</label>
-            <input id="capture-website" type="text" name="website" tabindex="-1" autocomplete="off" data-capture-honeypot>
+      <div class="container">
+        <div class="capture" data-reveal>
+          <div class="capture__inner">
+            <div>
+              <p class="eyebrow">Get launch updates</p>
+              <h2>Be first to know when VALENS ships new features</h2>
+              <p class="capture__sub">No spam — just launch news and the occasional program drop.</p>
+            </div>
+            <form class="capture__form" data-capture-form novalidate>
+              <label class="visually-hidden" for="capture-email">Email address</label>
+              <input id="capture-email" type="email" name="email" placeholder="you@example.com" required data-capture-email>
+              <div class="visually-hidden" aria-hidden="true">
+                <label for="capture-website">Website</label>
+                <input id="capture-website" type="text" name="website" tabindex="-1" autocomplete="off" data-capture-honeypot>
+              </div>
+              <button type="submit" data-capture-submit>Subscribe</button>
+              <noscript><p class="capture__status">Enable JavaScript to subscribe, or email us at valens.gym.app@gmail.com.</p></noscript>
+              <p class="capture__status" data-capture-status role="status" aria-live="polite"></p>
+            </form>
           </div>
-          <button type="submit" data-capture-submit>Subscribe</button>
-          <noscript><p class="capture__status">Enable JavaScript to subscribe, or email us at valens.gym.app@gmail.com.</p></noscript>
-          <p class="capture__status" data-capture-status role="status" aria-live="polite"></p>
-        </form>
+        </div>
       </div>
     </section>
-    <section class="cta-band" data-reveal>
-      <div class="container cta-band__inner">
-        <h2>Start training with VALENS</h2>
+    <section class="cta-band">
+      <img class="cta-band__mark" src="assets/valens.svg" alt="" aria-hidden="true">
+      <div class="container cta-band__inner" data-reveal>
+        <h2 class="grad-text">Start training with VALENS</h2>
         <a href="https://play.google.com/store/apps/details?id=rs.valens.app">
           <img class="play-badge" src="assets/google-play-badge.png" alt="Get it on Google Play">
         </a>
