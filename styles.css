@@ -225,18 +225,21 @@ a:hover > .play-badge {
 .aurora__blob { position: absolute; border-radius: 50%; will-change: transform; }
 .aurora__blob--1 {
   width: 55vw; height: 55vw; min-width: 480px; min-height: 480px;
+  max-width: 980px; max-height: 980px;
   top: -22%; left: 8%;
   background: radial-gradient(circle, rgba(111, 77, 179, 0.38), transparent 65%);
   animation: drift1 26s ease-in-out infinite alternate;
 }
 .aurora__blob--2 {
   width: 42vw; height: 42vw; min-width: 380px; min-height: 380px;
+  max-width: 820px; max-height: 820px;
   top: 4%; right: -6%;
   background: radial-gradient(circle, rgba(155, 120, 212, 0.22), transparent 65%);
   animation: drift2 32s ease-in-out infinite alternate;
 }
 .aurora__blob--3 {
   width: 36vw; height: 36vw; min-width: 320px; min-height: 320px;
+  max-width: 720px; max-height: 720px;
   bottom: -18%; left: 30%;
   background: radial-gradient(circle, rgba(111, 77, 179, 0.25), transparent 65%);
   animation: drift3 38s ease-in-out infinite alternate;
@@ -284,6 +287,7 @@ a:hover > .play-badge {
   margin-inline: auto;
   margin-block: 22px 34px;
 }
+.hero__copy > a { display: inline-block; }
 .hero .play-badge { margin-inline: auto; }
 .hero__trust {
   display: flex;
