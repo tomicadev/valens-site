@@ -281,7 +281,12 @@ a.visually-hidden:focus {
   text-align: center;
   position: relative;
 }
-.hero__wordmark { width: 200px; margin-bottom: 18px; margin-inline: auto; }
+.hero__wordmark {
+  width: min(340px, 80vw);
+  margin-bottom: 20px;
+  margin-inline: auto;
+  filter: drop-shadow(0 6px 24px rgba(111, 77, 179, 0.35));
+}
 .hero__title {
   font-size: clamp(2.6rem, 7.5vw, 5.25rem);
   font-weight: 830;
@@ -537,7 +542,10 @@ a.visually-hidden:focus {
 .capture h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); margin-top: 10px; letter-spacing: -0.02em; }
 .capture__sub { margin-top: 12px; }
 
-.capture__form { display: flex; flex-direction: column; gap: 14px; }
+.capture__form { display: flex; flex-direction: column; gap: 14px; position: relative; }
+/* Status sits out of flow so the input+button block centers true against the copy;
+   messages render into the panel's bottom padding without shifting layout */
+.capture__form .capture__status { position: absolute; top: calc(100% + 12px); left: 0; right: 0; }
 .capture__form input[type="email"] {
   background: rgba(12, 8, 13, 0.6);
   border: 1px solid var(--border);
