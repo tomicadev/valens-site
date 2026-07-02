@@ -81,38 +81,48 @@
     </section>
     <section id="features">
       <div class="container">
-        <p class="eyebrow" data-reveal>Features</p>
-        <h2 data-reveal>Everything you need to train smarter</h2>
-        <div class="features__grid">
-          <article class="feature-card" data-reveal>
-            <img class="feature-card__icon" src="assets/logs_icon.svg" alt="" width="28" height="28">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Features</p>
+          <h2 class="section-title">Everything you need to train smarter</h2>
+        </div>
+        <div class="features__grid" data-reveal-stagger>
+          <article class="feature-card feature-card--lg" data-reveal>
+            <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/logs_icon.svg" alt="" width="24" height="24"></div>
             <h3>Track everything</h3>
             <p>Log sets, reps, weight, drop sets and cardio. Watch your PRs climb.</p>
+            <div class="mini-log" aria-hidden="true">
+              <div class="mini-log__row"><span>Bench Press</span><i style="--w:72%"></i></div>
+              <div class="mini-log__row"><span>Squat</span><i style="--w:58%"></i></div>
+              <div class="mini-log__row"><span>Deadlift</span><i style="--w:88%"></i></div>
+            </div>
           </article>
-          <article class="feature-card" data-reveal>
-            <img class="feature-card__icon" src="assets/search.svg" alt="" width="28" height="28">
+          <article class="feature-card feature-card--lg" data-reveal>
+            <div class="feature-card__icon-wrap">
+              <svg class="feature-card__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Smart Coach</h3>
+            <p>Your Coach spots lagging muscle groups and suggests what to train next.</p>
+            <div class="mini-radar" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
+          </article>
+          <article class="feature-card feature-card--sm" data-reveal>
+            <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/search.svg" alt="" width="24" height="24"></div>
             <h3>700+ exercises</h3>
             <p>A full library with target muscles, equipment and how-to instructions.</p>
           </article>
-          <article class="feature-card" data-reveal>
-            <img class="feature-card__icon" src="assets/routines_icon.svg" alt="" width="28" height="28">
+          <article class="feature-card feature-card--sm" data-reveal>
+            <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/routines_icon.svg" alt="" width="24" height="24"></div>
             <h3>Routines and programs <span class="chip chip--premium">Premium</span></h3>
             <p>Build your own or follow a structured program — including Mr. VALENS.</p>
           </article>
-          <article class="feature-card" data-reveal>
-            <img class="feature-card__icon" src="assets/friends_icon.svg" alt="" width="28" height="28">
+          <article class="feature-card feature-card--sm" data-reveal>
+            <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/friends_icon.svg" alt="" width="24" height="24"></div>
             <h3>Train with friends</h3>
             <p>Follow friends' logs, like their sessions, climb the leaderboards.</p>
           </article>
-          <article class="feature-card" data-reveal>
-            <svg class="feature-card__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/>
-            </svg>
-            <h3>Smart Coach</h3>
-            <p>Your Coach spots lagging muscle groups and suggests what to train next.</p>
-          </article>
-          <article class="feature-card" data-reveal>
-            <img class="feature-card__icon" src="assets/badge.svg" alt="" width="28" height="28">
+          <article class="feature-card feature-card--sm" data-reveal>
+            <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/badge.svg" alt="" width="24" height="24"></div>
             <h3>Achievements and recaps</h3>
             <p>Earn badges, keep streaks, get a weekly recap of your progress.</p>
           </article>
