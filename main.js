@@ -103,8 +103,9 @@
     // Drag-to-scroll (mouse only; touch keeps native scrolling)
     if (finePointer) {
       var dragState = null;
+      track.addEventListener('dragstart', function (e) { e.preventDefault(); });
       track.addEventListener('pointerdown', function (e) {
-        if (e.pointerType !== 'mouse') return;
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
         dragState = { startX: e.clientX, startScroll: track.scrollLeft };
         track.classList.add('is-dragging');
         track.setPointerCapture(e.pointerId);
