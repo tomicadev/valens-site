@@ -537,7 +537,7 @@ a.visually-hidden:focus {
   gap: 36px;
   background: linear-gradient(180deg, #1B1420, #130E17);
   border-radius: calc(var(--radius) - 1px);
-  padding: 44px 26px;
+  padding: 44px 26px 72px;
 }
 .capture h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); margin-top: 10px; letter-spacing: -0.02em; }
 .capture__sub { margin-top: 12px; }
