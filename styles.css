@@ -503,7 +503,7 @@ a:hover > .play-badge {
 .capture::before {
   content: '';
   position: absolute;
-  inset: -60%;
+  inset: calc(50% - 900px);
   background: conic-gradient(
     from 0deg,
     transparent 8%, rgba(155, 120, 212, 0.55) 18%, transparent 30%,
