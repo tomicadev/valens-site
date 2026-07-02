@@ -39,21 +39,43 @@
 
   <main id="main">
     <section class="hero" id="top">
+      <div class="aurora" aria-hidden="true">
+        <span class="aurora__blob aurora__blob--1"></span>
+        <span class="aurora__blob aurora__blob--2"></span>
+        <span class="aurora__blob aurora__blob--3"></span>
+      </div>
+      <div class="hero__gridlines" aria-hidden="true"></div>
       <div class="container hero__inner">
-        <div class="hero__copy" data-reveal>
-          <img class="hero__wordmark" src="assets/valens_wordmark_gpt_v2.png" alt="VALENS" width="280">
-          <p class="eyebrow">Track · Train · Progress</p>
-          <h1 class="hero__title">Train smarter. Track everything.</h1>
-          <p class="hero__subtitle">Track every workout, smash PRs, and train alongside your friends.</p>
-          <a href="https://play.google.com/store/apps/details?id=rs.valens.app">
+        <div class="hero__copy">
+          <img class="hero__wordmark intro" style="--d:0s" src="assets/valens_wordmark_gpt_v2.png" alt="VALENS" width="200">
+          <p class="eyebrow intro" style="--d:0.1s">Track · Train · Progress</p>
+          <h1 class="hero__title">
+            <span class="hero__word intro" style="--d:0.18s">Train</span>
+            <span class="hero__word intro" style="--d:0.26s">smarter.</span>
+            <span class="hero__word hero__word--grad intro" style="--d:0.34s">Track</span>
+            <span class="hero__word hero__word--grad intro" style="--d:0.42s">everything.</span>
+          </h1>
+          <p class="hero__subtitle intro" style="--d:0.5s">Track every workout, smash PRs, and train alongside your friends.</p>
+          <a class="intro" style="--d:0.58s" href="https://play.google.com/store/apps/details?id=rs.valens.app">
             <img class="play-badge" src="assets/google-play-badge.png" alt="Get it on Google Play">
           </a>
-          <p class="hero__meta">Free · In-app purchases · PEGI 3</p>
+          <p class="hero__trust intro" style="--d:0.66s">
+            <span><span class="star" aria-hidden="true">★</span> Early Access</span>
+            <span class="sep" aria-hidden="true">·</span>
+            <span>700+ exercises</span>
+            <span class="sep" aria-hidden="true">·</span>
+            <span>Free · In-app purchases · PEGI 3</span>
+          </p>
         </div>
-        <div class="hero__art" data-reveal>
-          <img class="hero__phone" src="assets/Screenshot_20260630_170857.jpg"
-               alt="VALENS Logs screen showing PULL and PUSH workout sessions with exercises and set counts"
-               loading="eager" width="320" height="631">
+        <div class="hero__art intro" style="--d:0.5s">
+          <div class="float">
+            <div class="phone" data-tilt>
+              <div class="phone__notch"></div>
+              <img src="assets/Screenshot_20260630_170857.jpg"
+                   alt="VALENS Logs screen showing PULL and PUSH workout sessions with exercises and set counts"
+                   loading="eager" width="298" height="587">
+            </div>
+          </div>
         </div>
       </div>
     </section>
