@@ -133,7 +133,7 @@
         }
         notifySubmit.disabled = true;
         setStatus(notifyStatus, 'Sending…', 'pending');
-        supabasePost('/rest/v1/newsletter_signups', { email: email, source: 'store' })
+        supabasePost('/rest/v1/newsletter_signups', { email: email, source: (modal && modal.dataset.notifySource) || 'store' })
           .then(function (response) {
             if (response.ok || response.status === 409) {
               setStatus(notifyStatus, "You're on the list — we'll email you at launch.", 'success');
