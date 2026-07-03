@@ -1021,3 +1021,19 @@ a.visually-hidden:focus {
 @media (min-width: 860px) {
   .about { grid-template-columns: 340px 1fr; align-items: center; gap: 56px; }
 }
+
+/* --- Home shop teasers --- */
+.teaser { display: grid; gap: 32px; align-items: center; }
+.teaser__tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.teaser__tiles .book__cover { padding: 12px; }
+.teaser__tiles .book__mark { width: 24px; top: 10px; right: 10px; }
+.teaser__tiles .book__cover-title { font-size: 0.95rem; }
+.teaser__text { font-size: 1.02rem; margin-bottom: 22px; }
+.teaser__text .chip { margin-left: 8px; }
+
+@media (min-width: 860px) {
+  .teaser { grid-template-columns: 1.15fr 1fr; gap: 56px; }
+  .teaser--reverse { grid-template-columns: 1fr 1.15fr; }
+  .teaser--reverse .teaser__tiles { order: 2; }
+  .teaser--reverse .teaser__cta { order: 1; }
+}
