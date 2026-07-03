@@ -963,3 +963,61 @@ a.visually-hidden:focus {
 @media (max-width: 719px) {
   .modal__cover { display: none; }
 }
+
+/* --- Coaching enrichment --- */
+.coach__price { margin-top: 14px; font-size: 1rem; color: var(--muted); }
+.coach__price strong { font-size: 2rem; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
+.coach__includes { margin: 20px 0 24px; display: grid; gap: 10px; }
+.coach__includes li { font-size: 0.92rem; color: var(--muted); padding-left: 22px; position: relative; }
+.coach__includes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--purple), var(--light-purple));
+}
+
+/* --- About --- */
+.about { display: grid; gap: 32px; }
+.about__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-width: 340px;
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background:
+    radial-gradient(120% 90% at 25% 15%, rgba(155, 120, 212, 0.35), transparent 60%),
+    linear-gradient(160deg, #241A2E, #120D18);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 30px 70px -30px rgba(111, 77, 179, 0.5);
+}
+.about__photo-mark { width: 42%; opacity: 0.28; }
+.about__bio { margin-top: 16px; max-width: 60ch; }
+.about__stats { display: flex; flex-wrap: wrap; gap: 28px; margin: 26px 0; }
+.about__stat { display: flex; flex-direction: column; }
+.about__stat strong { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.about__stat span { font-size: 0.8rem; color: var(--muted); }
+.about__socials { display: flex; align-items: center; gap: 12px; }
+.social__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(31, 24, 35, 0.5);
+  color: var(--muted);
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.social__link:hover { color: var(--light-purple); border-color: var(--light-purple); transform: translateY(-2px); }
+
+@media (min-width: 860px) {
+  .about { grid-template-columns: 340px 1fr; align-items: center; gap: 56px; }
+}
