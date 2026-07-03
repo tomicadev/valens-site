@@ -28,12 +28,17 @@
       <a class="nav__brand" href="#top">
         <img src="assets/valens.svg" alt="VALENS" width="28" height="28">
       </a>
-      <nav class="nav__links" aria-label="Primary">
-        <a href="#features">Features</a>
-        <a href="#screens">Screens</a>
-        <a href="store.html">Store</a>
-      </nav>
-      <a class="nav__cta btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app">Get the app</a>
+      <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav__menu" id="nav-menu" data-nav-menu>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#screens">Screens</a>
+          <a href="store.html">Store</a>
+        </nav>
+        <a class="nav__cta btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app">Get the app</a>
+      </div>
     </div>
   </header>
 

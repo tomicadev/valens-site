@@ -14,6 +14,41 @@
   window.addEventListener('scroll', updateNavState, { passive: true });
   updateNavState();
 
+  // --- Mobile nav (hamburger) ---
+  var navToggle = document.querySelector('[data-nav-toggle]');
+  if (nav && navToggle) {
+    var navMenu = document.querySelector('[data-nav-menu]');
+    var closeNav = function () {
+      nav.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    };
+    navToggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    if (navMenu) {
+      navMenu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', closeNav);
+      });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        closeNav();
+        navToggle.focus();
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('is-open') && !nav.contains(e.target)) {
+        closeNav();
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 720 && nav.classList.contains('is-open')) {
+        closeNav();
+      }
+    });
+  }
+
   // --- Scroll-reveal (with stagger groups) ---
   var revealEls = document.querySelectorAll('[data-reveal]');
   document.querySelectorAll('[data-reveal-stagger]').forEach(function (group) {
