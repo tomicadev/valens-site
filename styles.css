@@ -1084,7 +1084,10 @@ a.visually-hidden:focus {
 /* --- App store badges --- */
 .app-badges { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-inline: auto; justify-content: center; }
 .app-badges .play-badge { height: 50px; }
-.app-badge { height: 50px; width: auto; display: block; border-radius: 9px; }
+/* Apple's badge art fills its box edge-to-edge, while Google's PNG has ~33% built-in
+   transparent padding — so at equal element height Apple renders visually larger. Size the
+   Apple badge to Google's *visible* pill height (50px x 0.672) so the two read the same size. */
+.app-badge { height: 34px; width: auto; display: block; border-radius: 9px; }
 .app-badge--soon { position: relative; display: inline-flex; opacity: 0.5; cursor: default; }
 .app-badge__soon {
   position: absolute;
