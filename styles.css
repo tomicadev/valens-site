@@ -1037,3 +1037,36 @@ a.visually-hidden:focus {
   .teaser--reverse .teaser__tiles { order: 2; }
   .teaser--reverse .teaser__cta { order: 1; }
 }
+
+/* --- Hero 3-line headline --- */
+.hero__line { display: block; }
+.hero__line--grad {
+  background: linear-gradient(120deg, var(--light-purple), var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --- App store badges --- */
+.app-badges { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-inline: auto; justify-content: center; }
+.app-badges .play-badge { height: 50px; }
+.app-badge { height: 50px; width: auto; display: block; border-radius: 9px; }
+.app-badge--soon { position: relative; display: inline-flex; opacity: 0.5; cursor: default; }
+.app-badge__soon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--purple);
+  color: #fff;
+  border: 1px solid rgba(155, 120, 212, 0.5);
+}
+
+@media (min-width: 960px) {
+  .hero .app-badges { margin-inline: 0; justify-content: flex-start; }
+}
