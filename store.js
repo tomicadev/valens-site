@@ -32,7 +32,6 @@
     var modalContent = modal.querySelector('[data-modal-content]');
     var modalPrice = modal.querySelector('[data-modal-price]');
     var modalAction = modal.querySelector('[data-modal-action]');
-    var notifyForm = modal.querySelector('[data-notify-form]');
     var closeBtn = modal.querySelector('.modal__close');
     var lastFocus = null;
 
@@ -79,7 +78,6 @@
         buy.rel = 'noopener';
         buy.textContent = 'Buy now';
         modalAction.appendChild(buy);
-        notifyForm.hidden = true;
       } else {
         var soon = document.createElement('button');
         soon.type = 'button';
@@ -87,8 +85,6 @@
         soon.disabled = true;
         soon.textContent = 'Coming soon';
         modalAction.appendChild(soon);
-        notifyForm.hidden = false;
-        setStatus(notifyForm.querySelector('[data-notify-status]'), '', 'idle');
       }
 
       modal.hidden = false;
@@ -114,42 +110,6 @@
       el.addEventListener('click', closeModal);
     });
 
-    // --- Notify-me (coming-soon books) → newsletter_signups with source 'store' ---
-    if (notifyForm) {
-      var notifyEmail = notifyForm.querySelector('[data-notify-email]');
-      var notifySubmit = notifyForm.querySelector('[data-notify-submit]');
-      var notifyStatus = notifyForm.querySelector('[data-notify-status]');
-
-      notifyForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        var email = notifyEmail.value.trim();
-        if (!EMAIL_RE.test(email)) {
-          setStatus(notifyStatus, 'Enter a valid email address.', 'error');
-          return;
-        }
-        if (!config.SUPABASE_URL || !config.SUPABASE_ANON_KEY) {
-          setStatus(notifyStatus, 'Signups are not configured yet.', 'error');
-          return;
-        }
-        notifySubmit.disabled = true;
-        setStatus(notifyStatus, 'Sending…', 'pending');
-        supabasePost('/rest/v1/newsletter_signups', { email: email, source: (modal && modal.dataset.notifySource) || 'store' })
-          .then(function (response) {
-            if (response.ok || response.status === 409) {
-              setStatus(notifyStatus, "You're on the list — we'll email you at launch.", 'success');
-              notifyForm.reset();
-            } else {
-              setStatus(notifyStatus, 'Something went wrong. Try again in a moment.', 'error');
-            }
-          })
-          .catch(function () {
-            setStatus(notifyStatus, 'Network error. Try again in a moment.', 'error');
-          })
-          .finally(function () {
-            notifySubmit.disabled = false;
-          });
-      });
-    }
   }
 
   // --- Coaching application form → coaching_requests ---
