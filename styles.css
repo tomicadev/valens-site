@@ -396,42 +396,76 @@ a.visually-hidden:focus {
 .feature-card p { font-size: 0.92rem; max-width: 46ch; }
 .feature-card--lg p { font-size: 1rem; }
 
-.mini-log { margin-top: 28px; display: grid; gap: 12px; }
-.mini-log__row {
+/* Track everything — session-log mini */
+.mini-sesh {
+  margin-top: 28px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(12, 8, 13, 0.4);
+}
+.mini-sesh__head {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 12px;
+  background: var(--elevated);
+  border-left: 3px solid var(--purple);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--light-purple);
+}
+.mini-sesh__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border-subtle);
+}
+.mini-sesh__row b { color: var(--ink); font-weight: 700; }
+
+/* Smart Coach — muscle-focus mini */
+.mini-focus { margin-top: 28px; display: grid; gap: 11px; }
+.mini-focus__row {
   display: grid;
-  grid-template-columns: 92px 1fr;
+  grid-template-columns: 66px 1fr;
   align-items: center;
   gap: 12px;
   font-size: 0.75rem;
   color: var(--muted);
 }
-.mini-log__row i {
+.mini-focus__row i {
+  position: relative;
   display: block;
-  height: 6px;
+  height: 7px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--purple), var(--light-purple));
-  width: var(--w, 50%);
-  box-shadow: 0 0 12px rgba(155, 120, 212, 0.35);
+  background: var(--elevated);
+  overflow: hidden;
 }
-
-.mini-radar { position: relative; width: 150px; height: 150px; margin-top: 28px; }
-.mini-radar span { position: absolute; inset: 0; border: 1px solid var(--border-subtle); border-radius: 50%; }
-.mini-radar span:nth-child(2) { inset: 22%; }
-.mini-radar span:nth-child(3) { inset: 44%; }
-.mini-radar i {
+.mini-focus__row i::after {
+  content: '';
   position: absolute;
-  top: 26%;
-  right: 22%;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--light-purple);
-  box-shadow: 0 0 0 0 rgba(155, 120, 212, 0.5);
-  animation: pulse 2.6s ease-out infinite;
+  inset: 0;
+  width: var(--v, 50%);
+  border-radius: 999px;
+  background: rgba(155, 120, 212, 0.4);
 }
-@keyframes pulse {
-  70% { box-shadow: 0 0 0 16px rgba(155, 120, 212, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(155, 120, 212, 0); }
+.mini-focus__row--low { color: var(--light-purple); font-weight: 600; }
+.mini-focus__row--low i::after {
+  background: linear-gradient(90deg, var(--purple), var(--light-purple));
+  box-shadow: 0 0 14px rgba(155, 120, 212, 0.55);
+  animation: focusPulse 2.4s ease-in-out infinite;
+}
+@keyframes focusPulse {
+  50% { box-shadow: 0 0 22px rgba(155, 120, 212, 0.85); }
+}
+.mini-focus__tag {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--light-purple);
 }
 
 @media (min-width: 640px) {
