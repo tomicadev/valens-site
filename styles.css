@@ -1104,3 +1104,34 @@ a.visually-hidden:focus {
 @media (min-width: 960px) {
   .hero .app-badges { margin-inline: 0; justify-content: flex-start; }
 }
+
+/* --- Reviews --- */
+.reviews__grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.review {
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, #1B1420, #150F19) padding-box,
+    linear-gradient(180deg, rgba(155, 120, 212, 0.3), rgba(155, 120, 212, 0.05) 60%) border-box;
+  padding: 24px;
+}
+.review__stars { color: var(--light-purple); font-size: 0.9rem; letter-spacing: 3px; }
+.review__quote { margin: 12px 0 18px; color: var(--ink); font-size: 0.95rem; line-height: 1.5; }
+.review__who { display: flex; align-items: center; gap: 12px; }
+.review__avatar {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--purple), var(--light-purple));
+}
+.review__name { font-weight: 600; font-size: 0.9rem; color: var(--ink); }
+.review__handle { font-size: 0.78rem; color: var(--muted); }
+
+@media (min-width: 640px) { .reviews__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .reviews__grid { grid-template-columns: repeat(3, 1fr); } }
