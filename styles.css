@@ -288,10 +288,10 @@ a.visually-hidden:focus {
   filter: drop-shadow(0 6px 24px rgba(111, 77, 179, 0.35));
 }
 .hero__title {
-  font-size: clamp(2.6rem, 7.5vw, 5.25rem);
+  font-size: clamp(2rem, 6.4vw, 3.9rem);
   font-weight: 830;
   letter-spacing: -0.04em;
-  line-height: 1.04;
+  line-height: 1.08;
   margin-block: 16px 0;
 }
 .hero__word { display: inline-block; }
@@ -1073,7 +1073,7 @@ a.visually-hidden:focus {
 }
 
 /* --- Hero 3-line headline --- */
-.hero__line { display: block; }
+.hero__line { display: block; white-space: nowrap; }
 .hero__line--grad {
   background: linear-gradient(120deg, var(--light-purple), var(--purple));
   -webkit-background-clip: text;
