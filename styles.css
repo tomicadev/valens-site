@@ -1280,7 +1280,37 @@ a.visually-hidden:focus {
 .calc__cards .book:nth-child(2) { animation-delay: 0.12s; }
 .calc__cards .calc__tag { align-self: flex-start; }
 @media (min-width: 640px) { .calc__cards { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 960px) { .calc__cards { grid-template-columns: repeat(3, 1fr); } }
+/* two cards centered on grid-card-width tracks; pulsing glows fill the sides */
+@media (min-width: 960px) {
+  .calc__cards {
+    position: relative;
+    grid-template-columns: repeat(2, calc((100% - 40px) / 3));
+    justify-content: center;
+  }
+  .calc__cards::before,
+  .calc__cards::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(155, 120, 212, 0.30), transparent 68%);
+    transform: translateY(-50%) scale(0.9);
+    pointer-events: none;
+    animation: calcGlow 2.8s ease-in-out infinite;
+  }
+  .calc__cards::before { left: -40px; }
+  .calc__cards::after { right: -40px; animation-delay: 1.4s; }
+}
+@keyframes calcGlow {
+  0%, 100% { opacity: 0.35; transform: translateY(-50%) scale(0.9); }
+  50% { opacity: 1; transform: translateY(-50%) scale(1.18); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .calc__cards::before,
+  .calc__cards::after { animation: none; }
+}
 @keyframes calcPop {
   from { opacity: 0; transform: translateY(18px) scale(0.94); }
   to { opacity: 1; transform: none; }
