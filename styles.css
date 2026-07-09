@@ -1333,6 +1333,18 @@ a.visually-hidden:focus {
     radial-gradient(70% 120% at 12% 0%, rgba(111, 77, 179, 0.3), transparent 60%),
     var(--surface-2);
 }
+/* thin gradient rule at the top of the section, separating it from the e-books */
+#skip-reading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(720px, calc(100% - 48px));
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(155, 120, 212, 0.55), transparent);
+}
+
 /* hero-style gridlines echo, strongest where the purple glow sits */
 .cta-coach::before {
   content: "";
