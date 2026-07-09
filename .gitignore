@@ -2,3 +2,6 @@
 Thumbs.db
 .claude/
 docs/
+
+# raw photo sources (processed output is assets/coach.jpg)
+assets/coach-src*.jpg
