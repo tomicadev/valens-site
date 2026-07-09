@@ -1273,29 +1273,14 @@ a.visually-hidden:focus {
 .calc__stat em { font-style: normal; color: var(--light-purple); }
 .calc__note { margin-bottom: 18px; font-size: 0.85rem; color: var(--muted); }
 
-.calc__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+/* recommendation cards mirror the training/nutrition grid cards below
+   (same track math as .books: 1 → 2 → 3 columns, same gap) */
+.calc__cards { display: grid; grid-template-columns: 1fr; gap: 20px; }
 .calc__cards .book { animation: calcPop 0.55s var(--ease) both; }
 .calc__cards .book:nth-child(2) { animation-delay: 0.12s; }
-/* recommendation cards are compact: small cover on the left, text on the right */
-.calc__cards .book {
-  display: grid;
-  grid-template-columns: 92px 1fr;
-  grid-template-areas:
-    "tag tag"
-    "cover body"
-    "cover meta";
-  gap: 10px 16px;
-  align-items: center;
-  padding: 16px;
-}
-.calc__cards .calc__tag { grid-area: tag; justify-self: start; margin-bottom: 0; }
-.calc__cards .book__cover { grid-area: cover; padding: 10px; border-radius: 10px; }
-.calc__cards .book__cover .book__cover-cat { font-size: 0.5rem; letter-spacing: 0.14em; margin-bottom: 3px; }
-.calc__cards .book__cover .book__cover-title { font-size: 0.82rem; }
-.calc__cards .book__cover .book__mark { width: 18px; top: 8px; right: 8px; }
-.calc__cards .calc-card__body { grid-area: body; align-self: end; }
-.calc__cards .book__title { font-size: 0.95rem; }
-.calc__cards .book__meta { grid-area: meta; margin-top: 0; align-self: start; }
+.calc__cards .calc__tag { align-self: flex-start; }
+@media (min-width: 640px) { .calc__cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .calc__cards { grid-template-columns: repeat(3, 1fr); } }
 @keyframes calcPop {
   from { opacity: 0; transform: translateY(18px) scale(0.94); }
   to { opacity: 1; transform: none; }
@@ -1366,6 +1351,5 @@ a.visually-hidden:focus {
 @media (max-width: 860px) {
   .calc { padding: 30px 22px; }
   .calc__grid { grid-template-columns: 1fr 1fr; }
-  .calc__cards { grid-template-columns: 1fr; }
   .cta-coach { flex-direction: column; align-items: flex-start; padding: 32px 24px; }
 }
