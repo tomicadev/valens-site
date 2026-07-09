@@ -1205,6 +1205,12 @@ a.visually-hidden:focus {
   border-color: var(--light-purple);
   box-shadow: 0 0 0 3px rgba(155, 120, 212, 0.22);
 }
+/* native dropdown panel follows the site's dark scheme instead of OS grey */
+.calc__field select { color-scheme: dark; }
+.calc__field select option {
+  background: var(--surface);
+  color: var(--ink);
+}
 
 .calc__goals { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .calc__goal {
@@ -1267,9 +1273,29 @@ a.visually-hidden:focus {
 .calc__stat em { font-style: normal; color: var(--light-purple); }
 .calc__note { margin-bottom: 18px; font-size: 0.85rem; color: var(--muted); }
 
-.calc__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.calc__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .calc__cards .book { animation: calcPop 0.55s var(--ease) both; }
 .calc__cards .book:nth-child(2) { animation-delay: 0.12s; }
+/* recommendation cards are compact: small cover on the left, text on the right */
+.calc__cards .book {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  grid-template-areas:
+    "tag tag"
+    "cover body"
+    "cover meta";
+  gap: 10px 16px;
+  align-items: center;
+  padding: 16px;
+}
+.calc__cards .calc__tag { grid-area: tag; justify-self: start; margin-bottom: 0; }
+.calc__cards .book__cover { grid-area: cover; padding: 10px; border-radius: 10px; }
+.calc__cards .book__cover .book__cover-cat { font-size: 0.5rem; letter-spacing: 0.14em; margin-bottom: 3px; }
+.calc__cards .book__cover .book__cover-title { font-size: 0.82rem; }
+.calc__cards .book__cover .book__mark { width: 18px; top: 8px; right: 8px; }
+.calc__cards .calc-card__body { grid-area: body; align-self: end; }
+.calc__cards .book__title { font-size: 0.95rem; }
+.calc__cards .book__meta { grid-area: meta; margin-top: 0; align-self: start; }
 @keyframes calcPop {
   from { opacity: 0; transform: translateY(18px) scale(0.94); }
   to { opacity: 1; transform: none; }
@@ -1294,6 +1320,8 @@ a.visually-hidden:focus {
 
 /* --- Coaching CTA band (ebooks) --- */
 .cta-coach {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1305,6 +1333,20 @@ a.visually-hidden:focus {
     radial-gradient(70% 120% at 12% 0%, rgba(111, 77, 179, 0.3), transparent 60%),
     var(--surface-2);
 }
+/* hero-style gridlines echo, strongest where the purple glow sits */
+.cta-coach::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(85% 130% at 15% 10%, black 15%, transparent 80%);
+  mask-image: radial-gradient(85% 130% at 15% 10%, black 15%, transparent 80%);
+}
+.cta-coach > * { position: relative; }
 .cta-coach h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 8px 0 12px; letter-spacing: -0.01em; }
 .cta-coach__body p:last-child { max-width: 560px; }
 .cta-coach .btn-pill { flex-shrink: 0; }

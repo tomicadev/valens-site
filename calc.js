@@ -92,6 +92,7 @@
     if (cover) card.appendChild(cover.cloneNode(true));
 
     var body = document.createElement('div');
+    body.className = 'calc-card__body';
     var title = document.createElement('h3');
     title.className = 'book__title';
     title.textContent = book.querySelector('.book__title').textContent;
