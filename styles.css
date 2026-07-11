@@ -1146,6 +1146,35 @@ a.visually-hidden:focus {
 .review__name { font-weight: 600; font-size: 0.9rem; color: var(--ink); }
 .review__handle { font-size: 0.78rem; color: var(--muted); }
 
+/* Ghost / "coming soon" review placeholders */
+.review--ghost {
+  background:
+    linear-gradient(180deg, #171119, #120C15) padding-box,
+    linear-gradient(180deg, rgba(155, 120, 212, 0.14), rgba(155, 120, 212, 0.03) 60%) border-box;
+}
+.review__stars--empty { color: rgba(155, 120, 212, 0.28); }
+.review__line {
+  display: block;
+  height: 11px;
+  margin: 9px 0;
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgba(155,120,212,0.14), rgba(155,120,212,0.05));
+  animation: reviewShimmer 2.4s ease-in-out infinite;
+}
+.review__line--short { width: 55%; }
+.review--ghost:nth-child(2) .review__line { animation-delay: 0.3s; }
+.review--ghost:nth-child(3) .review__line { animation-delay: 0.6s; }
+.review__avatar--empty {
+  background: rgba(155, 120, 212, 0.12);
+  border: 1px dashed rgba(155, 120, 212, 0.3);
+}
+.review__pending { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+@keyframes reviewShimmer { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .review__line { animation: none; } }
+
+.reviews__cta { margin-top: 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+.reviews__cta-text { color: var(--muted); font-size: 0.95rem; }
+
 @media (min-width: 640px) { .reviews__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 960px) { .reviews__grid { grid-template-columns: repeat(3, 1fr); } }
 
