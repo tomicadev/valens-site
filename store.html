@@ -29,6 +29,10 @@
       <a class="nav__brand" href="index.html">
         <img src="assets/valens.svg" alt="VALENS" width="28" height="28">
       </a>
+      <button class="cart-btn" type="button" data-cart-toggle aria-label="Open cart">
+        <span class="cart-btn__icon" aria-hidden="true">🛒</span>
+        <span class="cart-btn__count" data-cart-count hidden>0</span>
+      </button>
       <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -64,343 +68,54 @@
     <section id="merch">
       <div class="container">
         <div class="section-head" data-reveal>
-          <p class="eyebrow">Merch</p>
-          <h2 class="section-title">Apparel</h2>
+          <p class="eyebrow">Store</p>
+          <h2 class="section-title">Gear up in VALENS</h2>
+          <p class="section-sub">Apparel and accessories built for the gym floor. Cash on delivery, free shipping across Serbia.</p>
         </div>
-        <div class="books" data-reveal-stagger>
-          <article class="book" data-reveal data-price="€29" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#6F4DB3; --a2:#2A1C55">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Men's</span>
-                <span class="book__cover-title">Training Tee</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">Men's Training Tee</h3>
-              <p class="book__desc">Breathable performance tee cut for training.</p>
-            </div>
-            <div class="book__meta">
-              <span class="book__price">€29</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>A lightweight, breathable training tee with a relaxed athletic cut and a subtle VALENS mark — made to move through every set.</p>
-              <ul>
-                <li>Moisture-wicking performance fabric</li>
-                <li>Relaxed athletic fit</li>
-                <li>Tagless, chafe-free seams</li>
-                <li>Subtle VALENS branding</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="book" data-reveal data-price="€35" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#8465D6; --a2:#1F1B4E">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Men's</span>
-                <span class="book__cover-title">Training Shorts</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">Men's Training Shorts</h3>
-              <p class="book__desc">Squat-proof shorts with a secure zip pocket.</p>
-            </div>
-            <div class="book__meta">
-              <span class="book__price">€35</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>Squat-proof training shorts with a secure zip pocket and a 7-inch inseam that stays put through every rep.</p>
-              <ul>
-                <li>4-way stretch, squat-proof fabric</li>
-                <li>Zip side pocket for your phone</li>
-                <li>7-inch inseam</li>
-                <li>Elastic waist with internal drawcord</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="book" data-reveal data-price="€25" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#5B3E9E; --a2:#301F52">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Men's</span>
-                <span class="book__cover-title">Training Tank</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">Men's Training Tank</h3>
-              <p class="book__desc">Dropped-armhole tank for full range of motion.</p>
-            </div>
-            <div class="book__meta">
-              <span class="book__price">€25</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>A dropped-armhole training tank cut for full range of motion — light, breathable, and built to earn its sweat.</p>
-              <ul>
-                <li>Dropped armholes for free movement</li>
-                <li>Soft, breathable knit</li>
-                <li>Athletic length</li>
-                <li>Subtle VALENS branding</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="book" data-reveal data-price="€29" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#B06AC9; --a2:#3A1E4B">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Women's</span>
-                <span class="book__cover-title">Training Tee</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">Women's Training Tee</h3>
-              <p class="book__desc">Soft, fitted training tee that moves with you.</p>
-            </div>
-            <div class="book__meta">
-              <span class="book__price">€29</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>A fitted training tee in a soft, breathable knit that stays put through every set — cut to move with you, not against you.</p>
-              <ul>
-                <li>Fitted athletic cut</li>
-                <li>Soft, breathable fabric</li>
-                <li>Stays put through every set</li>
-                <li>Subtle VALENS mark</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="book" data-reveal data-price="€39" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#C77DD8; --a2:#2E1840">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Women's</span>
-                <span class="book__cover-title">Leggings</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">Women's Leggings</h3>
-              <p class="book__desc">High-waist, squat-proof leggings with a pocket.</p>
-            </div>
-            <div class="book__meta">
-              <span class="book__price">€39</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>High-waist, squat-proof leggings with a supportive waistband and a side pocket — sculpting, opaque, and built to train in.</p>
-              <ul>
-                <li>High-waist supportive band</li>
-                <li>Squat-proof, opaque fabric</li>
-                <li>Side phone pocket</li>
-                <li>4-way stretch</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="book" data-reveal data-price="€12" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#7A4FD0; --a2:#1A1440">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Unisex</span>
-                <span class="book__cover-title">VALENS Socks</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">VALENS Socks</h3>
-              <p class="book__desc">Cushioned crew socks with arch support.</p>
-            </div>
-            <div class="book__meta">
-              <span class="book__price">€12</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>Cushioned crew socks with arch support and a stay-up cuff — comfortable under the bar and out on the floor.</p>
-              <ul>
-                <li>Cushioned heel and toe</li>
-                <li>Compression arch support</li>
-                <li>Stay-up ribbed cuff</li>
-                <li>VALENS branding</li>
-              </ul>
-            </div>
-          </article>
-        </div>
+        <h3 class="products-group" data-reveal>Apparel</h3>
+        <div class="products" data-products-grid="Apparel"></div>
+        <h3 class="products-group" data-reveal>Accessories</h3>
+        <div class="products" data-products-grid="Accessories"></div>
       </div>
     </section>
 
-    <section id="accessories">
+    <aside class="cart-drawer" data-cart-drawer hidden aria-label="Cart">
+      <div class="cart-drawer__head">
+        <h2>Your cart</h2>
+        <button class="cart-drawer__close" type="button" data-cart-close aria-label="Close cart">×</button>
+      </div>
+      <div class="cart-drawer__body" data-cart-items></div>
+      <div class="cart-drawer__foot">
+        <div class="cart-drawer__total"><span>Subtotal</span><strong data-cart-subtotal>€0</strong></div>
+        <button class="btn-ghost" type="button" data-cart-close>Continue shopping</button>
+        <button class="btn-pill" type="button" data-cart-checkout>Checkout</button>
+      </div>
+    </aside>
+    <div class="cart-backdrop" data-cart-backdrop hidden></div>
+
+    <section id="checkout" hidden>
       <div class="container">
         <div class="section-head" data-reveal>
-          <p class="eyebrow">Accessories</p>
-          <h2 class="section-title">Training gear</h2>
+          <p class="eyebrow">Checkout</p>
+          <h2 class="section-title">Cash on delivery</h2>
+          <p class="section-sub">You pay the courier in cash when your order arrives. Free shipping across Serbia.</p>
         </div>
-        <div class="books" data-reveal-stagger>
-          <article class="book" data-reveal data-price="€19" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#B06AC9; --a2:#3A1E4B">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Accessories</span>
-                <span class="book__cover-title">Lifting Straps</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">Lifting Straps</h3>
-              <p class="book__desc">Figure-8 straps that outlast your grip.</p>
+        <div class="checkout">
+          <form class="checkout__form" data-checkout-form novalidate>
+            <div class="checkout__grid">
+              <label>Full name<input type="text" data-co-name required></label>
+              <label>Phone<input type="tel" data-co-phone required></label>
+              <label class="checkout__wide">Address (street & number)<input type="text" data-co-address required></label>
+              <label>City<input type="text" data-co-city required></label>
+              <label>Postal code<input type="text" data-co-postal required></label>
+              <label class="checkout__wide">Email (optional)<input type="email" data-co-email></label>
+              <label class="checkout__wide">Note (optional)<textarea data-co-note rows="2"></textarea></label>
+              <div class="visually-hidden" aria-hidden="true"><label>Website<input type="text" tabindex="-1" autocomplete="off" data-co-honeypot></label></div>
             </div>
-            <div class="book__meta">
-              <span class="book__price">€19</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>Heavy-duty cotton lifting straps that keep the bar in your hands when your grip taps out — for deadlifts, rows and shrugs.</p>
-              <ul>
-                <li>Durable padded cotton weave</li>
-                <li>Secure, break-in-fast fit</li>
-                <li>Great for pulls and rows</li>
-                <li>One size, both hands</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="book" data-reveal data-price="€22" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#C77DD8; --a2:#2E1840">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Accessories</span>
-                <span class="book__cover-title">Wrist Wraps</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">Wrist Wraps</h3>
-              <p class="book__desc">Stiff support for heavy pressing days.</p>
-            </div>
-            <div class="book__meta">
-              <span class="book__price">€22</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>Stiff, supportive wrist wraps for bench, overhead press and heavy holds — lock your wrists in and press with confidence.</p>
-              <ul>
-                <li>Stiff support-grade elastic</li>
-                <li>Thumb loop and wide velcro</li>
-                <li>50cm length</li>
-                <li>Ideal for pressing and overhead</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="book" data-reveal data-price="€18" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#A05BBE; --a2:#33204F">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Accessories</span>
-                <span class="book__cover-title">Cable Cuff Straps</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">Cable Cuff Straps</h3>
-              <p class="book__desc">Ankle/wrist cuffs for cable work.</p>
-            </div>
-            <div class="book__meta">
-              <span class="book__price">€18</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>Padded cuffs that clip onto any cable machine for kickbacks, abductions and curls — the isolation work your program keeps asking for.</p>
-              <ul>
-                <li>Padded neoprene cuff</li>
-                <li>Heavy D-ring for any cable</li>
-                <li>Kickbacks, abductions, curls</li>
-                <li>Sold as a pair</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="book" data-reveal data-price="€45" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#D48BC8; --a2:#2B1442">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Accessories</span>
-                <span class="book__cover-title">Knee Sleeves</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">Knee Sleeves</h3>
-              <p class="book__desc">7mm sleeves for warmth, support and rebound.</p>
-            </div>
-            <div class="book__meta">
-              <span class="book__price">€45</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>7mm neoprene knee sleeves that keep the joint warm and add a little rebound out of the hole — sold as a pair.</p>
-              <ul>
-                <li>7mm neoprene, sold as a pair</li>
-                <li>Warmth and joint support</li>
-                <li>Snug rebound out of the bottom</li>
-                <li>Sizes XS–XXL</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="book" data-reveal data-price="€35" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#8E58B8; --a2:#241038">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Accessories</span>
-                <span class="book__cover-title">Elbow Sleeves</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">Elbow Sleeves</h3>
-              <p class="book__desc">Compression and warmth for pressing.</p>
-            </div>
-            <div class="book__meta">
-              <span class="book__price">€35</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>5mm neoprene elbow sleeves that keep the joint warm and supported through heavy benching and lockout work — sold as a pair.</p>
-              <ul>
-                <li>5mm neoprene, sold as a pair</li>
-                <li>Elbow warmth and support</li>
-                <li>Great for bench and lockouts</li>
-                <li>Sizes XS–XXL</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="book" data-reveal data-price="€12" data-ls-url="">
-            <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
-              <span class="book__cover" style="--a1:#9E63C4; --a2:#2A1546">
-                <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Accessories</span>
-                <span class="book__cover-title">Shaker Bottle</span>
-              </span>
-            </button>
-            <div>
-              <h3 class="book__title">Shaker Bottle</h3>
-              <p class="book__desc">600ml leak-proof shaker with a VALENS mark.</p>
-            </div>
-            <div class="book__meta">
-              <span class="book__price">€12</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
-            </div>
-            <div class="book__extra" hidden>
-              <p>A 600ml leak-proof shaker with a wire whisk ball and a secure flip cap — mixes clean, seals tight, throws in any bag.</p>
-              <ul>
-                <li>600ml capacity</li>
-                <li>Leak-proof flip cap</li>
-                <li>Stainless whisk ball</li>
-                <li>BPA-free</li>
-              </ul>
-            </div>
-          </article>
+            <button type="submit" class="btn-pill" data-co-submit>Place order</button>
+            <p class="capture__status" data-co-status role="status" aria-live="polite"></p>
+          </form>
+          <aside class="checkout__summary" data-checkout-summary></aside>
         </div>
       </div>
     </section>
@@ -445,5 +160,6 @@
   <script src="config.js"></script>
   <script src="main.js"></script>
   <script src="store.js"></script>
+  <script src="shop.js"></script>
 </body>
 </html>
