@@ -138,3 +138,62 @@
   window.VALENS_CART = { add: add, refresh: refresh, open: open, close: close, items: function () { return cart.slice(); }, subtotal: subtotal, clear: function () { cart = []; save(cart); refresh(); } };
   refresh();
 })();
+
+(function () {
+  'use strict';
+  var S = window.VALENS_SHOP, C = window.VALENS_CART, cfg = window.VALENS_CONFIG || {};
+  var section = document.getElementById('checkout');
+  var form = document.querySelector('[data-checkout-form]');
+  if (!section || !form || !C) return;
+  var summary = document.querySelector('[data-checkout-summary]');
+  var statusEl = document.querySelector('[data-co-status]');
+  var submit = document.querySelector('[data-co-submit]');
+  var checkoutBtn = document.querySelector('[data-cart-checkout]');
+
+  function status(msg, kind) { if (statusEl) { statusEl.textContent = msg; statusEl.dataset.kind = kind; } }
+  function val(sel) { var el = form.querySelector(sel); return el ? el.value.trim() : ''; }
+
+  function renderSummary() {
+    var items = C.items(), sub = C.subtotal();
+    summary.innerHTML =
+      items.map(function (l) { var p = S.bySku(l.sku); return p ? '<div class="co-row"><span>' + l.qty + '× ' + p.name + (l.size ? ' (' + l.size + ')' : '') + '</span><span>' + S.eur(p.price_eur * l.qty) + '</span></div>' : ''; }).join('') +
+      '<div class="co-row co-total"><span>Total</span><strong>' + S.eur(sub) + '</strong></div>' +
+      '<div class="co-rsd">≈ ' + S.rsd(sub) + ' — paid to the courier</div>' +
+      '<div class="co-ship">Free shipping</div>';
+  }
+
+  function openCheckout() {
+    if (!C.items().length) return;
+    C.close(); section.hidden = false; renderSummary();
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  if (checkoutBtn) checkoutBtn.addEventListener('click', openCheckout);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (val('[data-co-honeypot]')) return;
+    var name = val('[data-co-name]'), phone = val('[data-co-phone]'),
+        address = val('[data-co-address]'), city = val('[data-co-city]'), postal = val('[data-co-postal]');
+    if (!name || !phone || !address || !city || !postal) { status('Please fill name, phone and address.', 'error'); return; }
+    if (!C.items().length) { status('Your cart is empty.', 'error'); return; }
+    if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) { status('Ordering is not configured yet.', 'error'); return; }
+
+    var items = C.items().map(function (l) { var p = S.bySku(l.sku); return { sku: l.sku, name: p.name, size: l.size, qty: l.qty, price_eur: p.price_eur }; });
+    var order = {
+      order_ref: S.makeOrderRef(), items: items, subtotal_eur: C.subtotal(),
+      customer_name: name, phone: phone, address: address, city: city, postal_code: postal,
+      email: val('[data-co-email]') || null, note: val('[data-co-note]') || null,
+    };
+    submit.disabled = true; status('Placing your order…', 'pending');
+    fetch(cfg.SUPABASE_URL + '/rest/v1/orders', {
+      method: 'POST',
+      headers: { apikey: cfg.SUPABASE_ANON_KEY, Authorization: 'Bearer ' + cfg.SUPABASE_ANON_KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+      body: JSON.stringify(order),
+    }).then(function (res) {
+      if (res.ok) {
+        section.innerHTML = '<div class="container"><div class="checkout-done"><h2>Order ' + order.order_ref + ' received</h2><p>We\'ll call you on ' + phone + ' to confirm your order and delivery. You pay the courier in cash on arrival.</p></div></div>';
+        C.clear();
+      } else { status('Something went wrong. Try again in a moment.', 'error'); submit.disabled = false; }
+    }).catch(function () { status('Network error. Try again in a moment.', 'error'); submit.disabled = false; });
+  });
+})();
