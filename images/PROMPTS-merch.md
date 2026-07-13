@@ -18,6 +18,15 @@ Consistent across ALL images:
   triangular strokes meeting at a sharp point at the bottom, no rounded corners, no
   outline, no drop shadow, no 3D bevel — a flat two-tone geometric mark, not a photoreal
   emblem.
+- **Logo integration (CRITICAL — the mark must be PART OF the material, not pasted on):**
+  the VALENS "V" must look genuinely built into the product — **knitted/woven into fabric
+  (jacquard), or embroidered with visible raised thread relief, or embossed/debossed into
+  rubber/neoprene.** It must follow the product's texture, weave direction and curvature,
+  wrap slightly around folds/ribbing, and catch the **same studio light and cast the same
+  micro-shadows** as the surrounding material. Give it real material grain (thread/yarn or
+  stitch texture) and very slightly softened edges + a touch lower saturation than a flat
+  vector — so it reads as woven/embroidered, **NOT a flat sticker, decal, iron-on patch,
+  or 2D graphic floating on top.** No hard-edged clip-art look, no glossy sticker sheen.
 - **Scene background matches the product**: near-black (#0C080D), same tone family as
   the garment, soft gradient vignette so the product still reads as a separate object
   under studio light (not colour, just soft shadow/highlight falloff).
@@ -34,7 +43,7 @@ Export as PNG named exactly `<sku>.png` into `assets/merch/`.
 - **tank.png** — Photoreal 3D product render of a dropped-armhole training tank top in near-black charcoal, ghost-mannequin fit, small two-tone VALENS "V" mark (exact reference logo, not redrawn) centred on the chest, near-black studio background, soft floor shadow, centred, square 1:1, no text.
 - **womens-tee.png** — Photoreal 3D product render of a women's fitted crewneck training t-shirt in near-black charcoal, ghost-mannequin fit, small two-tone VALENS "V" mark (exact reference logo, not redrawn) on the left chest, near-black studio background, soft floor shadow, centred, square 1:1, no text.
 - **leggings.png** — Photoreal 3D product render of high-rise squat-proof leggings in near-black charcoal with a subtle tonal side panel, ghost-mannequin fit, small two-tone VALENS "V" mark (exact reference logo, not redrawn) on the upper left thigh, near-black studio background, soft floor shadow, centred, square 1:1, no text.
-- **socks.png** — Photoreal 3D product render of a pair of cushioned crew socks in near-black charcoal with a subtle tonal stripe at the cuff, small two-tone VALENS "V" mark (exact reference logo, not redrawn) woven into the ankle, standing upright on a near-black studio surface, soft floor shadow, centred, square 1:1, no text.
+- **socks.png** — Photoreal 3D product render of a pair of cushioned ribbed crew socks in near-black charcoal with a subtle tonal stripe at the cuff, standing upright. The small two-tone VALENS "V" mark (exact reference logo, not redrawn) is **knitted into the fabric as a woven jacquard logo** — it follows the vertical rib texture and the curve of the sock, sits flush in the knit with fine yarn/thread grain, and catches the same studio light as the surrounding fabric (NOT a flat sticker or printed graphic on top). Near-black studio background, soft floor shadow, centred, square 1:1, no text.
 - **straps.png** — Photoreal 3D product render of a pair of cotton lifting straps in near-black charcoal webbing, neatly coiled side by side, small two-tone VALENS "V" mark (exact reference logo, not redrawn) stitched near the loop end, near-black studio background, soft floor shadow, centred, square 1:1, no text.
 - **wraps.png** — Photoreal 3D product render of a pair of stiff wrist wraps in near-black charcoal with a thumb loop, rolled and standing upright, small two-tone VALENS "V" mark (exact reference logo, not redrawn) on the velcro closure, near-black studio background, soft floor shadow, centred, square 1:1, no text.
 - **cuffs.png** — Photoreal 3D product render of a pair of padded neoprene cable cuff straps in near-black charcoal with a heavy D-ring, laid side by side, small two-tone VALENS "V" mark (exact reference logo, not redrawn) embossed on the padding, near-black studio background, soft floor shadow, centred, square 1:1, no text.
