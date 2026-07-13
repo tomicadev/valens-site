@@ -5,3 +5,6 @@ docs/
 
 # raw photo sources (processed output is assets/coach.jpg)
 assets/coach-src*.jpg
+
+# Merch mockup PNG sources — the site ships optimized .webp (assets/merch/*.webp); keep heavy PNGs local only
+assets/merch/*.png
