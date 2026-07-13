@@ -59,7 +59,10 @@
       if (addBtn) addBtn.addEventListener('click', function () {
         var p = bySku(sku);
         if (p && p.sizes && p.sizes.length && !chosen) return;
-        window.VALENS_CART.add(sku, chosen); // defined in Task 7
+        window.VALENS_CART.add(sku, chosen);
+        // micro-feedback: brief "Added" state so the click visibly lands
+        addBtn.textContent = '✓ Added';
+        setTimeout(function () { addBtn.textContent = 'Add to cart'; }, 1200);
       });
     });
   }
@@ -75,7 +78,9 @@
 (function () {
   'use strict';
   var KEY = 'valens_cart';
+  var MAX_QTY = 9;
   var S = window.VALENS_SHOP;
+  var TRASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11.5v5M14 11.5v5M6 7l1 13h10l1-13M9.2 7V4h5.6v3"/></svg>';
 
   function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
   function save(c) { localStorage.setItem(KEY, JSON.stringify(c)); }
@@ -90,10 +95,12 @@
   function add(sku, size) {
     var k = lineKey(sku, size), found = null;
     cart.forEach(function (l) { if (lineKey(l.sku, l.size) === k) found = l; });
-    if (found) found.qty += 1; else cart.push({ sku: sku, size: size || null, qty: 1 });
+    if (found) found.qty = Math.min(MAX_QTY, found.qty + 1); else cart.push({ sku: sku, size: size || null, qty: 1 });
     save(cart); refresh(); open();
+    if (countEl) { countEl.classList.remove('bump'); void countEl.offsetWidth; countEl.classList.add('bump'); }
   }
   function setQty(sku, size, qty) {
+    qty = Math.min(qty, MAX_QTY);
     var k = lineKey(sku, size);
     cart = cart.filter(function (l) { if (lineKey(l.sku, l.size) !== k) return true; l.qty = qty; return qty > 0; });
     save(cart); refresh();
@@ -104,22 +111,30 @@
   var itemsEl = document.querySelector('[data-cart-items]');
   var subEl = document.querySelector('[data-cart-subtotal]');
   var countEl = document.querySelector('[data-cart-count]');
+  var checkoutBtn = document.querySelector('[data-cart-checkout]');
+  var toggle = document.querySelector('[data-cart-toggle]');
 
   function open() { if (drawer) { drawer.hidden = false; backdrop.hidden = false; document.body.style.overflow = 'hidden'; } }
   function close() { if (drawer) { drawer.hidden = true; backdrop.hidden = true; document.body.style.overflow = ''; } }
+  // UI-initiated close (X, backdrop, Continue shopping, Escape) returns focus to the cart button
+  function uiClose() { close(); if (toggle) toggle.focus(); }
 
   function refresh() {
-    if (countEl) { var n = count(); countEl.textContent = n; countEl.hidden = n === 0; }
+    var n = count();
+    if (countEl) { countEl.textContent = n; countEl.hidden = n === 0; }
     if (subEl) subEl.textContent = S.eur(subtotal());
+    if (checkoutBtn) checkoutBtn.textContent = n ? 'Checkout (' + n + ')' : 'Checkout';
     if (!itemsEl) return;
     if (!cart.length) { itemsEl.innerHTML = '<p class="cart-empty">Your cart is empty.</p>'; return; }
     itemsEl.innerHTML = cart.map(function (l) {
       var p = S.bySku(l.sku); if (!p) return '';
       return '<div class="cart-line" data-sku="' + l.sku + '" data-size="' + (l.size || '') + '">' +
         '<img src="' + p.image + '" alt=""><div class="cart-line__info"><strong>' + p.name + '</strong>' +
-        (l.size ? '<span>Size ' + l.size + '</span>' : '') + '<span>' + S.eur(p.price_eur) + '</span></div>' +
-        '<div class="cart-line__qty"><button data-dec>−</button><span>' + l.qty + '</span><button data-inc>+</button>' +
-        '<button class="cart-line__rm" data-rm aria-label="Remove">×</button></div></div>';
+        (l.size ? '<span>Size ' + l.size + '</span>' : '') + '<span>' + S.eur(p.price_eur) + (l.qty > 1 ? ' each' : '') + '</span></div>' +
+        '<div class="cart-line__right"><span class="cart-line__total">' + S.eur(p.price_eur * l.qty) + '</span>' +
+        '<div class="cart-line__qty"><button data-dec aria-label="Decrease quantity">−</button><span class="cart-line__num">' + l.qty + '</span>' +
+        '<button data-inc aria-label="Increase quantity"' + (l.qty >= MAX_QTY ? ' disabled' : '') + '>+</button>' +
+        '<button class="cart-line__rm" data-rm aria-label="Remove item">' + TRASH + '</button></div></div></div>';
     }).join('');
     itemsEl.querySelectorAll('.cart-line').forEach(function (row) {
       var sku = row.dataset.sku, size = row.dataset.size || null;
@@ -130,10 +145,10 @@
     });
   }
 
-  var toggle = document.querySelector('[data-cart-toggle]');
   if (toggle) toggle.addEventListener('click', open);
-  document.querySelectorAll('[data-cart-close]').forEach(function (b) { b.addEventListener('click', close); });
-  if (backdrop) backdrop.addEventListener('click', close);
+  document.querySelectorAll('[data-cart-close]').forEach(function (b) { b.addEventListener('click', uiClose); });
+  if (backdrop) backdrop.addEventListener('click', uiClose);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && !drawer.hidden) uiClose(); });
 
   window.VALENS_CART = { add: add, refresh: refresh, open: open, close: close, items: function () { return cart.slice(); }, subtotal: subtotal, clear: function () { cart = []; save(cart); refresh(); } };
   refresh();
@@ -149,9 +164,32 @@
   var statusEl = document.querySelector('[data-co-status]');
   var submit = document.querySelector('[data-co-submit]');
   var checkoutBtn = document.querySelector('[data-cart-checkout]');
+  var checkoutWrap = section.querySelector('.checkout');
+  var successEl = section.querySelector('[data-checkout-success]');
+  var doneRef = section.querySelector('[data-done-ref]');
+  var doneSummary = section.querySelector('[data-done-summary]');
+  var doneNote = section.querySelector('[data-done-note]');
+  var doneContinue = section.querySelector('[data-done-continue]');
+  var confettiEl = section.querySelector('[data-confetti]');
 
   function status(msg, kind) { if (statusEl) { statusEl.textContent = msg; statusEl.dataset.kind = kind; } }
   function val(sel) { var el = form.querySelector(sel); return el ? el.value.trim() : ''; }
+
+  function confetti() {
+    if (!confettiEl || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var colors = ['#6F4DB3', '#9B78D4', '#B79BE6', '#E6E6EB', '#8259C9'];
+    confettiEl.innerHTML = '';
+    for (var i = 0; i < 90; i++) {
+      var b = document.createElement('span');
+      b.className = 'confetti-bit';
+      b.style.left = (Math.random() * 100) + '%';
+      b.style.background = colors[i % colors.length];
+      b.style.animationDelay = (Math.random() * 0.9).toFixed(2) + 's';
+      b.style.transform = 'scale(' + (0.7 + Math.random() * 0.8).toFixed(2) + ')';
+      confettiEl.appendChild(b);
+    }
+    setTimeout(function () { confettiEl.innerHTML = ''; }, 4200);
+  }
 
   function renderSummary() {
     var items = C.items(), sub = C.subtotal();
@@ -164,10 +202,20 @@
 
   function openCheckout() {
     if (!C.items().length) return;
-    C.close(); section.hidden = false; renderSummary();
+    C.close();
+    // a previous order's success view gives way to a fresh form (re-ordering works)
+    if (successEl) successEl.hidden = true;
+    if (checkoutWrap) checkoutWrap.hidden = false;
+    submit.disabled = false; status('', '');
+    section.hidden = false; renderSummary();
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   if (checkoutBtn) checkoutBtn.addEventListener('click', openCheckout);
+  if (doneContinue) doneContinue.addEventListener('click', function () {
+    section.hidden = true;
+    var merch = document.getElementById('merch');
+    if (merch) merch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -191,8 +239,19 @@
       body: JSON.stringify(order),
     }).then(function (res) {
       if (res.ok) {
-        section.innerHTML = '<div class="container"><div class="checkout-done"><h2>Order ' + order.order_ref + ' received</h2><p>We\'ll call you on ' + phone + ' to confirm your order and delivery. You pay the courier in cash on arrival.</p></div></div>';
+        // swap the form for the success view (form stays in the DOM so re-ordering works)
+        if (doneRef) doneRef.textContent = order.order_ref;
+        if (doneSummary) doneSummary.innerHTML =
+          order.items.map(function (i) { return '<div class="co-row"><span>' + i.qty + '× ' + i.name + (i.size ? ' (' + i.size + ')' : '') + '</span><span>' + S.eur(i.price_eur * i.qty) + '</span></div>'; }).join('') +
+          '<div class="co-row co-total"><span>Total</span><strong>' + S.eur(order.subtotal_eur) + '</strong></div>' +
+          '<div class="co-rsd">≈ ' + S.rsd(order.subtotal_eur) + ' — cash on delivery</div>';
+        if (doneNote) doneNote.textContent = "We'll call you on " + phone + " to confirm your order and arrange delivery. You pay the courier in cash when it arrives — shipping is free.";
+        if (checkoutWrap) checkoutWrap.hidden = true;
+        if (successEl) successEl.hidden = false;
+        form.reset(); submit.disabled = false; status('', '');
         C.clear();
+        confetti();
+        if (successEl) successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else { status('Something went wrong. Try again in a moment.', 'error'); submit.disabled = false; }
     }).catch(function () { status('Network error. Try again in a moment.', 'error'); submit.disabled = false; });
   });

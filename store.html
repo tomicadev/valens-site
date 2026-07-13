@@ -30,7 +30,10 @@
         <img src="assets/valens.svg" alt="VALENS" width="28" height="28">
       </a>
       <button class="cart-btn" type="button" data-cart-toggle aria-label="Open cart">
-        <span class="cart-btn__icon" aria-hidden="true">🛒</span>
+        <svg class="cart-btn__icon" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="9.2" cy="20" r="1.5"/><circle cx="17.3" cy="20" r="1.5"/>
+          <path d="M2.6 3.6h2.5l2.4 11.6h10.2l2.7-8.3H6.1"/>
+        </svg>
         <span class="cart-btn__count" data-cart-count hidden>0</span>
       </button>
       <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
@@ -103,12 +106,12 @@
         <div class="checkout">
           <form class="checkout__form" data-checkout-form novalidate>
             <div class="checkout__grid">
-              <label>Full name<input type="text" data-co-name required></label>
-              <label>Phone<input type="tel" data-co-phone required></label>
-              <label class="checkout__wide">Address (street & number)<input type="text" data-co-address required></label>
-              <label>City<input type="text" data-co-city required></label>
-              <label>Postal code<input type="text" data-co-postal required></label>
-              <label class="checkout__wide">Email (optional)<input type="email" data-co-email></label>
+              <label>Full name<input type="text" data-co-name required autocomplete="name"></label>
+              <label>Phone<input type="tel" data-co-phone required placeholder="06x xxx xx xx" autocomplete="tel"></label>
+              <label class="checkout__wide">Address (street & number)<input type="text" data-co-address required autocomplete="street-address"></label>
+              <label>City<input type="text" data-co-city required autocomplete="address-level2"></label>
+              <label>Postal code<input type="text" data-co-postal required autocomplete="postal-code"></label>
+              <label class="checkout__wide">Email (optional — for order confirmation)<input type="email" data-co-email autocomplete="email"></label>
               <label class="checkout__wide">Note (optional)<textarea data-co-note rows="2"></textarea></label>
               <div class="visually-hidden" aria-hidden="true"><label>Website<input type="text" tabindex="-1" autocomplete="off" data-co-honeypot></label></div>
             </div>
@@ -116,6 +119,15 @@
             <p class="capture__status" data-co-status role="status" aria-live="polite"></p>
           </form>
           <aside class="checkout__summary" data-checkout-summary></aside>
+        </div>
+        <div class="checkout-done" data-checkout-success hidden>
+          <div class="checkout-done__confetti" data-confetti aria-hidden="true"></div>
+          <div class="checkout-done__badge" aria-hidden="true">✓</div>
+          <h3 class="checkout-done__title">Thank you for your order!</h3>
+          <p class="checkout-done__ref">Order <strong data-done-ref></strong></p>
+          <div class="checkout-done__summary" data-done-summary></div>
+          <p class="checkout-done__note" data-done-note></p>
+          <button type="button" class="btn-pill" data-done-continue>Continue shopping</button>
         </div>
       </div>
     </section>
