@@ -1,16 +1,16 @@
 {
   "products": [
-    { "sku": "tee",        "name": "Training Tee",     "category": "Apparel",     "price_eur": 29, "image": "assets/merch/tee.png",        "sizes": ["S","M","L","XL","XXL"], "desc": "Breathable performance tee cut for training.", "active": true },
-    { "sku": "shorts",     "name": "Training Shorts",  "category": "Apparel",     "price_eur": 35, "image": "assets/merch/shorts.png",     "sizes": ["S","M","L","XL","XXL"], "desc": "Squat-proof shorts with a secure zip pocket.", "active": true },
-    { "sku": "tank",       "name": "Training Tank",    "category": "Apparel",     "price_eur": 25, "image": "assets/merch/tank.png",       "sizes": ["S","M","L","XL","XXL"], "desc": "Dropped-armhole tank for full range of motion.", "active": true },
-    { "sku": "hoodie",     "name": "Training Hoodie",  "category": "Apparel",     "price_eur": 49, "image": "assets/merch/hoodie.png",     "sizes": ["S","M","L","XL","XXL"], "desc": "Heavyweight hoodie for warm-ups and rest days.", "active": true },
-    { "sku": "leggings",   "name": "Leggings",         "category": "Apparel",     "price_eur": 35, "image": "assets/merch/leggings.png",   "sizes": ["S","M","L","XL","XXL"], "desc": "High-rise squat-proof leggings.", "active": true },
-    { "sku": "socks",      "name": "Training Socks",   "category": "Apparel",     "price_eur": 12, "image": "assets/merch/socks.png",      "sizes": ["S","M","L","XL","XXL"], "desc": "Cushioned crew socks with arch support.", "active": true },
-    { "sku": "straps",     "name": "Lifting Straps",   "category": "Accessories", "price_eur": 15, "image": "assets/merch/straps.png",     "desc": "Cotton lifting straps for heavy pulls.", "active": true },
-    { "sku": "wraps",      "name": "Wrist Wraps",      "category": "Accessories", "price_eur": 18, "image": "assets/merch/wraps.png",      "desc": "Stiff wrist wraps for pressing support.", "active": true },
-    { "sku": "cuffs",      "name": "Cable Cuff Straps","category": "Accessories", "price_eur": 16, "image": "assets/merch/cuffs.png",      "desc": "Padded ankle cuffs for cable work.", "active": true },
-    { "sku": "knee",       "name": "Knee Sleeves",     "category": "Accessories", "price_eur": 29, "image": "assets/merch/knee.png",       "desc": "7mm knee sleeves for squats.", "active": true },
-    { "sku": "elbow",      "name": "Elbow Sleeves",    "category": "Accessories", "price_eur": 24, "image": "assets/merch/elbow.png",      "desc": "Compression elbow sleeves for pressing.", "active": true },
-    { "sku": "shaker",     "name": "Shaker Bottle",    "category": "Accessories", "price_eur": 12, "image": "assets/merch/shaker.png",     "desc": "700ml leak-proof shaker with the VALENS mark.", "active": true }
+    { "sku": "tee",        "name": "Men's Training Tee",    "category": "Apparel",     "price_eur": 19, "image": "assets/merch/tee.png",        "sizes": ["S","M","L","XL","XXL"], "desc": "Breathable performance tee cut for training.", "active": true },
+    { "sku": "shorts",     "name": "Men's Training Shorts", "category": "Apparel",     "price_eur": 24, "image": "assets/merch/shorts.png",     "sizes": ["S","M","L","XL","XXL"], "desc": "Squat-proof shorts with a secure zip pocket.", "active": true },
+    { "sku": "tank",       "name": "Men's Training Tank",   "category": "Apparel",     "price_eur": 19, "image": "assets/merch/tank.png",       "sizes": ["S","M","L","XL","XXL"], "desc": "Dropped-armhole tank for full range of motion.", "active": true },
+    { "sku": "womens-tee", "name": "Women's Training Tee",  "category": "Apparel",     "price_eur": 19, "image": "assets/merch/womens-tee.png", "sizes": ["S","M","L","XL","XXL"], "desc": "Fitted performance tee cut for training.", "active": true },
+    { "sku": "leggings",   "name": "Women's Leggings",      "category": "Apparel",     "price_eur": 24, "image": "assets/merch/leggings.png",   "sizes": ["S","M","L","XL","XXL"], "desc": "High-rise squat-proof leggings.", "active": true },
+    { "sku": "socks",      "name": "VALENS Socks",          "category": "Apparel",     "price_eur": 9,  "image": "assets/merch/socks.png",      "sizes": ["S","M","L","XL","XXL"], "desc": "Cushioned crew socks with arch support.", "active": true },
+    { "sku": "straps",     "name": "Lifting Straps",        "category": "Accessories", "price_eur": 12, "image": "assets/merch/straps.png",     "desc": "Cotton lifting straps for heavy pulls.", "active": true },
+    { "sku": "wraps",      "name": "Wrist Wraps",           "category": "Accessories", "price_eur": 12, "image": "assets/merch/wraps.png",      "desc": "Stiff wrist wraps for pressing support.", "active": true },
+    { "sku": "cuffs",      "name": "Cable Cuff Straps",     "category": "Accessories", "price_eur": 12, "image": "assets/merch/cuffs.png",      "desc": "Padded ankle cuffs for cable work.", "active": true },
+    { "sku": "knee",       "name": "Knee Sleeves",          "category": "Accessories", "price_eur": 35, "image": "assets/merch/knee.png",       "desc": "7mm knee sleeves for squats.", "active": true },
+    { "sku": "elbow",      "name": "Elbow Sleeves",         "category": "Accessories", "price_eur": 35, "image": "assets/merch/elbow.png",      "desc": "Compression elbow sleeves for pressing.", "active": true },
+    { "sku": "shaker",     "name": "Shaker Bottle",         "category": "Accessories", "price_eur": 9,  "image": "assets/merch/shaker.png",     "desc": "700ml leak-proof shaker with the VALENS mark.", "active": true }
   ]
 }
