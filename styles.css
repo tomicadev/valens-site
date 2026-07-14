@@ -1472,12 +1472,14 @@ a.visually-hidden:focus {
 .cart-line__rm svg { width: 15px; height: 15px; display: block; }
 
 #checkout { overflow-x: clip; }
-.checkout { display: grid; gap: 24px; }
-@media (min-width: 860px) { .checkout { grid-template-columns: 1.4fr 1fr; } }
-.checkout__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.checkout__grid label { display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: var(--muted); }
+.checkout { display: grid; gap: 24px; min-width: 0; }
+.checkout > * { min-width: 0; }
+@media (min-width: 860px) { .checkout { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); } }
+/* minmax(0,1fr) + min-width:0 lets the inputs shrink instead of forcing the grid wider than the phone screen */
+.checkout__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.checkout__grid label { display: flex; flex-direction: column; gap: 6px; min-width: 0; font-size: 0.85rem; color: var(--muted); }
 .checkout__grid .checkout__wide { grid-column: 1 / -1; }
-.checkout__grid input, .checkout__grid textarea { background: #17101d; border: 1px solid rgba(155,120,212,0.25); border-radius: 10px; padding: 10px 12px; color: var(--ink); font: inherit; }
+.checkout__grid input, .checkout__grid textarea { width: 100%; min-width: 0; box-sizing: border-box; background: #17101d; border: 1px solid rgba(155,120,212,0.25); border-radius: 10px; padding: 10px 12px; color: var(--ink); font: inherit; }
 .checkout__summary { border: 1px solid rgba(155,120,212,0.2); border-radius: var(--radius); padding: 18px; height: fit-content; background: #150F19; }
 .co-row { display: flex; justify-content: space-between; padding: 6px 0; color: var(--muted); }
 .co-total { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 6px; padding-top: 10px; color: var(--ink); }
