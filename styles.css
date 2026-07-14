@@ -1471,6 +1471,7 @@ a.visually-hidden:focus {
 .cart-line__qty .cart-line__rm:hover { background: rgba(224, 85, 85, 0.14); border-color: transparent; }
 .cart-line__rm svg { width: 15px; height: 15px; display: block; }
 
+#checkout { overflow-x: clip; }
 .checkout { display: grid; gap: 24px; }
 @media (min-width: 860px) { .checkout { grid-template-columns: 1.4fr 1fr; } }
 .checkout__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -1491,6 +1492,7 @@ a.visually-hidden:focus {
 .checkout-done__ref { margin-top: 10px; color: var(--light-purple); letter-spacing: 0.05em; }
 .checkout-done__summary { max-width: 430px; margin: 24px auto; text-align: left; border: 1px solid rgba(155,120,212,0.2); border-radius: var(--radius); padding: 16px 20px; background: #150F19; }
 .checkout-done__note { max-width: 470px; margin: 0 auto 26px; color: var(--muted); line-height: 1.6; }
-.checkout-done__confetti { position: absolute; inset: 0; pointer-events: none; }
-.confetti-bit { position: absolute; top: -14px; width: 8px; height: 13px; border-radius: 2px; opacity: 0; animation: confettiFall 2.7s ease-in forwards; }
-@keyframes confettiFall { 0% { opacity: 1; transform: translateY(0) rotate(0); } 100% { opacity: 0; transform: translateY(440px) rotate(560deg); } }
+/* Fixed viewport overlay so falling bits never affect document flow/width (no layout shift) */
+.checkout-done__confetti { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 3; }
+.confetti-bit { position: absolute; top: -16px; width: 8px; height: 13px; border-radius: 2px; opacity: 0; animation: confettiFall 3s ease-in forwards; }
+@keyframes confettiFall { 0% { opacity: 1; transform: translateY(0) rotate(0); } 100% { opacity: 0; transform: translateY(78vh) rotate(560deg); } }
