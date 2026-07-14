@@ -1245,6 +1245,47 @@ a.visually-hidden:focus {
   color: var(--ink);
 }
 
+/* Numbers are typed, not clicked — the native spinner arrows clash with the design */
+.calc__field input[type="number"]::-webkit-outer-spin-button,
+.calc__field input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; display: none; margin: 0; }
+.calc__field input[type="number"] { -webkit-appearance: textfield; -moz-appearance: textfield; appearance: textfield; }
+
+/* Fully branded dropdown panel where customizable selects are supported
+   (Chrome/Edge). Others keep the dark native panel from color-scheme above. */
+@supports (appearance: base-select) {
+  .calc__field select,
+  .calc__field select::picker(select) {
+    appearance: base-select;
+  }
+  /* base-select adds its own arrow — we already draw a chevron via background-image */
+  .calc__field select::picker-icon { display: none; }
+  .calc__field select::picker(select) {
+    background: #17101D;
+    border: 1px solid rgba(155, 120, 212, 0.35);
+    border-radius: 12px;
+    padding: 6px;
+    margin-top: 6px;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.6);
+  }
+  .calc__field select option {
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    background: transparent;
+    color: var(--ink);
+    transition: background 0.15s ease;
+  }
+  .calc__field select option:hover,
+  .calc__field select option:focus {
+    background: rgba(155, 120, 212, 0.16);
+  }
+  .calc__field select option:checked {
+    background: rgba(155, 120, 212, 0.26);
+    color: #fff;
+  }
+  .calc__field select option::checkmark { color: var(--light-purple); }
+}
+
 .calc__goals { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .calc__goal {
   padding: 11px 20px;
