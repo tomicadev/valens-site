@@ -858,6 +858,10 @@ a.visually-hidden:focus {
   transition: box-shadow 0.35s ease;
 }
 .book__open:hover .book__cover { box-shadow: 0 0 34px rgba(155, 120, 212, 0.3); }
+/* Cover with a real product photo behind the labels (home store teaser) */
+.book__cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.book__cover--photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 48%, rgba(8, 5, 10, 0.85)); }
+.book__cover--photo .book__cover-cat, .book__cover--photo .book__cover-title { position: relative; z-index: 1; }
 .book__mark { position: absolute; top: 14px; right: 14px; width: 32px; opacity: 0.45; }
 .book__cover-cat {
   text-transform: uppercase;
