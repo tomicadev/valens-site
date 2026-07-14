@@ -226,7 +226,13 @@
     if (!C.items().length) { status('Your cart is empty.', 'error'); return; }
     if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) { status('Ordering is not configured yet.', 'error'); return; }
 
-    var items = C.items().map(function (l) { var p = S.bySku(l.sku); return { sku: l.sku, name: p.name, size: l.size, qty: l.qty, price_eur: p.price_eur }; });
+    // Absolute image URL (not a relative path) so the notify-order email — sent
+    // from a backend with no notion of the site's origin — can embed a thumbnail.
+    var items = C.items().map(function (l) {
+      var p = S.bySku(l.sku);
+      var img = p.image ? new URL(p.image, location.href).href : null;
+      return { sku: l.sku, name: p.name, size: l.size, qty: l.qty, price_eur: p.price_eur, image: img };
+    });
     var order = {
       order_ref: S.makeOrderRef(), items: items, subtotal_eur: C.subtotal(),
       customer_name: name, phone: phone, address: address, city: city, postal_code: postal,
