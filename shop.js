@@ -22,6 +22,8 @@
   var I = window.VALENS_I18N || { t: function (k, f) { return f; }, lang: function () { return 'en'; } };
   function pName(p) { return I.lang() === 'sr' && p.name_sr ? p.name_sr : p.name; }
   function pDesc(p) { return I.lang() === 'sr' && p.desc_sr ? p.desc_sr : (p.desc || ''); }
+  window.VALENS_SHOP.pName = pName;
+  window.VALENS_SHOP.esc = esc;
 
   function cardHTML(p) {
     var sizes = (p.sizes || []).map(function (s) {
@@ -135,16 +137,16 @@
     if (subEl) subEl.textContent = S.eur(subtotal());
     if (checkoutBtn) checkoutBtn.textContent = I.t('cart.checkout', 'Checkout') + (n ? ' (' + n + ')' : '');
     if (!itemsEl) return;
-    if (!cart.length) { itemsEl.innerHTML = '<p class="cart-empty">' + I.t('cart.empty', 'Your cart is empty.') + '</p>'; return; }
+    if (!cart.length) { itemsEl.innerHTML = '<p class="cart-empty">' + S.esc(I.t('cart.empty', 'Your cart is empty.')) + '</p>'; return; }
     itemsEl.innerHTML = cart.map(function (l) {
       var p = S.bySku(l.sku); if (!p) return '';
       return '<div class="cart-line" data-sku="' + l.sku + '" data-size="' + (l.size || '') + '">' +
-        '<img src="' + p.image + '" alt=""><div class="cart-line__info"><strong>' + (I.lang() === 'sr' && p.name_sr ? p.name_sr : p.name) + '</strong>' +
-        (l.size ? '<span>' + I.t('cart.size', 'Size') + ' ' + l.size + '</span>' : '') + '<span>' + S.eur(p.price_eur) + (l.qty > 1 ? I.t('cart.each', ' each') : '') + '</span></div>' +
+        '<img src="' + p.image + '" alt=""><div class="cart-line__info"><strong>' + S.esc(S.pName(p)) + '</strong>' +
+        (l.size ? '<span>' + S.esc(I.t('cart.size', 'Size')) + ' ' + l.size + '</span>' : '') + '<span>' + S.eur(p.price_eur) + (l.qty > 1 ? S.esc(I.t('cart.each', ' each')) : '') + '</span></div>' +
         '<div class="cart-line__right"><span class="cart-line__total">' + S.eur(p.price_eur * l.qty) + '</span>' +
-        '<div class="cart-line__qty"><button data-dec aria-label="' + I.t('cart.dec', 'Decrease quantity') + '">−</button><span class="cart-line__num">' + l.qty + '</span>' +
-        '<button data-inc aria-label="' + I.t('cart.inc', 'Increase quantity') + '"' + (l.qty >= MAX_QTY ? ' disabled' : '') + '>+</button>' +
-        '<button class="cart-line__rm" data-rm aria-label="' + I.t('cart.rm', 'Remove item') + '">' + TRASH + '</button></div></div></div>';
+        '<div class="cart-line__qty"><button data-dec aria-label="' + S.esc(I.t('cart.dec', 'Decrease quantity')) + '">−</button><span class="cart-line__num">' + l.qty + '</span>' +
+        '<button data-inc aria-label="' + S.esc(I.t('cart.inc', 'Increase quantity')) + '"' + (l.qty >= MAX_QTY ? ' disabled' : '') + '>+</button>' +
+        '<button class="cart-line__rm" data-rm aria-label="' + S.esc(I.t('cart.rm', 'Remove item')) + '">' + TRASH + '</button></div></div></div>';
     }).join('');
     itemsEl.querySelectorAll('.cart-line').forEach(function (row) {
       var sku = row.dataset.sku, size = row.dataset.size || null;
@@ -207,10 +209,10 @@
   function renderSummary() {
     var items = C.items(), sub = C.subtotal();
     summary.innerHTML =
-      items.map(function (l) { var p = S.bySku(l.sku); return p ? '<div class="co-row"><span>' + l.qty + '× ' + (I.lang() === 'sr' && p.name_sr ? p.name_sr : p.name) + (l.size ? ' (' + l.size + ')' : '') + '</span><span>' + S.eur(p.price_eur * l.qty) + '</span></div>' : ''; }).join('') +
-      '<div class="co-row co-total"><span>' + I.t('co.total', 'Total') + '</span><strong>' + S.eur(sub) + '</strong></div>' +
-      '<div class="co-rsd">≈ ' + S.rsd(sub) + I.t('co.rsd.suffix', ' — paid to the courier') + '</div>' +
-      '<div class="co-ship">' + I.t('co.freeship', 'Free shipping') + '</div>';
+      items.map(function (l) { var p = S.bySku(l.sku); return p ? '<div class="co-row"><span>' + l.qty + '× ' + S.esc(S.pName(p)) + (l.size ? ' (' + l.size + ')' : '') + '</span><span>' + S.eur(p.price_eur * l.qty) + '</span></div>' : ''; }).join('') +
+      '<div class="co-row co-total"><span>' + S.esc(I.t('co.total', 'Total')) + '</span><strong>' + S.eur(sub) + '</strong></div>' +
+      '<div class="co-rsd">≈ ' + S.rsd(sub) + S.esc(I.t('co.rsd.suffix', ' — paid to the courier')) + '</div>' +
+      '<div class="co-ship">' + S.esc(I.t('co.freeship', 'Free shipping')) + '</div>';
   }
 
   function openCheckout() {
@@ -261,9 +263,9 @@
         // swap the form for the success view (form stays in the DOM so re-ordering works)
         if (doneRef) doneRef.textContent = order.order_ref;
         if (doneSummary) doneSummary.innerHTML =
-          order.items.map(function (i) { return '<div class="co-row"><span>' + i.qty + '× ' + (I.lang() === 'sr' && i.name_sr ? i.name_sr : i.name) + (i.size ? ' (' + i.size + ')' : '') + '</span><span>' + S.eur(i.price_eur * i.qty) + '</span></div>'; }).join('') +
-          '<div class="co-row co-total"><span>' + I.t('co.total', 'Total') + '</span><strong>' + S.eur(order.subtotal_eur) + '</strong></div>' +
-          '<div class="co-rsd">≈ ' + S.rsd(order.subtotal_eur) + I.t('co.done.rsd', ' — cash on delivery') + '</div>';
+          order.items.map(function (i) { return '<div class="co-row"><span>' + i.qty + '× ' + S.esc(S.pName(i)) + (i.size ? ' (' + i.size + ')' : '') + '</span><span>' + S.eur(i.price_eur * i.qty) + '</span></div>'; }).join('') +
+          '<div class="co-row co-total"><span>' + S.esc(I.t('co.total', 'Total')) + '</span><strong>' + S.eur(order.subtotal_eur) + '</strong></div>' +
+          '<div class="co-rsd">≈ ' + S.rsd(order.subtotal_eur) + S.esc(I.t('co.done.rsd', ' — cash on delivery')) + '</div>';
         if (doneNote) doneNote.textContent = I.t('co.done.note', "We'll call you on {phone} to confirm your order and arrange delivery. You pay the courier in cash when it arrives — shipping is free.").replace('{phone}', phone);
         if (checkoutWrap) checkoutWrap.hidden = true;
         if (successEl) successEl.hidden = false;
