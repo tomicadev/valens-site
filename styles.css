@@ -907,7 +907,7 @@ a.visually-hidden:focus {
 .nav__menu .lang-switch { align-self: center; }
 
 .lang-switch { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid rgba(155, 120, 212, 0.25); border-radius: 999px; }
-.lang-switch button { padding: 4px 12px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; color: var(--muted); transition: color 0.2s ease, background 0.2s ease; }
+.lang-switch button { padding: 4px 12px; background: none; border: 0; cursor: pointer; border-radius: 999px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; color: var(--muted); transition: color 0.2s ease, background 0.2s ease; }
 .lang-switch button.is-active { background: linear-gradient(135deg, #8465D6, #6F4DB3); color: #fff; }
 .lang-switch button:not(.is-active):hover { color: var(--ink); }
 
