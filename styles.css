@@ -818,7 +818,7 @@ a.visually-hidden:focus {
   text-align: center;
 }
 .footer__brand { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 0.85rem; }
-.footer__links { display: flex; gap: 24px; font-size: 0.85rem; color: var(--muted); }
+.footer__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 24px; font-size: 0.85rem; color: var(--muted); }
 .footer__links a { transition: color 0.25s ease; }
 .footer__links a:hover { color: var(--ink); }
 
