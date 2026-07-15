@@ -3,7 +3,7 @@
 
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var config = window.VALENS_CONFIG || {};
-  var I = window.VALENS_I18N;
+  var I = window.VALENS_I18N || { t: function (k, f) { return f; } };
 
   function setStatus(el, message, kind) {
     if (!el) return;
