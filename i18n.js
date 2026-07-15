@@ -48,13 +48,14 @@
       if (i < 0) return;
       var attr = pair.slice(0, i).trim();
       var key = pair.slice(i + 1).trim();
+      if (!attr) return;
       var store = attrOrig.get(el);
       if (!store) { store = {}; attrOrig.set(el, store); }
       if (lang === 'sr') {
         if (!(attr in store)) store[attr] = el.getAttribute(attr);
         if (has(key)) el.setAttribute(attr, SR[key]);
       } else if (attr in store) {
-        el.setAttribute(attr, store[attr]);
+        if (store[attr] == null) el.removeAttribute(attr); else el.setAttribute(attr, store[attr]);
       }
     });
   }
