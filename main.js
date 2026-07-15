@@ -3,7 +3,7 @@
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  var I = window.VALENS_I18N;
+  var I = window.VALENS_I18N || { t: function (k, f) { return f; } };
 
   // --- Nav solid-on-scroll ---
   var nav = document.querySelector('[data-nav]');
@@ -87,14 +87,22 @@
   if (track && slides.length && dotsWrap) {
     var currentIndex = -1;
 
+    function dotLabel(i) {
+      return I.t('showcase.dot', 'Go to screenshot {n}').replace('{n}', String(i + 1));
+    }
+
     var dots = slides.map(function (_, i) {
       var dot = document.createElement('button');
       dot.type = 'button';
       dot.className = 'showcase__dot';
-      dot.setAttribute('aria-label', I.t('showcase.dot', 'Go to screenshot {n}').replace('{n}', String(i + 1)));
+      dot.setAttribute('aria-label', dotLabel(i));
       dot.addEventListener('click', function () { scrollToIndex(i); });
       dotsWrap.appendChild(dot);
       return dot;
+    });
+
+    document.addEventListener('valens:langchange', function () {
+      dots.forEach(function (dot, i) { dot.setAttribute('aria-label', dotLabel(i)); });
     });
 
     function scrollToIndex(i) {
