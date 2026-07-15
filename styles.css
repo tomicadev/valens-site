@@ -1503,6 +1503,10 @@ a.visually-hidden:focus {
 .calc__cards .book:nth-child(2) { animation-delay: 0.12s; }
 .calc__cards .calc__tag { align-self: flex-start; }
 @media (min-width: 640px) { .calc__cards { grid-template-columns: repeat(2, 1fr); } }
+/* Safety net: a result normally has both a training + nutrition card. If a title
+   match ever fails and only one renders, keep it centered on a single track
+   rather than stretched across the left half. */
+.calc__cards:has(.book:only-child) { grid-template-columns: min(360px, 100%); justify-content: center; }
 /* two cards centered on grid-card-width tracks; pulsing glows fill the sides */
 @media (min-width: 960px) {
   .calc__cards {
@@ -1612,7 +1616,8 @@ a.visually-hidden:focus {
 @media (min-width: 640px) { .products { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 960px) { .products { grid-template-columns: repeat(3, 1fr); } }
 .products-group { font-size: 1.1rem; margin: 8px 0 16px; color: var(--ink); }
-.product { border: 1px solid rgba(155,120,212,0.18); border-radius: var(--radius); background: linear-gradient(180deg,#1B1420,#150F19); padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.product { position: relative; overflow: hidden; border: 1px solid rgba(155,120,212,0.18); border-radius: var(--radius); background: linear-gradient(180deg,#1B1420,#150F19); padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.product__ribbon { position: absolute; top: 16px; left: -40px; width: 150px; transform: rotate(-45deg); text-align: center; padding: 5px 0; background: linear-gradient(135deg, rgba(155,120,212,0.88), rgba(111,77,179,0.88)); color: #fff; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; box-shadow: 0 2px 10px rgba(0,0,0,0.35); backdrop-filter: blur(1px); z-index: 3; pointer-events: none; }
 .product__media { aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; background: radial-gradient(80% 70% at 50% 30%, rgba(155,120,212,0.12), transparent 70%); display: grid; place-items: center; }
 .product__media img { width: 100%; height: 100%; object-fit: contain; transition: transform .5s ease; transform-origin: 50% 0; }
 .product:hover .product__media img { transform: rotate(-2deg) scale(1.04); }
