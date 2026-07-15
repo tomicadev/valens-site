@@ -10,13 +10,13 @@
 
   <meta property="og:title" content="VALENS — Workout tracker">
   <meta property="og:description" content="Track every workout, smash PRs, and train alongside your friends.">
-  <meta property="og:image" content="https://valens.rs/assets/feature-1024x500.png">
+  <meta property="og:image" content="https://valens.rs/assets/og-image.jpg">
   <meta property="og:url" content="https://valens.rs/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="VALENS — Workout tracker">
   <meta name="twitter:description" content="Track every workout, smash PRs, and train alongside your friends.">
-  <meta name="twitter:image" content="https://valens.rs/assets/feature-1024x500.png">
+  <meta name="twitter:image" content="https://valens.rs/assets/og-image.jpg">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -99,11 +99,13 @@
             <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/logs_icon.svg" alt="" width="24" height="24"></div>
             <h3>Track everything</h3>
             <p>Log sets, reps, weight, drop sets and cardio. Watch your PRs climb.</p>
-            <div class="mini-sesh" aria-hidden="true">
-              <div class="mini-sesh__head"><span>PULL</span><span>FRI 26</span></div>
-              <div class="mini-sesh__row"><span>Lat Pulldown</span><b>3</b></div>
-              <div class="mini-sesh__row"><span>Chest Supported Row</span><b>3</b></div>
-              <div class="mini-sesh__row"><span>Barbell Shrug</span><b>4</b></div>
+            <div class="mini-log" aria-hidden="true">
+              <div class="mini-log__head"><span>45° Incline DB Press</span><span class="mini-log__finish">✓ Finish</span></div>
+              <div class="mini-log__cols"><span>Set</span><span>Weight</span><span>Reps</span></div>
+              <div class="mini-log__row"><span>1</span><b>40</b><b>10</b></div>
+              <div class="mini-log__row"><span>2</span><b>40</b><b>10</b></div>
+              <div class="mini-log__row"><span>3</span><b>40</b><b>8</b></div>
+              <div class="mini-log__add">＋ Add Set</div>
             </div>
           </article>
           <article class="feature-card feature-card--lg" data-reveal>
@@ -115,32 +117,61 @@
             <h3>Smart Coach</h3>
             <p>Your Coach spots lagging muscle groups and suggests what to train next.</p>
             <div class="mini-focus" aria-hidden="true">
-              <div class="mini-focus__row"><span>Chest</span><i style="--v:80%"></i></div>
-              <div class="mini-focus__row"><span>Back</span><i style="--v:72%"></i></div>
-              <div class="mini-focus__row mini-focus__row--low"><span>Legs</span><i style="--v:34%"></i></div>
-              <div class="mini-focus__row"><span>Shoulders</span><i style="--v:64%"></i></div>
+              <div class="mini-focus__row"><span>Chest</span><i style="--v:80%; --bar-d:0.1s"></i></div>
+              <div class="mini-focus__row"><span>Back</span><i style="--v:72%; --bar-d:0.25s"></i></div>
+              <div class="mini-focus__row mini-focus__row--low"><span>Legs</span><i style="--v:34%; --bar-d:0.4s"></i></div>
+              <div class="mini-focus__row"><span>Shoulders</span><i style="--v:64%; --bar-d:0.55s"></i></div>
               <p class="mini-focus__tag">Train next: Legs</p>
             </div>
           </article>
-          <article class="feature-card feature-card--sm" data-reveal>
+          <article class="feature-card feature-card--half" data-reveal>
             <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/search.svg" alt="" width="24" height="24"></div>
             <h3>700+ exercises</h3>
             <p>A full library with target muscles, equipment and how-to instructions.</p>
+            <div class="mini-chips" aria-hidden="true">
+              <span class="chip">Chest</span><span class="chip">Back</span><span class="chip">Legs</span><span class="chip">Shoulders</span><span class="chip chip--ghost">+9 more</span>
+            </div>
           </article>
-          <article class="feature-card feature-card--sm" data-reveal>
+          <article class="feature-card feature-card--half" data-reveal>
             <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/routines_icon.svg" alt="" width="24" height="24"></div>
             <h3>Routines and programs</h3>
             <p>Build your own or follow a structured program written by a professional coach.</p>
+            <div class="mini-chips" aria-hidden="true">
+              <span class="chip">Mr. VALENS</span><span class="chip">Push / Pull / Legs</span><span class="chip">Iron 5×5</span>
+            </div>
           </article>
-          <article class="feature-card feature-card--sm" data-reveal>
+          <article class="feature-card feature-card--lg" data-reveal>
             <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/friends_icon.svg" alt="" width="24" height="24"></div>
             <h3>Train with friends</h3>
             <p>Follow friends' logs, like their sessions, climb the leaderboards.</p>
+            <div class="mini-board" aria-hidden="true">
+              <div class="mini-board__row mini-board__row--top">
+                <span class="mini-board__rank">1</span><span class="mini-board__ava">Y</span>
+                <span class="mini-board__name">you</span><span class="mini-board__chip">NO.1</span><b>12 480 kg</b>
+              </div>
+              <div class="mini-board__row">
+                <span class="mini-board__rank">2</span><span class="mini-board__ava mini-board__ava--b">M</span>
+                <span class="mini-board__name">Marko</span><b>11 950 kg</b>
+              </div>
+              <div class="mini-board__row">
+                <span class="mini-board__rank">3</span><span class="mini-board__ava mini-board__ava--c">A</span>
+                <span class="mini-board__name">Ana</span><b>10 205 kg</b>
+              </div>
+            </div>
           </article>
-          <article class="feature-card feature-card--sm" data-reveal>
+          <article class="feature-card feature-card--lg" data-reveal>
             <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/badge.svg" alt="" width="24" height="24"></div>
             <h3>Achievements and recaps</h3>
             <p>Earn badges, keep streaks, get a weekly recap of your progress.</p>
+            <div class="mini-badge" aria-hidden="true">
+              <div class="mini-badge__title">300kg PR Club</div>
+              <svg class="mini-badge__icon" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M7 5.5H4.5a0 0 0 0 0 0 0c0 2.6 1.1 4.2 2.9 4.7M17 5.5h2.5c0 2.6-1.1 4.2-2.9 4.7"/>
+                <path d="M12 14v3M8.5 20.5h7M10 17.5h4"/>
+              </svg>
+              <p class="mini-badge__text">Your PR total is over 300kg!</p>
+              <span class="mini-badge__tag">Unlocked</span>
+            </div>
           </article>
         </div>
       </div>
