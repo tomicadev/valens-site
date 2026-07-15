@@ -25,6 +25,7 @@
     }).join('');
     return '' +
       '<article class="product" data-sku="' + p.sku + '">' +
+      '  <span class="product__ribbon" aria-hidden="true">Coming soon</span>' +
       '  <div class="product__media"><img loading="lazy" src="' + esc(p.image) + '" alt="' + esc(p.name) + '"></div>' +
       '  <h4 class="product__name">' + esc(p.name) + '</h4>' +
       '  <p class="product__desc">' + esc(p.desc || '') + '</p>' +

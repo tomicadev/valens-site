@@ -7,15 +7,17 @@
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var NUTRITION_LEVELS = [1800, 2000, 2200, 2500, 2800, 3000];
-  // Calorie adjustment per goal + recommended training program.
-  // Training/nutrition cards are matched by their .book__title text, so keep
-  // these keys in sync with the card titles on ebooks.html.
+  // Calorie adjustment per goal + recommended training program. Every goal maps
+  // to a real training e-book so the calculator always returns a training +
+  // nutrition pair. Cards are matched by a substring of their .book__title text
+  // (see findBook), so each key below must stay in sync with a title on
+  // ebooks.html — a typo silently drops the training card.
   var GOALS = {
-    fatloss: { mult: 0.8, training: 'Hybrid Athlete' },
-    muscle: { mult: 1.1, training: 'Apex PPL' },
-    maintain: { mult: 1.0, training: 'Upper/Lower Engine' },
-    recomp: { mult: 0.9, training: 'Peak Strength' },
-    gain: { mult: 1.2, training: 'Foundation' },
+    fatloss: { mult: 0.8, training: 'Mr. VALENS' },      // Mr. VALENS — 5-Day Hypertrophy
+    muscle: { mult: 1.1, training: 'Apex PPL' },         // Apex PPL — 6-Day Push/Pull/Legs
+    maintain: { mult: 1.0, training: 'PHUL' },           // PHUL — Power & Hypertrophy
+    recomp: { mult: 0.9, training: 'PHUL' },             // PHUL — Power & Hypertrophy
+    gain: { mult: 1.2, training: 'Iron Foundation' },    // Iron Foundation — 5×5 Strength
   };
   var LOADING_MSGS = ['Analyzing your input…', 'Calculating your calories…', 'Matching your plans…'];
   var CONFETTI_COLORS = ['#9B78D4', '#6F4DB3', '#C77DD8', '#B79BE6', '#FFFFFF'];
