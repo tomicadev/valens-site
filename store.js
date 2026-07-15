@@ -3,6 +3,7 @@
 
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var config = window.VALENS_CONFIG || {};
+  var I = window.VALENS_I18N;
 
   function setStatus(el, message, kind) {
     if (!el) return;
@@ -76,14 +77,14 @@
         buy.className = 'btn-pill lemonsqueezy-button';
         buy.href = url;
         buy.rel = 'noopener';
-        buy.textContent = 'Buy now';
+        buy.textContent = I.t('modal.buy', 'Buy now');
         modalAction.appendChild(buy);
       } else {
         var soon = document.createElement('button');
         soon.type = 'button';
         soon.className = 'btn-pill';
         soon.disabled = true;
-        soon.textContent = 'Coming soon';
+        soon.textContent = I.t('modal.soon', 'Coming soon');
         modalAction.appendChild(soon);
       }
 
@@ -132,20 +133,20 @@
       var email = coachEmail.value.trim();
       var message = coachMessage.value.trim();
       if (!name) {
-        setStatus(coachStatus, 'Enter your name.', 'error');
+        setStatus(coachStatus, I.t('coach.err.name', 'Enter your name.'), 'error');
         return;
       }
       if (!EMAIL_RE.test(email)) {
-        setStatus(coachStatus, 'Enter a valid email address.', 'error');
+        setStatus(coachStatus, I.t('common.err.email', 'Enter a valid email address.'), 'error');
         return;
       }
       if (!config.SUPABASE_URL || !config.SUPABASE_ANON_KEY) {
-        setStatus(coachStatus, 'Applications are not configured yet.', 'error');
+        setStatus(coachStatus, I.t('coach.err.config', 'Applications are not configured yet.'), 'error');
         return;
       }
 
       coachSubmit.disabled = true;
-      setStatus(coachStatus, 'Sending…', 'pending');
+      setStatus(coachStatus, I.t('common.sending', 'Sending…'), 'pending');
 
       supabasePost('/rest/v1/coaching_requests', {
         name: name,
@@ -154,14 +155,14 @@
       })
         .then(function (response) {
           if (response.ok) {
-            setStatus(coachStatus, "Application received — I'll get back to you within 48 hours.", 'success');
+            setStatus(coachStatus, I.t('coach.ok', "Application received — I'll get back to you within 48 hours."), 'success');
             coachForm.reset();
           } else {
-            setStatus(coachStatus, 'Something went wrong. Try again in a moment.', 'error');
+            setStatus(coachStatus, I.t('common.err.generic', 'Something went wrong. Try again in a moment.'), 'error');
           }
         })
         .catch(function () {
-          setStatus(coachStatus, 'Network error. Try again in a moment.', 'error');
+          setStatus(coachStatus, I.t('common.err.network', 'Network error. Try again in a moment.'), 'error');
         })
         .finally(function () {
           coachSubmit.disabled = false;
