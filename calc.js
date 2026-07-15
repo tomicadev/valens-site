@@ -180,7 +180,7 @@
     }
 
     cardsEl.innerHTML = '';
-    var trainingBook = findBook(GOALS[goal].training);
+    var trainingBook = findBook(GOALS[data.goal].training);
     var nutritionBook = findBook(data.level + ' kcal');
     if (trainingBook) cardsEl.appendChild(buildCard(trainingBook, I.t('calc.tag.training', 'Your training match')));
     if (nutritionBook) cardsEl.appendChild(buildCard(nutritionBook, I.t('calc.tag.nutrition', 'Your nutrition match')));
@@ -212,6 +212,7 @@
       tdee: tdee,
       target: target,
       level: nearestLevel(target),
+      goal: goal,
     };
 
     resultsEl.hidden = true;
