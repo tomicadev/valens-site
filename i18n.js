@@ -257,7 +257,102 @@
     'books.n2800.extra.li1': '7-dnevni plan ishrane na 2800 kcal, sa zamenama obroka',
 
     'books.n3000.extra.p': 'Kompletan sistem ishrane na 3000 kcal: strukturiran 7-dnevni plan ishrane, 31 recept bogat proteinima i kompletan vodič Osnove ishrane. Izaberi srpski ili engleski na naplati.',
-    'books.n3000.extra.li1': '7-dnevni plan ishrane na 3000 kcal, sa zamenama obroka'
+    'books.n3000.extra.li1': '7-dnevni plan ishrane na 3000 kcal, sa zamenama obroka',
+
+    // --- store ---
+    'meta.title.store': 'VALENS Prodavnica — Odeća i oprema',
+    'meta.desc.store': 'Brendirana VALENS odeća i oprema za trening — napravljena za teretanu.',
+
+    'store.hero.eyebrow': 'VALENS Prodavnica',
+    'store.hero.title': 'Nosi svoj trud.',
+    'store.hero.sub': 'Brendirana odeća i oprema za trening, napravljena za teretanu. Plaćanje pouzećem, besplatna dostava širom Srbije.',
+    'store.nav.merch': 'Odeća',
+    'store.group.apparel': 'Odeća',
+    'store.group.accessories': 'Oprema',
+
+    'store.sec.eyebrow': 'Prodavnica',
+    'store.sec.title': 'Obuci VALENS',
+    'store.sec.sub': 'Odeća i oprema za trening, napravljena za teretanu. Plaćanje pouzećem, besplatna dostava širom Srbije.',
+
+    'store.cart.open': 'Otvori korpu',
+    'store.cart.close': 'Zatvori korpu',
+    'store.cart.title': 'Tvoja korpa',
+    'store.cart.subtotal': 'Ukupno',
+    'store.continue': 'Nastavi kupovinu',
+
+    'store.co.eyebrow': 'Poručivanje',
+    'store.co.title': 'Plaćanje pouzećem',
+    'store.co.sub': 'Plaćaš kuriru kešom kada porudžbina stigne. Besplatna dostava širom Srbije.',
+    'store.co.name': 'Ime i prezime',
+    'store.co.phone': 'Telefon',
+    'store.co.address': 'Adresa (ulica i broj)',
+    'store.co.city': 'Grad',
+    'store.co.postal': 'Poštanski broj',
+    'store.co.email': 'Email (opciono — za potvrdu porudžbine)',
+    'store.co.note': 'Napomena (opciono)',
+    'store.co.submit': 'Potvrdi porudžbinu',
+
+    'store.done.title': 'Hvala na porudžbini!',
+    'co.done.order': 'Porudžbina',
+
+    // --- dynamic (JS t() keys) ---
+    // common (main.js / store.js / shop.js)
+    'common.sending': 'Šaljem…',
+    'common.err.email': 'Unesi ispravnu email adresu.',
+    'common.err.generic': 'Nešto je pošlo naopako. Pokušaj ponovo za koji trenutak.',
+    'common.err.network': 'Greška u mreži. Pokušaj ponovo za koji trenutak.',
+
+    // index: email capture + showcase (main.js)
+    'capture.err.config': 'Prijave još nisu aktivne.',
+    'capture.ok': 'Upisan si — javljamo ti se kad lansiramo.',
+    'showcase.dot': 'Idi na snimak ekrana {n}',
+
+    // ebooks: book modal + coaching form (store.js)
+    'modal.buy': 'Kupi odmah',
+    'modal.soon': 'Uskoro',
+    'coach.err.name': 'Unesi svoje ime.',
+    'coach.err.config': 'Prijave još nisu aktivne.',
+    'coach.ok': 'Prijava primljena — javljam ti se u roku od 48 sati.',
+
+    // store: catalog cards (shop.js)
+    'store.soon': 'Uskoro',
+    'store.add': 'Dodaj u korpu',
+    'store.added': '✓ Dodato',
+
+    // store: cart drawer (shop.js)
+    'cart.empty': 'Tvoja korpa je prazna.',
+    'cart.size': 'Veličina',
+    'cart.each': ' po komadu',
+    'cart.checkout': 'Poruči',
+    'cart.dec': 'Smanji količinu',
+    'cart.inc': 'Povećaj količinu',
+    'cart.rm': 'Ukloni artikal',
+
+    // store: checkout summary + flow (shop.js)
+    'co.total': 'Ukupno',
+    'co.rsd.suffix': ' — plaćaš kuriru',
+    'co.freeship': 'Besplatna dostava',
+    'co.err.fields': 'Popuni ime, telefon i adresu.',
+    'co.err.config': 'Poručivanje još nije aktivno.',
+    'co.status.placing': 'Šaljem porudžbinu…',
+    'co.done.rsd': ' — plaćanje pouzećem',
+    'co.done.note': 'Zvaćemo te na {phone} da potvrdimo porudžbinu i dogovorimo isporuku. Plaćaš kuriru kešom kad stigne — dostava je besplatna.',
+
+    // ebooks: calculator (calc.js)
+    'calc.loading.1': 'Analiziram tvoje podatke…',
+    'calc.loading.2': 'Računam tvoje kalorije…',
+    'calc.loading.3': 'Tražim tvoje planove…',
+    'calc.bmi.under': 'Pothranjenost',
+    'calc.bmi.normal': 'Normalna',
+    'calc.bmi.over': 'Prekomerna',
+    'calc.bmi.obese': 'Gojaznost',
+    'calc.err.age': 'Unesi ispravne godine (14–90).',
+    'calc.err.height': 'Unesi ispravnu visinu u cm (120–230).',
+    'calc.err.weight': 'Unesi ispravnu težinu u kg (35–250).',
+    'calc.note': 'Tvoj cilj je {t} kcal — uparen sa najbližim dostupnim planom ({l} kcal).',
+    'calc.tag.training': 'Tvoj plan treninga',
+    'calc.tag.nutrition': 'Tvoj plan ishrane',
+    'calc.view': 'Detaljnije'
   };
 
   var lang = 'en';
