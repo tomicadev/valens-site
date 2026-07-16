@@ -5,7 +5,78 @@
 
   // ---- SR rečnik. EN živi u HTML-u / na call-site-ovima kao fallback. ----
   // Ključevi: dot-notacija po stranici/sekciji. {x} = interpolacija na call-site-u.
-  var SR = {};
+  var SR = {
+    // --- shared (reusable across pages) ---
+    'nav.features': 'Mogućnosti',
+    'nav.screens': 'Ekrani',
+    'nav.ebooks': 'E-knjige',
+    'nav.store': 'Prodavnica',
+    'nav.cta': 'Preuzmi aplikaciju',
+    'cat.training': 'Trening',
+    'cat.nutrition': 'Ishrana',
+    'cat.merch': 'Odeća',
+    'cat.accessories': 'Oprema',
+    'badge.soon': 'Uskoro',
+    'footer.privacy': 'Privatnost',
+    'footer.deletion': 'Brisanje naloga',
+    'footer.contact': 'Kontakt',
+
+    // --- index ---
+    'meta.title.home': 'VALENS — Dnevnik treninga',
+    'meta.desc.home': 'Beleži svaki trening, obaraj lične rekorde i treniraj rame uz rame sa društvom.',
+
+    'hero.line1': 'Treniraj pametnije.',
+    'hero.line2': 'Prati sve.',
+    'hero.line3': 'Napreduj brže.',
+    'hero.subtitle': 'Beleži svaki trening, obaraj lične rekorde i treniraj rame uz rame sa društvom.',
+    'hero.trust.exercises': '700+ vežbi',
+    'hero.trust.meta': 'Besplatno · Kupovina u aplikaciji · PEGI 3',
+
+    'feat.eyebrow': 'Mogućnosti',
+    'feat.title': 'Sve što ti treba za pametniji trening',
+    'feat.track.title': 'Beleži sve',
+    'feat.track.desc': 'Beleži serije, ponavljanja, kilažu, drop setove i kardio. Gledaj kako ti lični rekordi rastu.',
+    'feat.coach.title': 'Pametni trener',
+    'feat.coach.desc': 'Tvoj trener uočava zapostavljene mišićne grupe i predlaže šta da treniraš sledeće.',
+    'feat.library.title': '700+ vežbi',
+    'feat.library.desc': 'Kompletna biblioteka sa ciljanim mišićima, opremom i uputstvima za izvođenje.',
+    'feat.routines.title': 'Rutine i programi',
+    'feat.routines.desc': 'Napravi svoju ili prati strukturiran program koji je napisao profesionalni trener.',
+    'feat.friends.title': 'Treniraj sa društvom',
+    'feat.friends.desc': 'Prati treninge svog društva, lajkuj njihove sesije i penji se na rang-listi.',
+    'feat.achievements.title': 'Dostignuća i rezimei',
+    'feat.achievements.desc': 'Osvajaj bedževe, održavaj nizove i dobij nedeljni rezime svog napretka.',
+
+    'showcase.eyebrow': 'Ekrani',
+    'showcase.title': 'Pogledaj VALENS na delu',
+
+    'reviews.eyebrow': 'Recenzije',
+    'reviews.title': 'Prve recenzije stižu',
+    'reviews.sub': 'VALENS je tek izašao. Kako dizači budu ocenjivali aplikaciju na Google Play-u, prave recenzije stižu pravo ovde — bez izmišljenih citata i lažnih zvezdica.',
+    'reviews.pending.1': 'Čeka se prva recenzija',
+    'reviews.pending.2': 'Ovde mogu da stoje tvoje reči',
+    'reviews.pending.3': 'Tvoja bi mogla da bude prva',
+    'reviews.cta.text': 'Već treniraš uz VALENS?',
+    'reviews.cta.btn': '★ Oceni nas na Google Play-u',
+
+    'teaser.ebooks.eyebrow': 'E-knjige',
+    'teaser.ebooks.title': 'Programi napravljeni da se prate',
+    'teaser.ebooks.text': 'Programi treninga, planovi ishrane i 1-na-1 coaching — napisani da rade ruku pod ruku sa VALENS aplikacijom.',
+    'teaser.ebooks.cta': 'Pogledaj e-knjige',
+    'teaser.store.eyebrow': 'Prodavnica',
+    'teaser.store.title': 'Obuci VALENS',
+    'teaser.store.text': 'Brendirana odeća i oprema za trening, napravljena za teretanu. Plaćanje pouzećem, besplatna dostava širom Srbije.',
+    'teaser.store.cta': 'Poseti prodavnicu',
+
+    'capture.eyebrow': 'Novosti o lansiranju',
+    'capture.title': 'Saznaj prvi kad VALENS izbaci nove funkcije',
+    'capture.sub': 'Bez spama — samo vesti o lansiranju i po koji novi program.',
+    'capture.label': 'Imejl adresa',
+    'capture.placeholder': 'ti@primer.com',
+    'capture.btn': 'Prijavi se',
+
+    'cta.title': 'Počni da treniraš uz VALENS'
+  };
 
   var lang = 'en';
   try { if (localStorage.getItem(LS_KEY) === 'sr') lang = 'sr'; } catch (e) {}
