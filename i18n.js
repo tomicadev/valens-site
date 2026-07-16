@@ -9,6 +9,7 @@
     // --- shared (reusable across pages) ---
     'nav.features': 'Mogućnosti',
     'nav.screens': 'Ekrani',
+    'nav.home': 'Početna',
     'nav.ebooks': 'E-knjige',
     'nav.store': 'Prodavnica',
     'nav.cta': 'Preuzmi aplikaciju',
@@ -77,7 +78,117 @@
     'capture.placeholder': 'ti@primer.com',
     'capture.btn': 'Prijavi se',
 
-    'cta.title': 'Počni da treniraš uz VALENS'
+    'cta.title': 'Počni da treniraš uz VALENS',
+
+    // --- ebooks ---
+    'meta.title.ebooks': 'VALENS E-knjige — Planovi treninga i ishrane',
+    'meta.desc.ebooks': 'Programi treninga i planovi ishrane napravljeni da se prate — uz 1-na-1 online coaching sa tvorcem VALENS-a.',
+
+    'nav.coaching': 'Coaching',
+    'nav.about': 'O meni',
+
+    'ebooks.hero.eyebrow': 'VALENS Prodavnica',
+    'ebooks.hero.title': 'Programi napravljeni da se prate.',
+    'ebooks.hero.sub': 'Strukturirani programi treninga i planovi ishrane — napisani da rade ruku pod ruku sa VALENS aplikacijom.',
+    'ebooks.hero.cta.plan': 'Pronađi svoj plan',
+    'ebooks.hero.cta.training': 'Planovi treninga',
+    'ebooks.hero.cta.nutrition': 'Planovi ishrane',
+
+    // calkulator
+    'calc.eyebrow': 'Pronađi svoj plan',
+    'calc.title': 'Nisi siguran odakle da počneš?',
+    'calc.sub': 'Odgovori na nekoliko kratkih pitanja — izračunaću tvoje dnevne kalorije i preporučiti pravi program treninga i plan ishrane za tvoj cilj.',
+    'calc.label.sex': 'Pol',
+    'calc.opt.male': 'Muško',
+    'calc.opt.female': 'Žensko',
+    'calc.label.age': 'Godine',
+    'calc.label.height': 'Visina (cm)',
+    'calc.label.weight': 'Težina (kg)',
+    'calc.label.activity': 'Nivo aktivnosti',
+    'calc.act.sedentary': 'Sedentaran — kancelarijski posao, malo ili nimalo vežbanja',
+    'calc.act.light': 'Lako aktivan — trening 1–3 dana nedeljno',
+    'calc.act.moderate': 'Umereno aktivan — trening 3–5 dana nedeljno',
+    'calc.act.very': 'Veoma aktivan — trening 6–7 dana nedeljno',
+    'calc.act.extreme': 'Ekstremno aktivan — fizički posao + svakodnevni trening',
+    'calc.goals.aria': 'Tvoj cilj',
+    'calc.goal.fatloss': 'Skidanje masti',
+    'calc.goal.muscle': 'Rast mišića',
+    'calc.goal.maintain': 'Održavanje',
+    'calc.goal.recomp': 'Rekompozicija',
+    'calc.goal.gain': 'Dobijanje mase',
+    'calc.submit': 'Pronađi svoj plan',
+    'calc.stat.maintenance': 'Kalorije održavanja',
+    'calc.stat.target': 'Dnevni cilj kcal',
+    'calc.disclaimer': 'Procene su samo orijentacione — nisu medicinski savet.',
+
+    // trening
+    'ebooks.training.title': 'Planovi treninga',
+    'book.details': 'Detaljnije',
+    'books.mrv.title': 'Mr. VALENS — Petodnevna hipertrofija',
+    'books.mrv.desc': 'Naš najzahtevniji flagship — projektovan seriju po seriju.',
+    'books.bev.title': 'Be VALENS — Uspon kroz 4 nedelje',
+    'books.bev.desc': 'Četiri nedelje. Kilaža ostaje ista. Napor raste.',
+    'books.lop.title': 'Learn or Perish — Blok temelja',
+    'books.lop.desc': 'Nauči da ponoviš ponavljanje. Nauči kako izgleda kad je teško.',
+    'books.apex.title': 'Apex PPL — Šestodnevni Push/Pull/Legs',
+    'books.apex.desc': 'Svaki mišić, dvaput nedeljno, za nemilosrdan rast.',
+    'books.iron.title': 'Iron Foundation — Snaga 5×5',
+    'books.iron.desc': 'Tri treninga. Tri vežbe. Pet serija po pet.',
+    'books.phul.title': 'PHUL — Snaga i hipertrofija',
+    'books.phul.desc': 'Dva dana snage, dva dana hipertrofije, jedna jaka nedelja.',
+
+    // ishrana
+    'ebooks.nutrition.title': 'E-knjige o ishrani',
+    'ebooks.nutrition.sub': 'Izaberi svoje dnevne kalorije. Svaki paket sadrži 7-dnevni plan ishrane, 31 recept bogat proteinima i kompletan vodič Osnove ishrane — na srpskom ili engleskom.',
+    'books.n1800.title': 'Paket ishrane — 1800 kcal',
+    'books.n1800.desc': 'Plan sa kontrolisanim kalorijama za postepeno skidanje masti.',
+    'books.n2000.title': 'Paket ishrane — 2000 kcal',
+    'books.n2000.desc': 'Vitko i uravnoteženo — svakodnevna osnova.',
+    'books.n2200.title': 'Paket ishrane — 2200 kcal',
+    'books.n2200.desc': 'Malo više goriva za aktivne dane treninga.',
+    'books.n2500.title': 'Paket ishrane — 2500 kcal',
+    'books.n2500.desc': 'Održavanje i veće energetske potrebe, precizno podešeno.',
+    'books.n2800.title': 'Paket ishrane — 2800 kcal',
+    'books.n2800.desc': 'Napravljen da podrži rast mišića.',
+    'books.n3000.title': 'Paket ishrane — 3000 kcal',
+    'books.n3000.desc': 'Visokokalorijski plan za ozbiljan čist bulk.',
+
+    // preskoči čitanje (CTA)
+    'ebooks.skip.eyebrow': 'Radije bi preskočio čitanje?',
+    'ebooks.skip.title': 'Prepusti plan meni',
+    'ebooks.skip.text': 'E-knjige, planovi ishrane, beleženje svakog treninga — mnogo je toga da sam izguraš. Radi sa mnom 1-na-1 i ja preuzimam sve: tvoj trening, tvoju ishranu, nedeljna prilagođavanja. Ti se samo pojaviš.',
+    'ebooks.skip.cta': 'Prijavi se za coaching',
+
+    // coaching
+    'coach.eyebrow': '1-na-1 Coaching',
+    'coach.title': 'Online coaching, direktno sa mnom',
+    'coach.price.from': 'od ',
+    'coach.price.per': '/mes',
+    'coach.sub': 'Personalizovan trening i ishrana, nedeljne provere kroz VALENS aplikaciju, i plan koji se prilagođava tvom životu — a ne obrnuto. Ograničen broj mesta.',
+    'coach.inc.1': 'Personalizovan program treninga',
+    'coach.inc.2': 'Prilagođen plan ishrane',
+    'coach.inc.3': 'Nedeljne provere kroz VALENS aplikaciju',
+    'coach.inc.4': 'Direktan chat pristup meni',
+    'coach.inc.5': 'Video analize tehnike',
+    'coach.inc.6': 'Prilagođavanja plana kako napreduješ',
+    'coach.about': 'O meni',
+    'coach.label.name': 'Tvoje ime',
+    'coach.ph.name': 'Tvoje ime',
+    'coach.label.email': 'Imejl adresa',
+    'coach.ph.email': 'ti@primer.com',
+    'coach.label.goal': 'Tvoj cilj',
+    'coach.ph.message': 'Reci mi nešto o svom cilju…',
+    'coach.submit': 'Prijavi se za coaching',
+
+    // o meni
+    'about.photo.alt': 'Tvoj trener u teretani',
+    'about.eyebrow': 'O meni',
+    'about.title': 'Upoznaj svog trenera',
+    'about.bio': 'Ceo život dižem tegove i online sam trener — napravio sam VALENS da treniram onako kako bih voleo da su me učili od prvog dana: strukturirano, iskreno i sa fokusom na napredak. Godinama pomažem ljudima da preseku buku u teretani, isprave tehniku i zaista dostignu svoje ciljeve. Trening sa mnom je direktan, ličan i skrojen prema tvom životu.',
+    'about.stat.years': 'godine trenerskog rada',
+    'about.stat.clients': 'istreniranih klijenata',
+    'about.stat.cert.value': 'Sertifikovan',
+    'about.stat.cert.label': 'snaga i ishrana'
   };
 
   var lang = 'en';
