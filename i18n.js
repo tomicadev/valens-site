@@ -17,6 +17,8 @@
     'cat.merch': 'Odeća',
     'cat.accessories': 'Oprema',
     'badge.soon': 'Uskoro',
+    'badge.soon.aria': 'Preuzimanje na App Store-u — uskoro',
+    'a11y.skip': 'Preskoči na sadržaj',
     'footer.privacy': 'Privatnost',
     'footer.deletion': 'Brisanje naloga',
     'footer.contact': 'Kontakt',
