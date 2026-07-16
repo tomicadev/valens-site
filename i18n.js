@@ -188,7 +188,71 @@
     'about.stat.years': 'godine trenerskog rada',
     'about.stat.clients': 'istreniranih klijenata',
     'about.stat.cert.value': 'Sertifikovan',
-    'about.stat.cert.label': 'snaga i ishrana'
+    'about.stat.cert.label': 'snaga i ishrana',
+
+    // --- ebooks: modalni sadržaj (12 knjiga) ---
+    // zajednički redovi treninga
+    'books.train.hb': 'Uključuje priručnik Osnove treninga',
+    'books.train.app': 'Napravljeno za praćenje u VALENS aplikaciji',
+    // zajednički redovi ishrane
+    'books.nutri.recipes': '31 recept bogat proteinima, sa punim makroima',
+    'books.nutri.fundamentals': 'Osnove ishrane — 20 poglavlja',
+    'books.nutri.lang': 'Srpski ili engleski — izaberi jezik na naplati',
+    'books.nutri.pdf': 'PDF spreman za štampu · trenutno preuzimanje',
+
+    'books.mrv.extra.p': 'Petodnevni Upper/Lower/Push/Pull/Legs program za hipertrofiju, brušen kroz bezbroj treninga. Svaka vežba je pažljivo odabrana po odnosu stimulusa i zamora, svaka serija nosi ciljani broj ponavljanja i RIR smernicu, a izbor pokreta se oslanja na sajle i mašine za konstantnu tenziju i volumen prijatan zglobovima.',
+    'books.mrv.extra.li1': '5-dnevni Upper/Lower/Push/Pull/Legs raspored',
+    'books.mrv.extra.li2': '32 vežbe, ~108 zahtevnih serija nedeljno',
+    'books.mrv.extra.li3': 'RIR ciljevi po vežbi za precizan napor',
+    'books.mrv.extra.li4': 'Vođen sajlama i mašinama za konstantnu tenziju',
+
+    'books.bev.extra.p': 'Četvoronedeljni blok hipertrofije sa rastućim naporom na 5-dnevnom Upper/Lower/Push/Pull/Legs rasporedu. Vežbe, serije i ponavljanja se ne menjaju — svake nedelje propisani napor raste, od ponavljanja u rezervi do sve-ili-ništa poslednje nedelje. Ti donosiš kilažu; blok te uči da guraš.',
+    'books.bev.extra.li1': '5-dnevni Upper/Lower/Push/Pull/Legs raspored',
+    'books.bev.extra.li2': '4-nedeljni blok sa rastućim naporom, pa deload',
+    'books.bev.extra.li3': '26 vežbi sa nedeljnim RIR talasima',
+    'books.bev.extra.li4': 'Fiksne vežbe — ti savladavaš progresiju',
+
+    'books.lop.extra.p': 'Četvoronedeljni blok temelja na 5-dnevnom rasporedu. Uigrava tehniku na glavnim vežbama i gradi radni kapacitet pre nego što intenzitet poraste, nedelju po nedelju. Svaka serija propisuje ponavljanja i RIR smernicu da naučiš da proceniš pravi napor — iskreno mesto za početak ozbiljnog treniranja.',
+    'books.lop.extra.li1': '5-dnevni raspored, prvo tehnika',
+    'books.lop.extra.li2': '4-nedeljni blok temelja, pa deload',
+    'books.lop.extra.li3': '26 vežbi sa smernicama napora zasnovanim na RIR-u',
+    'books.lop.extra.li4': 'Gradi radni kapacitet pre nego što intenzitet poraste',
+
+    'books.apex.extra.p': 'Šestodnevni push/pull/legs raspored za postojan rast i snagu. Svaki mišić se trenira dvaput nedeljno; A treninzi počinju teško, B treninzi počinju drugom vežbom i opsegom ponavljanja. Svaka serija nosi ciljani broj ponavljanja i RIR smernicu — ti donosiš radnu kilažu, program vodi napor.',
+    'books.apex.extra.li1': '6-dnevni Push/Pull/Legs, dvaput nedeljno',
+    'books.apex.extra.li2': '30 vežbi, ~112 serija nedeljno',
+    'books.apex.extra.li3': 'A/B treninzi variraju vežbe i opsege ponavljanja',
+    'books.apex.extra.li4': 'Hipertrofija izgrađena na osnovi snage',
+
+    'books.iron.extra.p': 'Trodnevni blok snage usredsređen na 5×5 rad na čučnju, bench pressu i mrtvom dizanju, uz ciljane pomoćne vežbe. Uski RIR ciljevi na glavnim vežbama grade sirovu snagu; dodaješ kilažu kako napreduješ, a ponavljanja i napor su ti unapred zacrtani.',
+    'books.iron.extra.li1': 'Trodnevni full-body blok snage',
+    'books.iron.extra.li2': '5×5 na čučnju, bench pressu i mrtvom dizanju',
+    'books.iron.extra.li3': '13 fokusiranih vežbi, uski RIR na glavnima',
+    'books.iron.extra.li4': 'Dodaješ kilažu kako napreduješ',
+
+    'books.phul.extra.p': 'Četvorodnevni Power/Hypertrophy Upper-Lower program: dva teža dana snage koji podižu snagu, dva dana hipertrofije sa većim volumenom koji podižu masu. Dani snage idu teže i uže; dani hipertrofije jure pumpu. Ti donosiš kilažu.',
+    'books.phul.extra.li1': '4-dnevni Upper/Lower, snaga + hipertrofija',
+    'books.phul.extra.li2': '2 dana snage plus 2 dana hipertrofije',
+    'books.phul.extra.li3': '21 vežba — snaga i masa u jednoj nedelji',
+    'books.phul.extra.li4': 'Teži rad na snazi, rad na pumpi sa većim volumenom',
+
+    'books.n1800.extra.p': 'Kompletan sistem ishrane na 1800 kcal: strukturiran 7-dnevni plan ishrane, 31 recept bogat proteinima i kompletan vodič Osnove ishrane. Izaberi srpski ili engleski na naplati.',
+    'books.n1800.extra.li1': '7-dnevni plan ishrane na 1800 kcal, sa zamenama obroka',
+
+    'books.n2000.extra.p': 'Kompletan sistem ishrane na 2000 kcal: strukturiran 7-dnevni plan ishrane, 31 recept bogat proteinima i kompletan vodič Osnove ishrane. Izaberi srpski ili engleski na naplati.',
+    'books.n2000.extra.li1': '7-dnevni plan ishrane na 2000 kcal, sa zamenama obroka',
+
+    'books.n2200.extra.p': 'Kompletan sistem ishrane na 2200 kcal: strukturiran 7-dnevni plan ishrane, 31 recept bogat proteinima i kompletan vodič Osnove ishrane. Izaberi srpski ili engleski na naplati.',
+    'books.n2200.extra.li1': '7-dnevni plan ishrane na 2200 kcal, sa zamenama obroka',
+
+    'books.n2500.extra.p': 'Kompletan sistem ishrane na 2500 kcal: strukturiran 7-dnevni plan ishrane, 31 recept bogat proteinima i kompletan vodič Osnove ishrane. Izaberi srpski ili engleski na naplati.',
+    'books.n2500.extra.li1': '7-dnevni plan ishrane na 2500 kcal, sa zamenama obroka',
+
+    'books.n2800.extra.p': 'Kompletan sistem ishrane na 2800 kcal: strukturiran 7-dnevni plan ishrane, 31 recept bogat proteinima i kompletan vodič Osnove ishrane. Izaberi srpski ili engleski na naplati.',
+    'books.n2800.extra.li1': '7-dnevni plan ishrane na 2800 kcal, sa zamenama obroka',
+
+    'books.n3000.extra.p': 'Kompletan sistem ishrane na 3000 kcal: strukturiran 7-dnevni plan ishrane, 31 recept bogat proteinima i kompletan vodič Osnove ishrane. Izaberi srpski ili engleski na naplati.',
+    'books.n3000.extra.li1': '7-dnevni plan ishrane na 3000 kcal, sa zamenama obroka'
   };
 
   var lang = 'en';
