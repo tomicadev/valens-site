@@ -19,19 +19,25 @@
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
 
+  var I = window.VALENS_I18N || { t: function (k, f) { return f; }, lang: function () { return 'en'; } };
+  function pName(p) { return I.lang() === 'sr' && p.name_sr ? p.name_sr : p.name; }
+  function pDesc(p) { return I.lang() === 'sr' && p.desc_sr ? p.desc_sr : (p.desc || ''); }
+  window.VALENS_SHOP.pName = pName;
+  window.VALENS_SHOP.esc = esc;
+
   function cardHTML(p) {
     var sizes = (p.sizes || []).map(function (s) {
       return '<button type="button" class="size" data-size="' + s + '">' + s + '</button>';
     }).join('');
     return '' +
       '<article class="product" data-sku="' + p.sku + '">' +
-      '  <span class="product__ribbon" aria-hidden="true">Coming soon</span>' +
-      '  <div class="product__media"><img loading="lazy" src="' + esc(p.image) + '" alt="' + esc(p.name) + '"></div>' +
-      '  <h4 class="product__name">' + esc(p.name) + '</h4>' +
-      '  <p class="product__desc">' + esc(p.desc || '') + '</p>' +
+      '  <span class="product__ribbon" aria-hidden="true">' + esc(I.t('store.soon', 'Coming soon')) + '</span>' +
+      '  <div class="product__media"><img loading="lazy" src="' + esc(p.image) + '" alt="' + esc(pName(p)) + '"></div>' +
+      '  <h4 class="product__name">' + esc(pName(p)) + '</h4>' +
+      '  <p class="product__desc">' + esc(pDesc(p)) + '</p>' +
       (sizes ? '  <div class="product__sizes" data-sizes>' + sizes + '</div>' : '') +
       '  <div class="product__buy"><span class="product__price">' + eur(p.price_eur) + '</span>' +
-      '  <button type="button" class="btn-pill product__add" data-add' + (sizes ? ' disabled' : '') + '>Add to cart</button></div>' +
+      '  <button type="button" class="btn-pill product__add" data-add' + (sizes ? ' disabled' : '') + '>' + esc(I.t('store.add', 'Add to cart')) + '</button></div>' +
       '</article>';
   }
 
@@ -62,8 +68,8 @@
         if (p && p.sizes && p.sizes.length && !chosen) return;
         window.VALENS_CART.add(sku, chosen);
         // micro-feedback: brief "Added" state so the click visibly lands
-        addBtn.textContent = '✓ Added';
-        setTimeout(function () { addBtn.textContent = 'Add to cart'; }, 1200);
+        addBtn.textContent = I.t('store.added', '✓ Added');
+        setTimeout(function () { addBtn.textContent = I.t('store.add', 'Add to cart'); }, 1200);
       });
     });
   }
@@ -74,6 +80,10 @@
     renderCatalog();
     if (window.VALENS_CART) window.VALENS_CART.refresh();
   });
+
+  document.addEventListener('valens:langchange', function () {
+    if (CATALOG.length) renderCatalog();
+  });
 })();
 
 (function () {
@@ -81,6 +91,7 @@
   var KEY = 'valens_cart';
   var MAX_QTY = 9;
   var S = window.VALENS_SHOP;
+  var I = window.VALENS_I18N || { t: function (k, f) { return f; }, lang: function () { return 'en'; } };
   var TRASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11.5v5M14 11.5v5M6 7l1 13h10l1-13M9.2 7V4h5.6v3"/></svg>';
 
   function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
@@ -124,18 +135,18 @@
     var n = count();
     if (countEl) { countEl.textContent = n; countEl.hidden = n === 0; }
     if (subEl) subEl.textContent = S.eur(subtotal());
-    if (checkoutBtn) checkoutBtn.textContent = n ? 'Checkout (' + n + ')' : 'Checkout';
+    if (checkoutBtn) checkoutBtn.textContent = I.t('cart.checkout', 'Checkout') + (n ? ' (' + n + ')' : '');
     if (!itemsEl) return;
-    if (!cart.length) { itemsEl.innerHTML = '<p class="cart-empty">Your cart is empty.</p>'; return; }
+    if (!cart.length) { itemsEl.innerHTML = '<p class="cart-empty">' + S.esc(I.t('cart.empty', 'Your cart is empty.')) + '</p>'; return; }
     itemsEl.innerHTML = cart.map(function (l) {
       var p = S.bySku(l.sku); if (!p) return '';
       return '<div class="cart-line" data-sku="' + l.sku + '" data-size="' + (l.size || '') + '">' +
-        '<img src="' + p.image + '" alt=""><div class="cart-line__info"><strong>' + p.name + '</strong>' +
-        (l.size ? '<span>Size ' + l.size + '</span>' : '') + '<span>' + S.eur(p.price_eur) + (l.qty > 1 ? ' each' : '') + '</span></div>' +
+        '<img src="' + p.image + '" alt=""><div class="cart-line__info"><strong>' + S.esc(S.pName(p)) + '</strong>' +
+        (l.size ? '<span>' + S.esc(I.t('cart.size', 'Size')) + ' ' + l.size + '</span>' : '') + '<span>' + S.eur(p.price_eur) + (l.qty > 1 ? S.esc(I.t('cart.each', ' each')) : '') + '</span></div>' +
         '<div class="cart-line__right"><span class="cart-line__total">' + S.eur(p.price_eur * l.qty) + '</span>' +
-        '<div class="cart-line__qty"><button data-dec aria-label="Decrease quantity">−</button><span class="cart-line__num">' + l.qty + '</span>' +
-        '<button data-inc aria-label="Increase quantity"' + (l.qty >= MAX_QTY ? ' disabled' : '') + '>+</button>' +
-        '<button class="cart-line__rm" data-rm aria-label="Remove item">' + TRASH + '</button></div></div></div>';
+        '<div class="cart-line__qty"><button data-dec aria-label="' + S.esc(I.t('cart.dec', 'Decrease quantity')) + '">−</button><span class="cart-line__num">' + l.qty + '</span>' +
+        '<button data-inc aria-label="' + S.esc(I.t('cart.inc', 'Increase quantity')) + '"' + (l.qty >= MAX_QTY ? ' disabled' : '') + '>+</button>' +
+        '<button class="cart-line__rm" data-rm aria-label="' + S.esc(I.t('cart.rm', 'Remove item')) + '">' + TRASH + '</button></div></div></div>';
     }).join('');
     itemsEl.querySelectorAll('.cart-line').forEach(function (row) {
       var sku = row.dataset.sku, size = row.dataset.size || null;
@@ -153,11 +164,14 @@
 
   window.VALENS_CART = { add: add, refresh: refresh, open: open, close: close, items: function () { return cart.slice(); }, subtotal: subtotal, clear: function () { cart = []; save(cart); refresh(); } };
   refresh();
+
+  document.addEventListener('valens:langchange', refresh);
 })();
 
 (function () {
   'use strict';
   var S = window.VALENS_SHOP, C = window.VALENS_CART, cfg = window.VALENS_CONFIG || {};
+  var I = window.VALENS_I18N || { t: function (k, f) { return f; }, lang: function () { return 'en'; } };
   var section = document.getElementById('checkout');
   var form = document.querySelector('[data-checkout-form]');
   if (!section || !form || !C) return;
@@ -195,10 +209,10 @@
   function renderSummary() {
     var items = C.items(), sub = C.subtotal();
     summary.innerHTML =
-      items.map(function (l) { var p = S.bySku(l.sku); return p ? '<div class="co-row"><span>' + l.qty + '× ' + p.name + (l.size ? ' (' + l.size + ')' : '') + '</span><span>' + S.eur(p.price_eur * l.qty) + '</span></div>' : ''; }).join('') +
-      '<div class="co-row co-total"><span>Total</span><strong>' + S.eur(sub) + '</strong></div>' +
-      '<div class="co-rsd">≈ ' + S.rsd(sub) + ' — paid to the courier</div>' +
-      '<div class="co-ship">Free shipping</div>';
+      items.map(function (l) { var p = S.bySku(l.sku); return p ? '<div class="co-row"><span>' + l.qty + '× ' + S.esc(S.pName(p)) + (l.size ? ' (' + l.size + ')' : '') + '</span><span>' + S.eur(p.price_eur * l.qty) + '</span></div>' : ''; }).join('') +
+      '<div class="co-row co-total"><span>' + S.esc(I.t('co.total', 'Total')) + '</span><strong>' + S.eur(sub) + '</strong></div>' +
+      '<div class="co-rsd">≈ ' + S.rsd(sub) + S.esc(I.t('co.rsd.suffix', ' — paid to the courier')) + '</div>' +
+      '<div class="co-ship">' + S.esc(I.t('co.freeship', 'Free shipping')) + '</div>';
   }
 
   function openCheckout() {
@@ -223,23 +237,23 @@
     if (val('[data-co-honeypot]')) return;
     var name = val('[data-co-name]'), phone = val('[data-co-phone]'),
         address = val('[data-co-address]'), city = val('[data-co-city]'), postal = val('[data-co-postal]');
-    if (!name || !phone || !address || !city || !postal) { status('Please fill name, phone and address.', 'error'); return; }
-    if (!C.items().length) { status('Your cart is empty.', 'error'); return; }
-    if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) { status('Ordering is not configured yet.', 'error'); return; }
+    if (!name || !phone || !address || !city || !postal) { status(I.t('co.err.fields', 'Please fill name, phone and address.'), 'error'); return; }
+    if (!C.items().length) { status(I.t('cart.empty', 'Your cart is empty.'), 'error'); return; }
+    if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) { status(I.t('co.err.config', 'Ordering is not configured yet.'), 'error'); return; }
 
     // Absolute image URL (not a relative path) so the notify-order email — sent
     // from a backend with no notion of the site's origin — can embed a thumbnail.
     var items = C.items().map(function (l) {
       var p = S.bySku(l.sku);
       var img = p.image ? new URL(p.image, location.href).href : null;
-      return { sku: l.sku, name: p.name, size: l.size, qty: l.qty, price_eur: p.price_eur, image: img };
+      return { sku: l.sku, name: p.name, name_sr: p.name_sr || null, size: l.size, qty: l.qty, price_eur: p.price_eur, image: img };
     });
     var order = {
       order_ref: S.makeOrderRef(), items: items, subtotal_eur: C.subtotal(),
       customer_name: name, phone: phone, address: address, city: city, postal_code: postal,
       email: val('[data-co-email]') || null, note: val('[data-co-note]') || null,
     };
-    submit.disabled = true; status('Placing your order…', 'pending');
+    submit.disabled = true; status(I.t('co.status.placing', 'Placing your order…'), 'pending');
     fetch(cfg.SUPABASE_URL + '/rest/v1/orders', {
       method: 'POST',
       headers: { apikey: cfg.SUPABASE_ANON_KEY, Authorization: 'Bearer ' + cfg.SUPABASE_ANON_KEY, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
@@ -249,17 +263,21 @@
         // swap the form for the success view (form stays in the DOM so re-ordering works)
         if (doneRef) doneRef.textContent = order.order_ref;
         if (doneSummary) doneSummary.innerHTML =
-          order.items.map(function (i) { return '<div class="co-row"><span>' + i.qty + '× ' + i.name + (i.size ? ' (' + i.size + ')' : '') + '</span><span>' + S.eur(i.price_eur * i.qty) + '</span></div>'; }).join('') +
-          '<div class="co-row co-total"><span>Total</span><strong>' + S.eur(order.subtotal_eur) + '</strong></div>' +
-          '<div class="co-rsd">≈ ' + S.rsd(order.subtotal_eur) + ' — cash on delivery</div>';
-        if (doneNote) doneNote.textContent = "We'll call you on " + phone + " to confirm your order and arrange delivery. You pay the courier in cash when it arrives — shipping is free.";
+          order.items.map(function (i) { return '<div class="co-row"><span>' + i.qty + '× ' + S.esc(S.pName(i)) + (i.size ? ' (' + i.size + ')' : '') + '</span><span>' + S.eur(i.price_eur * i.qty) + '</span></div>'; }).join('') +
+          '<div class="co-row co-total"><span>' + S.esc(I.t('co.total', 'Total')) + '</span><strong>' + S.eur(order.subtotal_eur) + '</strong></div>' +
+          '<div class="co-rsd">≈ ' + S.rsd(order.subtotal_eur) + S.esc(I.t('co.done.rsd', ' — cash on delivery')) + '</div>';
+        if (doneNote) doneNote.textContent = I.t('co.done.note', "We'll call you on {phone} to confirm your order and arrange delivery. You pay the courier in cash when it arrives — shipping is free.").replace('{phone}', phone);
         if (checkoutWrap) checkoutWrap.hidden = true;
         if (successEl) successEl.hidden = false;
         form.reset(); submit.disabled = false; status('', '');
         C.clear();
         confetti();
         if (successEl) successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } else { status('Something went wrong. Try again in a moment.', 'error'); submit.disabled = false; }
-    }).catch(function () { status('Network error. Try again in a moment.', 'error'); submit.disabled = false; });
+      } else { status(I.t('common.err.generic', 'Something went wrong. Try again in a moment.'), 'error'); submit.disabled = false; }
+    }).catch(function () { status(I.t('common.err.network', 'Network error. Try again in a moment.'), 'error'); submit.disabled = false; });
+  });
+
+  document.addEventListener('valens:langchange', function () {
+    if (!section.hidden && checkoutWrap && !checkoutWrap.hidden) renderSummary();
   });
 })();

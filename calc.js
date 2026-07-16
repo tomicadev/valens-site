@@ -4,6 +4,8 @@
   var form = document.querySelector('[data-calc-form]');
   if (!form) return;
 
+  var I = window.VALENS_I18N || { t: function (k, f) { return f; } };
+
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var NUTRITION_LEVELS = [1800, 2000, 2200, 2500, 2800, 3000];
@@ -19,7 +21,13 @@
     recomp: { mult: 0.9, training: 'PHUL' },             // PHUL — Power & Hypertrophy
     gain: { mult: 1.2, training: 'Iron Foundation' },    // Iron Foundation — 5×5 Strength
   };
-  var LOADING_MSGS = ['Analyzing your input…', 'Calculating your calories…', 'Matching your plans…'];
+  function loadingMsgs() {
+    return [
+      I.t('calc.loading.1', 'Analyzing your input…'),
+      I.t('calc.loading.2', 'Calculating your calories…'),
+      I.t('calc.loading.3', 'Matching your plans…'),
+    ];
+  }
   var CONFETTI_COLORS = ['#9B78D4', '#6F4DB3', '#C77DD8', '#B79BE6', '#FFFFFF'];
 
   var sexEl = form.querySelector('[data-calc-sex]');
@@ -43,6 +51,7 @@
   var confettiEl = document.querySelector('[data-calc-confetti]');
 
   var goal = 'fatloss';
+  var lastData = null;
   goalBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
       goal = btn.dataset.goal;
@@ -59,10 +68,10 @@
   }
 
   function bmiCategory(bmi) {
-    if (bmi < 18.5) return 'Underweight';
-    if (bmi < 25) return 'Normal';
-    if (bmi < 30) return 'Overweight';
-    return 'Obese';
+    if (bmi < 18.5) return I.t('calc.bmi.under', 'Underweight');
+    if (bmi < 25) return I.t('calc.bmi.normal', 'Normal');
+    if (bmi < 30) return I.t('calc.bmi.over', 'Overweight');
+    return I.t('calc.bmi.obese', 'Obese');
   }
 
   function nearestLevel(target) {
@@ -110,7 +119,7 @@
     var open = document.createElement('button');
     open.type = 'button';
     open.className = 'btn-ghost';
-    open.textContent = 'View details';
+    open.textContent = I.t('calc.view', 'View details');
     open.addEventListener('click', function () {
       var trigger = book.querySelector('[data-book-open]');
       if (trigger) trigger.click();
@@ -156,28 +165,31 @@
     }
   }
 
-  function showResults(data) {
+  function showResults(data, rerender) {
+    lastData = data;
     bmiEl.textContent = data.bmi.toFixed(1);
     bmiCatEl.textContent = bmiCategory(data.bmi);
     tdeeEl.textContent = String(data.tdee);
     targetEl.textContent = String(data.target);
 
     if (Math.abs(data.target - data.level) > 150) {
-      noteEl.textContent = 'Your target is ' + data.target + ' kcal — matched to the closest available plan (' + data.level + ' kcal).';
+      noteEl.textContent = I.t('calc.note', 'Your target is {t} kcal — matched to the closest available plan ({l} kcal).').replace('{t}', data.target).replace('{l}', data.level);
       noteEl.hidden = false;
     } else {
       noteEl.hidden = true;
     }
 
     cardsEl.innerHTML = '';
-    var trainingBook = findBook(GOALS[goal].training);
+    var trainingBook = findBook(GOALS[data.goal].training);
     var nutritionBook = findBook(data.level + ' kcal');
-    if (trainingBook) cardsEl.appendChild(buildCard(trainingBook, 'Your training match'));
-    if (nutritionBook) cardsEl.appendChild(buildCard(nutritionBook, 'Your nutrition match'));
+    if (trainingBook) cardsEl.appendChild(buildCard(trainingBook, I.t('calc.tag.training', 'Your training match')));
+    if (nutritionBook) cardsEl.appendChild(buildCard(nutritionBook, I.t('calc.tag.nutrition', 'Your nutrition match')));
 
     resultsEl.hidden = false;
-    resultsEl.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'nearest' });
-    fireConfetti();
+    if (!rerender) {
+      resultsEl.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'nearest' });
+      fireConfetti();
+    }
   }
 
   form.addEventListener('submit', function (event) {
@@ -186,9 +198,9 @@
     var age = parseInt(ageEl.value, 10);
     var height = parseInt(heightEl.value, 10);
     var weight = parseFloat(weightEl.value);
-    if (!age || age < 14 || age > 90) return setStatus('Enter a valid age (14–90).');
-    if (!height || height < 120 || height > 230) return setStatus('Enter a valid height in cm (120–230).');
-    if (!weight || weight < 35 || weight > 250) return setStatus('Enter a valid weight in kg (35–250).');
+    if (!age || age < 14 || age > 90) return setStatus(I.t('calc.err.age', 'Enter a valid age (14–90).'));
+    if (!height || height < 120 || height > 230) return setStatus(I.t('calc.err.height', 'Enter a valid height in cm (120–230).'));
+    if (!weight || weight < 35 || weight > 250) return setStatus(I.t('calc.err.weight', 'Enter a valid weight in kg (35–250).'));
     setStatus('');
 
     // Mifflin-St Jeor BMR → TDEE → goal-adjusted daily target.
@@ -200,6 +212,7 @@
       tdee: tdee,
       target: target,
       level: nearestLevel(target),
+      goal: goal,
     };
 
     resultsEl.hidden = true;
@@ -207,14 +220,15 @@
 
     submitEl.disabled = true;
     loadingEl.hidden = false;
-    loadingMsgEl.textContent = LOADING_MSGS[0];
+    var MSGS = loadingMsgs();
+    loadingMsgEl.textContent = MSGS[0];
     loadingEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
     var step = 0;
     var ticker = setInterval(function () {
       step++;
-      if (step < LOADING_MSGS.length) {
-        loadingMsgEl.textContent = LOADING_MSGS[step];
+      if (step < MSGS.length) {
+        loadingMsgEl.textContent = MSGS[step];
         return;
       }
       clearInterval(ticker);
@@ -222,5 +236,9 @@
       submitEl.disabled = false;
       showResults(data);
     }, 700);
+  });
+
+  document.addEventListener('valens:langchange', function () {
+    if (lastData && !resultsEl.hidden) showResults(lastData, true);
   });
 })();

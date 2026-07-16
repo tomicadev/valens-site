@@ -3,6 +3,7 @@
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var I = window.VALENS_I18N || { t: function (k, f) { return f; } };
 
   // --- Nav solid-on-scroll ---
   var nav = document.querySelector('[data-nav]');
@@ -86,14 +87,22 @@
   if (track && slides.length && dotsWrap) {
     var currentIndex = -1;
 
+    function dotLabel(i) {
+      return I.t('showcase.dot', 'Go to screenshot {n}').replace('{n}', String(i + 1));
+    }
+
     var dots = slides.map(function (_, i) {
       var dot = document.createElement('button');
       dot.type = 'button';
       dot.className = 'showcase__dot';
-      dot.setAttribute('aria-label', 'Go to screenshot ' + (i + 1));
+      dot.setAttribute('aria-label', dotLabel(i));
       dot.addEventListener('click', function () { scrollToIndex(i); });
       dotsWrap.appendChild(dot);
       return dot;
+    });
+
+    document.addEventListener('valens:langchange', function () {
+      dots.forEach(function (dot, i) { dot.setAttribute('aria-label', dotLabel(i)); });
     });
 
     function scrollToIndex(i) {
@@ -232,18 +241,18 @@
       }
       var email = emailInput.value.trim();
       if (!EMAIL_RE.test(email)) {
-        setStatus('Enter a valid email address.', 'error');
+        setStatus(I.t('common.err.email', 'Enter a valid email address.'), 'error');
         return;
       }
 
       var config = window.VALENS_CONFIG || {};
       if (!config.SUPABASE_URL || !config.SUPABASE_ANON_KEY) {
-        setStatus('Signups are not configured yet.', 'error');
+        setStatus(I.t('capture.err.config', 'Signups are not configured yet.'), 'error');
         return;
       }
 
       if (submitBtn) submitBtn.disabled = true;
-      setStatus('Sending…', 'pending');
+      setStatus(I.t('common.sending', 'Sending…'), 'pending');
 
       fetch(config.SUPABASE_URL + '/rest/v1/newsletter_signups', {
         method: 'POST',
@@ -257,14 +266,14 @@
       })
         .then(function (response) {
           if (response.ok || response.status === 409) {
-            setStatus("You're in — we'll email you at launch.", 'success');
+            setStatus(I.t('capture.ok', "You're in — we'll email you at launch."), 'success');
             form.reset();
           } else {
-            setStatus('Something went wrong. Try again in a moment.', 'error');
+            setStatus(I.t('common.err.generic', 'Something went wrong. Try again in a moment.'), 'error');
           }
         })
         .catch(function () {
-          setStatus('Network error. Try again in a moment.', 'error');
+          setStatus(I.t('common.err.network', 'Network error. Try again in a moment.'), 'error');
         })
         .finally(function () {
           if (submitBtn) submitBtn.disabled = false;
