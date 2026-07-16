@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VALENS E-books — Training &amp; Nutrition Plans</title>
-  <meta name="description" content="Training programs and nutrition plans built to be followed — plus 1-on-1 online coaching with the creator of VALENS.">
+  <title data-i18n="meta.title.ebooks">VALENS E-books — Training &amp; Nutrition Plans</title>
+  <meta name="description" content="Training programs and nutrition plans built to be followed — plus 1-on-1 online coaching with the creator of VALENS." data-i18n-attr="content:meta.desc.ebooks">
 
   <link rel="icon" type="image/svg+xml" href="assets/valens.svg">
   <link rel="canonical" href="https://valens.rs/ebooks.html">
@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="visually-hidden" href="#main">Skip to content</a>
+  <a class="visually-hidden" href="#main" data-i18n="a11y.skip">Skip to content</a>
 
   <header class="nav" data-nav>
     <div class="container nav__inner">
@@ -34,17 +34,17 @@
       </button>
       <div class="nav__menu" id="nav-menu" data-nav-menu>
         <nav class="nav__links" aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a href="#training">Training</a>
-          <a href="#nutrition">Nutrition</a>
-          <a href="#coaching">Coaching</a>
-          <a href="#about">About</a>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="#training" data-i18n="cat.training">Training</a>
+          <a href="#nutrition" data-i18n="cat.nutrition">Nutrition</a>
+          <a href="#coaching" data-i18n="nav.coaching">Coaching</a>
+          <a href="#about" data-i18n="nav.about">About</a>
         </nav>
         <div class="lang-switch" role="group" aria-label="Language">
           <button type="button" data-lang-btn="en" class="is-active" aria-pressed="true">EN</button>
           <button type="button" data-lang-btn="sr" aria-pressed="false">SR</button>
         </div>
-        <a class="nav__cta btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app">Get the app</a>
+        <a class="nav__cta btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app" data-i18n="nav.cta">Get the app</a>
       </div>
     </div>
   </header>
@@ -57,13 +57,13 @@
       </div>
       <div class="hero__gridlines" aria-hidden="true"></div>
       <div class="container">
-        <p class="eyebrow intro" style="--d:0s">VALENS Store</p>
-        <h1 class="store-hero__title intro" style="--d:0.12s"><span class="grad-text">Programs built to be followed.</span></h1>
-        <p class="store-hero__sub intro" style="--d:0.24s">Structured training programs and nutrition plans — written to work hand-in-hand with the VALENS app.</p>
+        <p class="eyebrow intro" style="--d:0s" data-i18n="ebooks.hero.eyebrow">VALENS Store</p>
+        <h1 class="store-hero__title intro" style="--d:0.12s"><span class="grad-text" data-i18n="ebooks.hero.title">Programs built to be followed.</span></h1>
+        <p class="store-hero__sub intro" style="--d:0.24s" data-i18n="ebooks.hero.sub">Structured training programs and nutrition plans — written to work hand-in-hand with the VALENS app.</p>
         <div class="store-hero__actions intro" style="--d:0.36s">
-          <a class="btn-pill" href="#calculator">Find my plan</a>
-          <a class="btn-ghost" href="#training">Training plans</a>
-          <a class="btn-ghost" href="#nutrition">Nutrition plans</a>
+          <a class="btn-pill" href="#calculator" data-i18n="ebooks.hero.cta.plan">Find my plan</a>
+          <a class="btn-ghost" href="#training" data-i18n="ebooks.hero.cta.training">Training plans</a>
+          <a class="btn-ghost" href="#nutrition" data-i18n="ebooks.hero.cta.nutrition">Nutrition plans</a>
         </div>
       </div>
     </section>
@@ -72,53 +72,53 @@
       <div class="container">
         <div class="calc" data-reveal>
           <div class="calc__head">
-            <p class="eyebrow">Find your plan</p>
-            <h2 class="section-title">Not sure where to start?</h2>
-            <p class="section-sub">Answer a few quick questions — I'll calculate your daily calories and match you with the right training program and nutrition plan for your goal.</p>
+            <p class="eyebrow" data-i18n="calc.eyebrow">Find your plan</p>
+            <h2 class="section-title" data-i18n="calc.title">Not sure where to start?</h2>
+            <p class="section-sub" data-i18n="calc.sub">Answer a few quick questions — I'll calculate your daily calories and match you with the right training program and nutrition plan for your goal.</p>
           </div>
 
           <form class="calc__form" data-calc-form novalidate>
             <div class="calc__grid">
               <div class="calc__field">
-                <label for="calc-sex">Sex</label>
+                <label for="calc-sex" data-i18n="calc.label.sex">Sex</label>
                 <select id="calc-sex" data-calc-sex>
-                  <option value="m">Male</option>
-                  <option value="f">Female</option>
+                  <option value="m" data-i18n="calc.opt.male">Male</option>
+                  <option value="f" data-i18n="calc.opt.female">Female</option>
                 </select>
               </div>
               <div class="calc__field">
-                <label for="calc-age">Age</label>
+                <label for="calc-age" data-i18n="calc.label.age">Age</label>
                 <input id="calc-age" type="number" inputmode="numeric" min="14" max="90" placeholder="25" data-calc-age>
               </div>
               <div class="calc__field">
-                <label for="calc-height">Height (cm)</label>
+                <label for="calc-height" data-i18n="calc.label.height">Height (cm)</label>
                 <input id="calc-height" type="number" inputmode="numeric" min="120" max="230" placeholder="180" data-calc-height>
               </div>
               <div class="calc__field">
-                <label for="calc-weight">Weight (kg)</label>
+                <label for="calc-weight" data-i18n="calc.label.weight">Weight (kg)</label>
                 <input id="calc-weight" type="number" inputmode="numeric" min="35" max="250" placeholder="80" data-calc-weight>
               </div>
               <div class="calc__field calc__field--wide">
-                <label for="calc-activity">Activity level</label>
+                <label for="calc-activity" data-i18n="calc.label.activity">Activity level</label>
                 <select id="calc-activity" data-calc-activity>
-                  <option value="1.2">Sedentary — desk job, little or no exercise</option>
-                  <option value="1.375">Lightly active — training 1–3 days a week</option>
-                  <option value="1.55" selected>Moderately active — training 3–5 days a week</option>
-                  <option value="1.725">Very active — training 6–7 days a week</option>
-                  <option value="1.9">Extremely active — physical job + daily training</option>
+                  <option value="1.2" data-i18n="calc.act.sedentary">Sedentary — desk job, little or no exercise</option>
+                  <option value="1.375" data-i18n="calc.act.light">Lightly active — training 1–3 days a week</option>
+                  <option value="1.55" selected data-i18n="calc.act.moderate">Moderately active — training 3–5 days a week</option>
+                  <option value="1.725" data-i18n="calc.act.very">Very active — training 6–7 days a week</option>
+                  <option value="1.9" data-i18n="calc.act.extreme">Extremely active — physical job + daily training</option>
                 </select>
               </div>
             </div>
 
-            <div class="calc__goals" role="radiogroup" aria-label="Your goal">
-              <button type="button" class="calc__goal is-active" role="radio" aria-checked="true" data-goal="fatloss">Lose fat</button>
-              <button type="button" class="calc__goal" role="radio" aria-checked="false" data-goal="muscle">Build muscle</button>
-              <button type="button" class="calc__goal" role="radio" aria-checked="false" data-goal="maintain">Maintain</button>
-              <button type="button" class="calc__goal" role="radio" aria-checked="false" data-goal="recomp">Recomposition</button>
-              <button type="button" class="calc__goal" role="radio" aria-checked="false" data-goal="gain">Gain weight</button>
+            <div class="calc__goals" role="radiogroup" aria-label="Your goal" data-i18n-attr="aria-label:calc.goals.aria">
+              <button type="button" class="calc__goal is-active" role="radio" aria-checked="true" data-goal="fatloss" data-i18n="calc.goal.fatloss">Lose fat</button>
+              <button type="button" class="calc__goal" role="radio" aria-checked="false" data-goal="muscle" data-i18n="calc.goal.muscle">Build muscle</button>
+              <button type="button" class="calc__goal" role="radio" aria-checked="false" data-goal="maintain" data-i18n="calc.goal.maintain">Maintain</button>
+              <button type="button" class="calc__goal" role="radio" aria-checked="false" data-goal="recomp" data-i18n="calc.goal.recomp">Recomposition</button>
+              <button type="button" class="calc__goal" role="radio" aria-checked="false" data-goal="gain" data-i18n="calc.goal.gain">Gain weight</button>
             </div>
 
-            <button type="submit" class="calc__submit" data-calc-submit>Find my plan</button>
+            <button type="submit" class="calc__submit" data-calc-submit data-i18n="calc.submit">Find my plan</button>
             <p class="capture__status calc__status" data-calc-status role="status" aria-live="polite"></p>
           </form>
 
@@ -130,12 +130,12 @@
           <div class="calc__results" data-calc-results hidden>
             <div class="calc__stats">
               <div class="calc__stat"><strong data-calc-bmi>—</strong><span>BMI · <em data-calc-bmi-cat></em></span></div>
-              <div class="calc__stat"><strong data-calc-tdee>—</strong><span>Maintenance kcal</span></div>
-              <div class="calc__stat"><strong data-calc-target>—</strong><span>Daily target kcal</span></div>
+              <div class="calc__stat"><strong data-calc-tdee>—</strong><span data-i18n="calc.stat.maintenance">Maintenance kcal</span></div>
+              <div class="calc__stat"><strong data-calc-target>—</strong><span data-i18n="calc.stat.target">Daily target kcal</span></div>
             </div>
             <p class="calc__note" data-calc-note hidden></p>
             <div class="calc__cards" data-calc-cards></div>
-            <p class="calc__disclaimer">Estimates for guidance only — not medical advice.</p>
+            <p class="calc__disclaimer" data-i18n="calc.disclaimer">Estimates for guidance only — not medical advice.</p>
           </div>
 
           <div class="calc__confetti" data-calc-confetti aria-hidden="true"></div>
@@ -146,25 +146,25 @@
     <section id="training">
       <div class="container">
         <div class="section-head" data-reveal>
-          <p class="eyebrow">Training</p>
-          <h2 class="section-title">Training plans</h2>
+          <p class="eyebrow" data-i18n="cat.training">Training</p>
+          <h2 class="section-title" data-i18n="ebooks.training.title">Training plans</h2>
         </div>
         <div class="books" data-reveal-stagger>
           <article class="book" data-reveal data-price="€29" data-ls-url="">
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#8465D6; --a2:#1F1B4E">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Training</span>
+                <span class="book__cover-cat" data-i18n="cat.training">Training</span>
                 <span class="book__cover-title">Mr. VALENS</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">Mr. VALENS — 5-Day Hypertrophy</h3>
-              <p class="book__desc">Our most demanding flagship — engineered set by set.</p>
+              <h3 class="book__title" data-i18n="books.mrv.title">Mr. VALENS — 5-Day Hypertrophy</h3>
+              <p class="book__desc" data-i18n="books.mrv.desc">Our most demanding flagship — engineered set by set.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€29</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A 5-day Upper/Lower/Push/Pull/Legs hypertrophy program refined over countless sessions. Every exercise is hand-picked for its stimulus-to-fatigue ratio, every set carries a rep target and an RIR cue, and the movement selection leans on cables and machines for constant tension and joint-friendly volume.</p>
@@ -183,17 +183,17 @@
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#B06AC9; --a2:#3A1E4B">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Training</span>
+                <span class="book__cover-cat" data-i18n="cat.training">Training</span>
                 <span class="book__cover-title">Be VALENS</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">Be VALENS — 4-Week Ramp</h3>
-              <p class="book__desc">Four weeks. The weight holds. The effort climbs.</p>
+              <h3 class="book__title" data-i18n="books.bev.title">Be VALENS — 4-Week Ramp</h3>
+              <p class="book__desc" data-i18n="books.bev.desc">Four weeks. The weight holds. The effort climbs.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€29</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A 4-week ramping hypertrophy block on a 5-day Upper/Lower/Push/Pull/Legs split. The exercises, sets and reps never change — each week the prescribed effort climbs, from reps in the tank to an all-out final week. You bring the weight; the block teaches you to push.</p>
@@ -212,17 +212,17 @@
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#6F4DB3; --a2:#2A1C55">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Training</span>
+                <span class="book__cover-cat" data-i18n="cat.training">Training</span>
                 <span class="book__cover-title">Learn or Perish</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">Learn or Perish — Foundation Block</h3>
-              <p class="book__desc">Learn to repeat a rep. Learn what hard feels like.</p>
+              <h3 class="book__title" data-i18n="books.lop.title">Learn or Perish — Foundation Block</h3>
+              <p class="book__desc" data-i18n="books.lop.desc">Learn to repeat a rep. Learn what hard feels like.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€29</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A 4-week foundation block on a 5-day split. It grooves technique on the main lifts and builds work capacity before intensity rises, week by week. Each set prescribes reps and an RIR cue so you learn to gauge real effort — the honest place to start a serious training journey.</p>
@@ -241,17 +241,17 @@
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#9B78D4; --a2:#25164A">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Training</span>
+                <span class="book__cover-cat" data-i18n="cat.training">Training</span>
                 <span class="book__cover-title">Apex PPL</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">Apex PPL — 6-Day Push/Pull/Legs</h3>
-              <p class="book__desc">Every muscle, twice a week, for relentless size.</p>
+              <h3 class="book__title" data-i18n="books.apex.title">Apex PPL — 6-Day Push/Pull/Legs</h3>
+              <p class="book__desc" data-i18n="books.apex.desc">Every muscle, twice a week, for relentless size.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€29</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A 6-day push/pull/legs split for steady size and strength. Every muscle is trained twice a week; the A sessions open heavy, the B sessions open with a different lift and rep range. Every set carries a target rep count and an RIR cue — you bring the working weight, the program guides the effort.</p>
@@ -270,17 +270,17 @@
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#7A4FD0; --a2:#1A1440">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Training</span>
+                <span class="book__cover-cat" data-i18n="cat.training">Training</span>
                 <span class="book__cover-title">Iron 5×5</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">Iron Foundation — 5×5 Strength</h3>
-              <p class="book__desc">Three sessions. Three lifts. Five sets of five.</p>
+              <h3 class="book__title" data-i18n="books.iron.title">Iron Foundation — 5×5 Strength</h3>
+              <p class="book__desc" data-i18n="books.iron.desc">Three sessions. Three lifts. Five sets of five.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€29</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A 3-day strength block centred on 5×5 work on the squat, bench and deadlift, backed by targeted accessories. Tight RIR targets on the main lifts build raw strength; you add weight as you progress, and the reps and effort are mapped for you.</p>
@@ -299,17 +299,17 @@
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#5B3E9E; --a2:#301F52">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Training</span>
+                <span class="book__cover-cat" data-i18n="cat.training">Training</span>
                 <span class="book__cover-title">PHUL</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">PHUL — Power &amp; Hypertrophy</h3>
-              <p class="book__desc">Two power days, two hypertrophy days, one strong week.</p>
+              <h3 class="book__title" data-i18n="books.phul.title">PHUL — Power &amp; Hypertrophy</h3>
+              <p class="book__desc" data-i18n="books.phul.desc">Two power days, two hypertrophy days, one strong week.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€29</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A 4-day Power/Hypertrophy Upper-Lower program: two heavier power days to drive strength, two higher-volume hypertrophy days to drive size. Power days run tighter and heavier; hypertrophy days chase the pump. You bring the weight.</p>
@@ -330,9 +330,9 @@
     <section id="nutrition">
       <div class="container">
         <div class="section-head" data-reveal>
-          <p class="eyebrow">Nutrition</p>
-          <h2 class="section-title">Nutrition e-books</h2>
-          <p class="section-sub">Pick your daily calories. Every bundle includes a 7-day meal plan, 31 high-protein recipes and the full Nutrition Fundamentals guide — in Serbian or English.</p>
+          <p class="eyebrow" data-i18n="cat.nutrition">Nutrition</p>
+          <h2 class="section-title" data-i18n="ebooks.nutrition.title">Nutrition e-books</h2>
+          <p class="section-sub" data-i18n="ebooks.nutrition.sub">Pick your daily calories. Every bundle includes a 7-day meal plan, 31 high-protein recipes and the full Nutrition Fundamentals guide — in Serbian or English.</p>
         </div>
         <div class="books" data-reveal-stagger>
           <article class="book" data-reveal data-price="€49" data-ls-url="">
@@ -340,17 +340,17 @@
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#B06AC9; --a2:#3A1E4B">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Nutrition</span>
+                <span class="book__cover-cat" data-i18n="cat.nutrition">Nutrition</span>
                 <span class="book__cover-title">1800 kcal</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">Nutrition Bundle — 1800 kcal</h3>
-              <p class="book__desc">A calorie-controlled plan for steady fat loss.</p>
+              <h3 class="book__title" data-i18n="books.n1800.title">Nutrition Bundle — 1800 kcal</h3>
+              <p class="book__desc" data-i18n="books.n1800.desc">A calorie-controlled plan for steady fat loss.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€49</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A complete 1800 kcal nutrition system: a structured 7-day meal plan, 31 high-protein recipes, and the full Nutrition Fundamentals guide. Choose Serbian or English at checkout.</p>
@@ -369,17 +369,17 @@
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#8465D6; --a2:#1F1B4E">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Nutrition</span>
+                <span class="book__cover-cat" data-i18n="cat.nutrition">Nutrition</span>
                 <span class="book__cover-title">2000 kcal</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">Nutrition Bundle — 2000 kcal</h3>
-              <p class="book__desc">Lean and balanced — the everyday baseline.</p>
+              <h3 class="book__title" data-i18n="books.n2000.title">Nutrition Bundle — 2000 kcal</h3>
+              <p class="book__desc" data-i18n="books.n2000.desc">Lean and balanced — the everyday baseline.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€49</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A complete 2000 kcal nutrition system: a structured 7-day meal plan, 31 high-protein recipes, and the full Nutrition Fundamentals guide. Choose Serbian or English at checkout.</p>
@@ -398,17 +398,17 @@
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#6F4DB3; --a2:#2A1C55">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Nutrition</span>
+                <span class="book__cover-cat" data-i18n="cat.nutrition">Nutrition</span>
                 <span class="book__cover-title">2200 kcal</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">Nutrition Bundle — 2200 kcal</h3>
-              <p class="book__desc">A little more fuel for active training days.</p>
+              <h3 class="book__title" data-i18n="books.n2200.title">Nutrition Bundle — 2200 kcal</h3>
+              <p class="book__desc" data-i18n="books.n2200.desc">A little more fuel for active training days.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€49</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A complete 2200 kcal nutrition system: a structured 7-day meal plan, 31 high-protein recipes, and the full Nutrition Fundamentals guide. Choose Serbian or English at checkout.</p>
@@ -427,17 +427,17 @@
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#9B78D4; --a2:#25164A">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Nutrition</span>
+                <span class="book__cover-cat" data-i18n="cat.nutrition">Nutrition</span>
                 <span class="book__cover-title">2500 kcal</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">Nutrition Bundle — 2500 kcal</h3>
-              <p class="book__desc">Maintenance and higher energy needs, dialed in.</p>
+              <h3 class="book__title" data-i18n="books.n2500.title">Nutrition Bundle — 2500 kcal</h3>
+              <p class="book__desc" data-i18n="books.n2500.desc">Maintenance and higher energy needs, dialed in.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€49</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A complete 2500 kcal nutrition system: a structured 7-day meal plan, 31 high-protein recipes, and the full Nutrition Fundamentals guide. Choose Serbian or English at checkout.</p>
@@ -456,17 +456,17 @@
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#7A4FD0; --a2:#1A1440">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Nutrition</span>
+                <span class="book__cover-cat" data-i18n="cat.nutrition">Nutrition</span>
                 <span class="book__cover-title">2800 kcal</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">Nutrition Bundle — 2800 kcal</h3>
-              <p class="book__desc">Built to support muscle growth.</p>
+              <h3 class="book__title" data-i18n="books.n2800.title">Nutrition Bundle — 2800 kcal</h3>
+              <p class="book__desc" data-i18n="books.n2800.desc">Built to support muscle growth.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€49</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A complete 2800 kcal nutrition system: a structured 7-day meal plan, 31 high-protein recipes, and the full Nutrition Fundamentals guide. Choose Serbian or English at checkout.</p>
@@ -485,17 +485,17 @@
             <button class="book__open" type="button" data-book-open aria-haspopup="dialog">
               <span class="book__cover" style="--a1:#5B3E9E; --a2:#301F52">
                 <img class="book__mark" src="assets/valens.svg" alt="">
-                <span class="book__cover-cat">Nutrition</span>
+                <span class="book__cover-cat" data-i18n="cat.nutrition">Nutrition</span>
                 <span class="book__cover-title">3000 kcal</span>
               </span>
             </button>
             <div>
-              <h3 class="book__title">Nutrition Bundle — 3000 kcal</h3>
-              <p class="book__desc">A high-calorie plan for a serious lean bulk.</p>
+              <h3 class="book__title" data-i18n="books.n3000.title">Nutrition Bundle — 3000 kcal</h3>
+              <p class="book__desc" data-i18n="books.n3000.desc">A high-calorie plan for a serious lean bulk.</p>
             </div>
             <div class="book__meta">
               <span class="book__price">€49</span>
-              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog">View details</button>
+              <button class="btn-ghost" type="button" data-book-open aria-haspopup="dialog" data-i18n="book.details">View details</button>
             </div>
             <div class="book__extra" hidden>
               <p>A complete 3000 kcal nutrition system: a structured 7-day meal plan, 31 high-protein recipes, and the full Nutrition Fundamentals guide. Choose Serbian or English at checkout.</p>
@@ -516,11 +516,11 @@
       <div class="container">
         <div class="cta-coach" data-reveal>
           <div class="cta-coach__body">
-            <p class="eyebrow">Rather skip the reading?</p>
-            <h2>Let me handle the plan for you</h2>
-            <p>E-books, meal plans, tracking every workout — it's a lot to manage on your own. Work with me 1-on-1 and I'll take care of all of it: your training, your nutrition, weekly adjustments. You just show up.</p>
+            <p class="eyebrow" data-i18n="ebooks.skip.eyebrow">Rather skip the reading?</p>
+            <h2 data-i18n="ebooks.skip.title">Let me handle the plan for you</h2>
+            <p data-i18n="ebooks.skip.text">E-books, meal plans, tracking every workout — it's a lot to manage on your own. Work with me 1-on-1 and I'll take care of all of it: your training, your nutrition, weekly adjustments. You just show up.</p>
           </div>
-          <a class="btn-pill" href="#coaching">Apply for coaching</a>
+          <a class="btn-pill" href="#coaching" data-i18n="ebooks.skip.cta">Apply for coaching</a>
         </div>
       </div>
     </section>
@@ -530,32 +530,32 @@
         <div class="capture" data-reveal>
           <div class="capture__inner">
             <div>
-              <p class="eyebrow">1-on-1 Coaching</p>
-              <h2>Online coaching, directly with me</h2>
-              <p class="coach__price"><span>from </span><strong>€99</strong><span>/mo</span></p>
-              <p class="capture__sub">Personalized training and nutrition, weekly check-ins through the VALENS app, and a plan that adapts to your life — not the other way around. Limited spots.</p>
+              <p class="eyebrow" data-i18n="coach.eyebrow">1-on-1 Coaching</p>
+              <h2 data-i18n="coach.title">Online coaching, directly with me</h2>
+              <p class="coach__price"><span data-i18n="coach.price.from">from </span><strong>€99</strong><span data-i18n="coach.price.per">/mo</span></p>
+              <p class="capture__sub" data-i18n="coach.sub">Personalized training and nutrition, weekly check-ins through the VALENS app, and a plan that adapts to your life — not the other way around. Limited spots.</p>
               <ul class="coach__includes">
-                <li>Personalized training program</li>
-                <li>Custom nutrition plan</li>
-                <li>Weekly check-ins through the VALENS app</li>
-                <li>Direct chat access to me</li>
-                <li>Video form reviews</li>
-                <li>Plan adjustments as you progress</li>
+                <li data-i18n="coach.inc.1">Personalized training program</li>
+                <li data-i18n="coach.inc.2">Custom nutrition plan</li>
+                <li data-i18n="coach.inc.3">Weekly check-ins through the VALENS app</li>
+                <li data-i18n="coach.inc.4">Direct chat access to me</li>
+                <li data-i18n="coach.inc.5">Video form reviews</li>
+                <li data-i18n="coach.inc.6">Plan adjustments as you progress</li>
               </ul>
-              <a class="btn-ghost" href="#about">About me</a>
+              <a class="btn-ghost" href="#about" data-i18n="coach.about">About me</a>
             </div>
             <form class="capture__form" data-coach-form novalidate>
-              <label class="visually-hidden" for="coach-name">Your name</label>
-              <input id="coach-name" type="text" name="name" placeholder="Your name" required data-coach-name>
-              <label class="visually-hidden" for="coach-email">Email address</label>
-              <input id="coach-email" type="email" name="email" placeholder="you@example.com" required data-coach-email>
-              <label class="visually-hidden" for="coach-message">Your goal</label>
-              <textarea id="coach-message" name="message" placeholder="Tell me about your goal…" data-coach-message></textarea>
+              <label class="visually-hidden" for="coach-name" data-i18n="coach.label.name">Your name</label>
+              <input id="coach-name" type="text" name="name" placeholder="Your name" required data-coach-name data-i18n-attr="placeholder:coach.ph.name">
+              <label class="visually-hidden" for="coach-email" data-i18n="coach.label.email">Email address</label>
+              <input id="coach-email" type="email" name="email" placeholder="you@example.com" required data-coach-email data-i18n-attr="placeholder:coach.ph.email">
+              <label class="visually-hidden" for="coach-message" data-i18n="coach.label.goal">Your goal</label>
+              <textarea id="coach-message" name="message" placeholder="Tell me about your goal…" data-coach-message data-i18n-attr="placeholder:coach.ph.message"></textarea>
               <div class="visually-hidden" aria-hidden="true">
                 <label for="coach-website">Website</label>
                 <input id="coach-website" type="text" name="website" tabindex="-1" autocomplete="off" data-coach-honeypot>
               </div>
-              <button type="submit" data-coach-submit>Apply for coaching</button>
+              <button type="submit" data-coach-submit data-i18n="coach.submit">Apply for coaching</button>
               <noscript><p class="capture__status">Enable JavaScript to apply, or email us at valens.gym.app@gmail.com.</p></noscript>
               <p class="capture__status" data-coach-status role="status" aria-live="polite"></p>
             </form>
@@ -568,16 +568,16 @@
       <div class="container">
         <div class="about" data-reveal>
           <div class="about__photo">
-            <img class="about__photo-img" src="assets/coach.webp" alt="Your coach at the gym" loading="lazy" width="800" height="1000">
+            <img class="about__photo-img" src="assets/coach.webp" alt="Your coach at the gym" loading="lazy" width="800" height="1000" data-i18n-attr="alt:about.photo.alt">
           </div>
           <div class="about__body">
-            <p class="eyebrow">About</p>
-            <h2 class="section-title">Meet your coach</h2>
-            <p class="about__bio">I'm a lifelong lifter and online coach — I built VALENS to train the way I wish I'd been taught from day one: structured, honest, and progress-driven. I've spent years helping people cut through gym noise, fix their form, and actually reach their goals. Coaching with me is direct, personal, and built around your life.</p>
+            <p class="eyebrow" data-i18n="about.eyebrow">About</p>
+            <h2 class="section-title" data-i18n="about.title">Meet your coach</h2>
+            <p class="about__bio" data-i18n="about.bio">I'm a lifelong lifter and online coach — I built VALENS to train the way I wish I'd been taught from day one: structured, honest, and progress-driven. I've spent years helping people cut through gym noise, fix their form, and actually reach their goals. Coaching with me is direct, personal, and built around your life.</p>
             <div class="about__stats">
-              <div class="about__stat"><strong>3+</strong><span>years coaching</span></div>
-              <div class="about__stat"><strong>50+</strong><span>clients trained</span></div>
-              <div class="about__stat"><strong>Certified</strong><span>strength &amp; nutrition</span></div>
+              <div class="about__stat"><strong>3+</strong><span data-i18n="about.stat.years">years coaching</span></div>
+              <div class="about__stat"><strong>50+</strong><span data-i18n="about.stat.clients">clients trained</span></div>
+              <div class="about__stat"><strong data-i18n="about.stat.cert.value">Certified</strong><span data-i18n="about.stat.cert.label">strength &amp; nutrition</span></div>
             </div>
             <div class="about__socials">
               <a class="social__link" href="https://www.instagram.com/matija_velickovic" target="_blank" rel="noopener" aria-label="Instagram">
@@ -608,12 +608,12 @@
         <span class="chip">Early Access</span>
       </div>
       <ul class="footer__links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="ebooks.html">E-books</a></li>
-        <li><a href="store.html">Store</a></li>
-        <li><a href="https://tomicadev.github.io/valens-legal/privacy-policy.html">Privacy</a></li>
-        <li><a href="https://tomicadev.github.io/valens-legal/account-deletion.html">Account deletion</a></li>
-        <li><a href="mailto:valens.gym.app@gmail.com">Contact</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="ebooks.html" data-i18n="nav.ebooks">E-books</a></li>
+        <li><a href="store.html" data-i18n="nav.store">Store</a></li>
+        <li><a href="https://tomicadev.github.io/valens-legal/privacy-policy.html" data-i18n="footer.privacy">Privacy</a></li>
+        <li><a href="https://tomicadev.github.io/valens-legal/account-deletion.html" data-i18n="footer.deletion">Account deletion</a></li>
+        <li><a href="mailto:valens.gym.app@gmail.com" data-i18n="footer.contact">Contact</a></li>
       </ul>
     </div>
   </footer>
