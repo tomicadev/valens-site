@@ -904,6 +904,12 @@ a.visually-hidden:focus {
 .nav.is-open .nav__menu { transform: none; opacity: 1; visibility: visible; }
 .nav__menu .nav__links { flex-direction: column; gap: 16px; font-size: 0.95rem; }
 .nav__menu .nav__cta { align-self: flex-start; }
+.nav__menu .lang-switch { align-self: center; }
+
+.lang-switch { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid rgba(155, 120, 212, 0.25); border-radius: 999px; }
+.lang-switch button { padding: 4px 12px; background: none; border: 0; cursor: pointer; border-radius: 999px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; color: var(--muted); transition: color 0.2s ease, background 0.2s ease; }
+.lang-switch button.is-active { background: linear-gradient(135deg, var(--light-purple), var(--purple)); color: #fff; }
+.lang-switch button:not(.is-active):hover { color: var(--ink); }
 
 @media (min-width: 720px) {
   .nav__toggle { display: none; }

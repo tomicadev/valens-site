@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VALENS Store — Merch &amp; Accessories</title>
-  <meta name="description" content="Branded VALENS apparel and training accessories — merch and gear built for the gym floor.">
+  <title data-i18n="meta.title.store">VALENS Store — Merch &amp; Accessories</title>
+  <meta name="description" content="Branded VALENS apparel and training accessories — merch and gear built for the gym floor." data-i18n-attr="content:meta.desc.store">
 
   <link rel="icon" type="image/svg+xml" href="assets/valens.svg">
   <link rel="canonical" href="https://valens.rs/store.html">
@@ -22,30 +22,34 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="visually-hidden" href="#main">Skip to content</a>
+  <a class="visually-hidden" href="#main" data-i18n="a11y.skip">Skip to content</a>
 
   <header class="nav" data-nav>
     <div class="container nav__inner">
       <a class="nav__brand" href="index.html">
         <img src="assets/valens.svg" alt="VALENS" width="28" height="28">
       </a>
-      <button class="cart-btn" type="button" data-cart-toggle aria-label="Open cart">
+      <button class="cart-btn" type="button" data-cart-toggle aria-label="Open cart" data-i18n-attr="aria-label:store.cart.open">
         <svg class="cart-btn__icon" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="9.2" cy="20" r="1.5"/><circle cx="17.3" cy="20" r="1.5"/>
           <path d="M2.6 3.6h2.5l2.4 11.6h10.2l2.7-8.3H6.1"/>
         </svg>
         <span class="cart-btn__count" data-cart-count hidden>0</span>
       </button>
-      <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+      <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" aria-label="Menu" data-i18n-attr="aria-label:a11y.menu">
         <span></span><span></span><span></span>
       </button>
       <div class="nav__menu" id="nav-menu" data-nav-menu>
-        <nav class="nav__links" aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a href="#merch">Merch</a>
-          <a href="#accessories">Accessories</a>
+        <nav class="nav__links" aria-label="Primary" data-i18n-attr="aria-label:a11y.nav.primary">
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="#merch" data-i18n="store.nav.merch">Merch</a>
+          <a href="#accessories" data-i18n="store.group.accessories">Accessories</a>
         </nav>
-        <a class="nav__cta btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app">Get the app</a>
+        <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:a11y.lang">
+          <button type="button" data-lang-btn="en" class="is-active" aria-pressed="true">EN</button>
+          <button type="button" data-lang-btn="sr" aria-pressed="false">SR</button>
+        </div>
+        <a class="nav__cta btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app" data-i18n="nav.cta">Get the app</a>
       </div>
     </div>
   </header>
@@ -58,12 +62,12 @@
       </div>
       <div class="hero__gridlines" aria-hidden="true"></div>
       <div class="container">
-        <p class="eyebrow intro" style="--d:0s">VALENS Store</p>
-        <h1 class="store-hero__title intro" style="--d:0.12s"><span class="grad-text">Wear the work.</span></h1>
-        <p class="store-hero__sub intro" style="--d:0.24s">Branded apparel and training accessories, built for the gym floor. Cash on delivery, free shipping across Serbia.</p>
+        <p class="eyebrow intro" style="--d:0s" data-i18n="store.hero.eyebrow">VALENS Store</p>
+        <h1 class="store-hero__title intro" style="--d:0.12s"><span class="grad-text" data-i18n="store.hero.title">Wear the work.</span></h1>
+        <p class="store-hero__sub intro" style="--d:0.24s" data-i18n="store.hero.sub">Branded apparel and training accessories, built for the gym floor. Cash on delivery, free shipping across Serbia.</p>
         <div class="store-hero__actions intro" style="--d:0.36s">
-          <a class="btn-pill" href="#merch">Merch</a>
-          <a class="btn-ghost" href="#accessories">Accessories</a>
+          <a class="btn-pill" href="#merch" data-i18n="store.nav.merch">Merch</a>
+          <a class="btn-ghost" href="#accessories" data-i18n="store.group.accessories">Accessories</a>
         </div>
       </div>
     </section>
@@ -71,26 +75,26 @@
     <section id="merch">
       <div class="container">
         <div class="section-head" data-reveal>
-          <p class="eyebrow">Store</p>
-          <h2 class="section-title">Gear up in VALENS</h2>
-          <p class="section-sub">Apparel and accessories built for the gym floor. Cash on delivery, free shipping across Serbia.</p>
+          <p class="eyebrow" data-i18n="store.sec.eyebrow">Store</p>
+          <h2 class="section-title" data-i18n="store.sec.title">Gear up in VALENS</h2>
+          <p class="section-sub" data-i18n="store.sec.sub">Apparel and accessories built for the gym floor. Cash on delivery, free shipping across Serbia.</p>
         </div>
-        <h3 class="products-group" data-reveal>Apparel</h3>
+        <h3 class="products-group" data-reveal data-i18n="store.group.apparel">Apparel</h3>
         <div class="products" data-products-grid="Apparel"></div>
-        <h3 class="products-group" id="accessories" data-reveal>Accessories</h3>
+        <h3 class="products-group" id="accessories" data-reveal data-i18n="store.group.accessories">Accessories</h3>
         <div class="products" data-products-grid="Accessories"></div>
       </div>
     </section>
 
-    <aside class="cart-drawer" data-cart-drawer hidden aria-label="Cart">
+    <aside class="cart-drawer" data-cart-drawer hidden aria-label="Cart" data-i18n-attr="aria-label:store.cart.aria">
       <div class="cart-drawer__head">
-        <h2>Your cart</h2>
-        <button class="cart-drawer__close" type="button" data-cart-close aria-label="Close cart">×</button>
+        <h2 data-i18n="store.cart.title">Your cart</h2>
+        <button class="cart-drawer__close" type="button" data-cart-close aria-label="Close cart" data-i18n-attr="aria-label:store.cart.close">×</button>
       </div>
       <div class="cart-drawer__body" data-cart-items></div>
       <div class="cart-drawer__foot">
-        <div class="cart-drawer__total"><span>Subtotal</span><strong data-cart-subtotal>€0</strong></div>
-        <button class="btn-ghost" type="button" data-cart-close>Continue shopping</button>
+        <div class="cart-drawer__total"><span data-i18n="store.cart.subtotal">Subtotal</span><strong data-cart-subtotal>€0</strong></div>
+        <button class="btn-ghost" type="button" data-cart-close data-i18n="store.continue">Continue shopping</button>
         <button class="btn-pill" type="button" data-cart-checkout>Checkout</button>
       </div>
     </aside>
@@ -99,23 +103,23 @@
     <section id="checkout" hidden>
       <div class="container">
         <div class="section-head" data-reveal>
-          <p class="eyebrow">Checkout</p>
-          <h2 class="section-title">Cash on delivery</h2>
-          <p class="section-sub">You pay the courier in cash when your order arrives. Free shipping across Serbia.</p>
+          <p class="eyebrow" data-i18n="store.co.eyebrow">Checkout</p>
+          <h2 class="section-title" data-i18n="store.co.title">Cash on delivery</h2>
+          <p class="section-sub" data-i18n="store.co.sub">You pay the courier in cash when your order arrives. Free shipping across Serbia.</p>
         </div>
         <div class="checkout">
           <form class="checkout__form" data-checkout-form novalidate>
             <div class="checkout__grid">
-              <label>Full name<input type="text" data-co-name required autocomplete="name"></label>
-              <label>Phone<input type="tel" data-co-phone required placeholder="06x xxx xx xx" autocomplete="tel"></label>
-              <label class="checkout__wide">Address (street & number)<input type="text" data-co-address required autocomplete="street-address"></label>
-              <label>City<input type="text" data-co-city required autocomplete="address-level2"></label>
-              <label>Postal code<input type="text" data-co-postal required autocomplete="postal-code"></label>
-              <label class="checkout__wide">Email (optional — for order confirmation)<input type="email" data-co-email autocomplete="email"></label>
-              <label class="checkout__wide">Note (optional)<textarea data-co-note rows="2"></textarea></label>
+              <label><span data-i18n="store.co.name">Full name</span><input type="text" data-co-name required autocomplete="name"></label>
+              <label><span data-i18n="store.co.phone">Phone</span><input type="tel" data-co-phone required placeholder="06x xxx xx xx" autocomplete="tel"></label>
+              <label class="checkout__wide"><span data-i18n="store.co.address">Address (street & number)</span><input type="text" data-co-address required autocomplete="street-address"></label>
+              <label><span data-i18n="store.co.city">City</span><input type="text" data-co-city required autocomplete="address-level2"></label>
+              <label><span data-i18n="store.co.postal">Postal code</span><input type="text" data-co-postal required autocomplete="postal-code"></label>
+              <label class="checkout__wide"><span data-i18n="store.co.email">Email (optional — for order confirmation)</span><input type="email" data-co-email autocomplete="email"></label>
+              <label class="checkout__wide"><span data-i18n="store.co.note">Note (optional)</span><textarea data-co-note rows="2"></textarea></label>
               <div class="visually-hidden" aria-hidden="true"><label>Website<input type="text" tabindex="-1" autocomplete="off" data-co-honeypot></label></div>
             </div>
-            <button type="submit" class="btn-pill" data-co-submit>Place order</button>
+            <button type="submit" class="btn-pill" data-co-submit data-i18n="store.co.submit">Place order</button>
             <p class="capture__status" data-co-status role="status" aria-live="polite"></p>
           </form>
           <aside class="checkout__summary" data-checkout-summary></aside>
@@ -123,11 +127,11 @@
         <div class="checkout-done" data-checkout-success hidden>
           <div class="checkout-done__confetti" data-confetti aria-hidden="true"></div>
           <div class="checkout-done__badge" aria-hidden="true">✓</div>
-          <h3 class="checkout-done__title">Thank you for your order!</h3>
-          <p class="checkout-done__ref">Order <strong data-done-ref></strong></p>
+          <h3 class="checkout-done__title" data-i18n="store.done.title">Thank you for your order!</h3>
+          <p class="checkout-done__ref"><span data-i18n="co.done.order">Order</span> <strong data-done-ref></strong></p>
           <div class="checkout-done__summary" data-done-summary></div>
           <p class="checkout-done__note" data-done-note></p>
-          <button type="button" class="btn-pill" data-done-continue>Continue shopping</button>
+          <button type="button" class="btn-pill" data-done-continue data-i18n="store.continue">Continue shopping</button>
         </div>
       </div>
     </section>
@@ -141,12 +145,12 @@
         <span class="chip">Early Access</span>
       </div>
       <ul class="footer__links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="ebooks.html">E-books</a></li>
-        <li><a href="store.html">Store</a></li>
-        <li><a href="https://tomicadev.github.io/valens-legal/privacy-policy.html">Privacy</a></li>
-        <li><a href="https://tomicadev.github.io/valens-legal/account-deletion.html">Account deletion</a></li>
-        <li><a href="mailto:valens.gym.app@gmail.com">Contact</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="ebooks.html" data-i18n="nav.ebooks">E-books</a></li>
+        <li><a href="store.html" data-i18n="nav.store">Store</a></li>
+        <li><a href="https://tomicadev.github.io/valens-legal/privacy-policy.html" data-i18n="footer.privacy">Privacy</a></li>
+        <li><a href="https://tomicadev.github.io/valens-legal/account-deletion.html" data-i18n="footer.deletion">Account deletion</a></li>
+        <li><a href="mailto:valens.gym.app@gmail.com" data-i18n="footer.contact">Contact</a></li>
       </ul>
     </div>
   </footer>
@@ -154,7 +158,7 @@
   <div class="modal" data-modal hidden>
     <div class="modal__backdrop" data-modal-close></div>
     <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button class="modal__close" type="button" data-modal-close aria-label="Close">✕</button>
+      <button class="modal__close" type="button" data-modal-close aria-label="Close" data-i18n-attr="aria-label:a11y.close">✕</button>
       <div class="modal__grid">
         <div class="modal__cover" data-modal-cover aria-hidden="true"></div>
         <div class="modal__body">
@@ -170,6 +174,7 @@
   </div>
 
   <script src="config.js"></script>
+  <script src="i18n.js"></script>
   <script src="main.js"></script>
   <script src="store.js"></script>
   <script src="shop.js"></script>
