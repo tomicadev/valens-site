@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VALENS — Workout tracker</title>
-  <meta name="description" content="Track every workout, smash PRs, and train alongside your friends.">
+  <title data-i18n="meta.title.home">VALENS — Workout tracker</title>
+  <meta name="description" content="Track every workout, smash PRs, and train alongside your friends." data-i18n-attr="content:meta.desc.home">
 
   <link rel="icon" type="image/svg+xml" href="assets/valens.svg">
 
@@ -33,16 +33,16 @@
       </button>
       <div class="nav__menu" id="nav-menu" data-nav-menu>
         <nav class="nav__links" aria-label="Primary">
-          <a href="#features">Features</a>
-          <a href="#screens">Screens</a>
-          <a href="ebooks.html">E-books</a>
-          <a href="store.html">Store</a>
+          <a href="#features" data-i18n="nav.features">Features</a>
+          <a href="#screens" data-i18n="nav.screens">Screens</a>
+          <a href="ebooks.html" data-i18n="nav.ebooks">E-books</a>
+          <a href="store.html" data-i18n="nav.store">Store</a>
         </nav>
         <div class="lang-switch" role="group" aria-label="Language">
           <button type="button" data-lang-btn="en" class="is-active" aria-pressed="true">EN</button>
           <button type="button" data-lang-btn="sr" aria-pressed="false">SR</button>
         </div>
-        <a class="nav__cta btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app">Get the app</a>
+        <a class="nav__cta btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app" data-i18n="nav.cta">Get the app</a>
       </div>
     </div>
   </header>
@@ -58,26 +58,26 @@
       <div class="container hero__inner">
         <div class="hero__copy">
           <h1 class="hero__title">
-            <span class="hero__line intro" style="--d:0.1s">Train smarter.</span>
-            <span class="hero__line hero__line--grad intro" style="--d:0.2s">Track everything.</span>
-            <span class="hero__line intro" style="--d:0.3s">Progress faster.</span>
+            <span class="hero__line intro" style="--d:0.1s" data-i18n="hero.line1">Train smarter.</span>
+            <span class="hero__line hero__line--grad intro" style="--d:0.2s" data-i18n="hero.line2">Track everything.</span>
+            <span class="hero__line intro" style="--d:0.3s" data-i18n="hero.line3">Progress faster.</span>
           </h1>
-          <p class="hero__subtitle intro" style="--d:0.42s">Track every workout, smash PRs, and train alongside your friends.</p>
+          <p class="hero__subtitle intro" style="--d:0.42s" data-i18n="hero.subtitle">Track every workout, smash PRs, and train alongside your friends.</p>
           <div class="app-badges intro" style="--d:0.52s">
             <a href="https://play.google.com/store/apps/details?id=rs.valens.app">
               <img class="play-badge" src="assets/google-play-badge.png" alt="Get it on Google Play">
             </a>
             <span class="app-badge--soon" aria-label="Download on the App Store — coming soon">
               <img class="app-badge" src="assets/apple-app-store-badge.svg" alt="">
-              <span class="app-badge__soon">Soon</span>
+              <span class="app-badge__soon" data-i18n="badge.soon">Soon</span>
             </span>
           </div>
           <p class="hero__trust intro" style="--d:0.62s">
             <span><span class="star" aria-hidden="true">★</span> Early Access</span>
             <span class="sep" aria-hidden="true">·</span>
-            <span>700+ exercises</span>
+            <span data-i18n="hero.trust.exercises">700+ exercises</span>
             <span class="sep" aria-hidden="true">·</span>
-            <span>Free · In-app purchases · PEGI 3</span>
+            <span data-i18n="hero.trust.meta">Free · In-app purchases · PEGI 3</span>
           </p>
         </div>
         <div class="hero__art intro" style="--d:0.5s">
@@ -95,14 +95,14 @@
     <section id="features">
       <div class="container">
         <div class="section-head" data-reveal>
-          <p class="eyebrow">Features</p>
-          <h2 class="section-title">Everything you need to train smarter</h2>
+          <p class="eyebrow" data-i18n="feat.eyebrow">Features</p>
+          <h2 class="section-title" data-i18n="feat.title">Everything you need to train smarter</h2>
         </div>
         <div class="features__grid" data-reveal-stagger>
           <article class="feature-card feature-card--lg" data-reveal>
             <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/logs_icon.svg" alt="" width="24" height="24"></div>
-            <h3>Track everything</h3>
-            <p>Log sets, reps, weight, drop sets and cardio. Watch your PRs climb.</p>
+            <h3 data-i18n="feat.track.title">Track everything</h3>
+            <p data-i18n="feat.track.desc">Log sets, reps, weight, drop sets and cardio. Watch your PRs climb.</p>
             <div class="mini-log" aria-hidden="true">
               <div class="mini-log__head"><span>45° Incline DB Press</span><span class="mini-log__finish">✓ Finish</span></div>
               <div class="mini-log__cols"><span>Set</span><span>Weight</span><span>Reps</span></div>
@@ -118,8 +118,8 @@
                 <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/>
               </svg>
             </div>
-            <h3>Smart Coach</h3>
-            <p>Your Coach spots lagging muscle groups and suggests what to train next.</p>
+            <h3 data-i18n="feat.coach.title">Smart Coach</h3>
+            <p data-i18n="feat.coach.desc">Your Coach spots lagging muscle groups and suggests what to train next.</p>
             <div class="mini-focus" aria-hidden="true">
               <div class="mini-focus__row"><span>Chest</span><i style="--v:80%; --bar-d:0.1s"></i></div>
               <div class="mini-focus__row"><span>Back</span><i style="--v:72%; --bar-d:0.25s"></i></div>
@@ -130,24 +130,24 @@
           </article>
           <article class="feature-card feature-card--half" data-reveal>
             <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/search.svg" alt="" width="24" height="24"></div>
-            <h3>700+ exercises</h3>
-            <p>A full library with target muscles, equipment and how-to instructions.</p>
+            <h3 data-i18n="feat.library.title">700+ exercises</h3>
+            <p data-i18n="feat.library.desc">A full library with target muscles, equipment and how-to instructions.</p>
             <div class="mini-chips" aria-hidden="true">
               <span class="chip">Chest</span><span class="chip">Back</span><span class="chip">Legs</span><span class="chip">Shoulders</span><span class="chip chip--ghost">+9 more</span>
             </div>
           </article>
           <article class="feature-card feature-card--half" data-reveal>
             <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/routines_icon.svg" alt="" width="24" height="24"></div>
-            <h3>Routines and programs</h3>
-            <p>Build your own or follow a structured program written by a professional coach.</p>
+            <h3 data-i18n="feat.routines.title">Routines and programs</h3>
+            <p data-i18n="feat.routines.desc">Build your own or follow a structured program written by a professional coach.</p>
             <div class="mini-chips" aria-hidden="true">
               <span class="chip">Mr. VALENS</span><span class="chip">Push / Pull / Legs</span><span class="chip">Upper / Lower</span>
             </div>
           </article>
           <article class="feature-card feature-card--lg" data-reveal>
             <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/friends_icon.svg" alt="" width="24" height="24"></div>
-            <h3>Train with friends</h3>
-            <p>Follow friends' logs, like their sessions, climb the leaderboards.</p>
+            <h3 data-i18n="feat.friends.title">Train with friends</h3>
+            <p data-i18n="feat.friends.desc">Follow friends' logs, like their sessions, climb the leaderboards.</p>
             <div class="mini-board" aria-hidden="true">
               <div class="mini-board__row mini-board__row--top">
                 <span class="mini-board__rank">1</span><span class="mini-board__ava">Y</span>
@@ -165,8 +165,8 @@
           </article>
           <article class="feature-card feature-card--lg" data-reveal>
             <div class="feature-card__icon-wrap"><img class="feature-card__icon" src="assets/badge.svg" alt="" width="24" height="24"></div>
-            <h3>Achievements and recaps</h3>
-            <p>Earn badges, keep streaks, get a weekly recap of your progress.</p>
+            <h3 data-i18n="feat.achievements.title">Achievements and recaps</h3>
+            <p data-i18n="feat.achievements.desc">Earn badges, keep streaks, get a weekly recap of your progress.</p>
             <div class="mini-badge" aria-hidden="true">
               <div class="mini-badge__title">300kg PR Club</div>
               <svg class="mini-badge__icon" viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -183,8 +183,8 @@
     <section id="screens">
       <div class="container">
         <div class="section-head" data-reveal>
-          <p class="eyebrow">Screens</p>
-          <h2 class="section-title">See VALENS in action</h2>
+          <p class="eyebrow" data-i18n="showcase.eyebrow">Screens</p>
+          <h2 class="section-title" data-i18n="showcase.title">See VALENS in action</h2>
         </div>
         <div class="showcase" data-reveal>
           <button class="showcase__btn showcase__btn--prev" type="button" data-showcase-prev aria-label="Previous screenshot">‹</button>
@@ -207,48 +207,48 @@
     <section id="reviews">
       <div class="container">
         <div class="section-head" data-reveal>
-          <p class="eyebrow">Reviews</p>
-          <h2 class="section-title">The first reviews are coming</h2>
-          <p class="section-sub">VALENS just launched. As lifters rate it on Google Play, real reviews land right here — no invented quotes, no fake stars.</p>
+          <p class="eyebrow" data-i18n="reviews.eyebrow">Reviews</p>
+          <h2 class="section-title" data-i18n="reviews.title">The first reviews are coming</h2>
+          <p class="section-sub" data-i18n="reviews.sub">VALENS just launched. As lifters rate it on Google Play, real reviews land right here — no invented quotes, no fake stars.</p>
         </div>
         <div class="reviews__grid" data-reveal-stagger>
           <article class="review review--ghost" data-reveal aria-hidden="true">
             <div class="review__stars review__stars--empty">★★★★★</div>
             <p class="review__quote"><span class="review__line"></span><span class="review__line"></span><span class="review__line review__line--short"></span></p>
-            <div class="review__who"><span class="review__avatar review__avatar--empty"></span><span class="review__pending">Waiting on the first review</span></div>
+            <div class="review__who"><span class="review__avatar review__avatar--empty"></span><span class="review__pending" data-i18n="reviews.pending.1">Waiting on the first review</span></div>
           </article>
           <article class="review review--ghost" data-reveal aria-hidden="true">
             <div class="review__stars review__stars--empty">★★★★★</div>
             <p class="review__quote"><span class="review__line"></span><span class="review__line review__line--short"></span></p>
-            <div class="review__who"><span class="review__avatar review__avatar--empty"></span><span class="review__pending">Your words could go here</span></div>
+            <div class="review__who"><span class="review__avatar review__avatar--empty"></span><span class="review__pending" data-i18n="reviews.pending.2">Your words could go here</span></div>
           </article>
           <article class="review review--ghost" data-reveal aria-hidden="true">
             <div class="review__stars review__stars--empty">★★★★★</div>
             <p class="review__quote"><span class="review__line"></span><span class="review__line"></span><span class="review__line review__line--short"></span></p>
-            <div class="review__who"><span class="review__avatar review__avatar--empty"></span><span class="review__pending">Yours could be first</span></div>
+            <div class="review__who"><span class="review__avatar review__avatar--empty"></span><span class="review__pending" data-i18n="reviews.pending.3">Yours could be first</span></div>
           </article>
         </div>
         <div class="reviews__cta" data-reveal>
-          <p class="reviews__cta-text">Already training with VALENS?</p>
-          <a class="btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app" target="_blank" rel="noopener">★ Rate us on Google Play</a>
+          <p class="reviews__cta-text" data-i18n="reviews.cta.text">Already training with VALENS?</p>
+          <a class="btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app" target="_blank" rel="noopener" data-i18n="reviews.cta.btn">★ Rate us on Google Play</a>
         </div>
       </div>
     </section>
     <section id="ebooks-teaser">
       <div class="container">
         <div class="section-head" data-reveal>
-          <p class="eyebrow">E-books</p>
-          <h2 class="section-title">Programs built to be followed</h2>
+          <p class="eyebrow" data-i18n="teaser.ebooks.eyebrow">E-books</p>
+          <h2 class="section-title" data-i18n="teaser.ebooks.title">Programs built to be followed</h2>
         </div>
         <div class="teaser" data-reveal>
           <div class="teaser__tiles" aria-hidden="true">
-            <span class="book__cover" style="--a1:#8465D6; --a2:#1F1B4E"><img class="book__mark" src="assets/valens.svg" alt=""><span class="book__cover-cat">Training</span><span class="book__cover-title">Mr. VALENS</span></span>
-            <span class="book__cover" style="--a1:#7A4FD0; --a2:#1A1440"><img class="book__mark" src="assets/valens.svg" alt=""><span class="book__cover-cat">Training</span><span class="book__cover-title">Iron 5×5</span></span>
-            <span class="book__cover" style="--a1:#B06AC9; --a2:#3A1E4B"><img class="book__mark" src="assets/valens.svg" alt=""><span class="book__cover-cat">Nutrition</span><span class="book__cover-title">2000 kcal</span></span>
+            <span class="book__cover" style="--a1:#8465D6; --a2:#1F1B4E"><img class="book__mark" src="assets/valens.svg" alt=""><span class="book__cover-cat" data-i18n="cat.training">Training</span><span class="book__cover-title">Mr. VALENS</span></span>
+            <span class="book__cover" style="--a1:#7A4FD0; --a2:#1A1440"><img class="book__mark" src="assets/valens.svg" alt=""><span class="book__cover-cat" data-i18n="cat.training">Training</span><span class="book__cover-title">Iron 5×5</span></span>
+            <span class="book__cover" style="--a1:#B06AC9; --a2:#3A1E4B"><img class="book__mark" src="assets/valens.svg" alt=""><span class="book__cover-cat" data-i18n="cat.nutrition">Nutrition</span><span class="book__cover-title">2000 kcal</span></span>
           </div>
           <div class="teaser__cta">
-            <p class="teaser__text">Training programs, nutrition plans and 1-on-1 coaching — written to work hand-in-hand with the VALENS app.</p>
-            <a class="btn-pill" href="ebooks.html">Browse e-books</a>
+            <p class="teaser__text" data-i18n="teaser.ebooks.text">Training programs, nutrition plans and 1-on-1 coaching — written to work hand-in-hand with the VALENS app.</p>
+            <a class="btn-pill" href="ebooks.html" data-i18n="teaser.ebooks.cta">Browse e-books</a>
           </div>
         </div>
       </div>
@@ -256,18 +256,18 @@
     <section id="store-teaser">
       <div class="container">
         <div class="section-head" data-reveal>
-          <p class="eyebrow">Store</p>
-          <h2 class="section-title">Gear up in VALENS</h2>
+          <p class="eyebrow" data-i18n="teaser.store.eyebrow">Store</p>
+          <h2 class="section-title" data-i18n="teaser.store.title">Gear up in VALENS</h2>
         </div>
         <div class="teaser teaser--reverse" data-reveal>
           <div class="teaser__tiles" aria-hidden="true">
-            <span class="book__cover book__cover--photo"><img class="book__cover-img" src="assets/merch/tee.webp" alt="" loading="lazy" width="400" height="533"><span class="book__cover-cat">Merch</span><span class="book__cover-title">Training Tee</span></span>
-            <span class="book__cover book__cover--photo"><img class="book__cover-img" src="assets/merch/straps.webp" alt="" loading="lazy" width="400" height="533"><span class="book__cover-cat">Accessories</span><span class="book__cover-title">Lifting Straps</span></span>
-            <span class="book__cover book__cover--photo"><img class="book__cover-img" src="assets/merch/leggings.webp" alt="" loading="lazy" width="400" height="533"><span class="book__cover-cat">Merch</span><span class="book__cover-title">Leggings</span></span>
+            <span class="book__cover book__cover--photo"><img class="book__cover-img" src="assets/merch/tee.webp" alt="" loading="lazy" width="400" height="533"><span class="book__cover-cat" data-i18n="cat.merch">Merch</span><span class="book__cover-title">Training Tee</span></span>
+            <span class="book__cover book__cover--photo"><img class="book__cover-img" src="assets/merch/straps.webp" alt="" loading="lazy" width="400" height="533"><span class="book__cover-cat" data-i18n="cat.accessories">Accessories</span><span class="book__cover-title">Lifting Straps</span></span>
+            <span class="book__cover book__cover--photo"><img class="book__cover-img" src="assets/merch/leggings.webp" alt="" loading="lazy" width="400" height="533"><span class="book__cover-cat" data-i18n="cat.merch">Merch</span><span class="book__cover-title">Leggings</span></span>
           </div>
           <div class="teaser__cta">
-            <p class="teaser__text">Branded apparel and training accessories, built for the gym floor. Cash on delivery, free shipping across Serbia.</p>
-            <a class="btn-pill" href="store.html">Visit the store</a>
+            <p class="teaser__text" data-i18n="teaser.store.text">Branded apparel and training accessories, built for the gym floor. Cash on delivery, free shipping across Serbia.</p>
+            <a class="btn-pill" href="store.html" data-i18n="teaser.store.cta">Visit the store</a>
           </div>
         </div>
       </div>
@@ -277,18 +277,18 @@
         <div class="capture" data-reveal>
           <div class="capture__inner">
             <div>
-              <p class="eyebrow">Get launch updates</p>
-              <h2>Be first to know when VALENS ships new features</h2>
-              <p class="capture__sub">No spam — just launch news and the occasional program drop.</p>
+              <p class="eyebrow" data-i18n="capture.eyebrow">Get launch updates</p>
+              <h2 data-i18n="capture.title">Be first to know when VALENS ships new features</h2>
+              <p class="capture__sub" data-i18n="capture.sub">No spam — just launch news and the occasional program drop.</p>
             </div>
             <form class="capture__form" data-capture-form novalidate>
-              <label class="visually-hidden" for="capture-email">Email address</label>
-              <input id="capture-email" type="email" name="email" placeholder="you@example.com" required data-capture-email>
+              <label class="visually-hidden" for="capture-email" data-i18n="capture.label">Email address</label>
+              <input id="capture-email" type="email" name="email" placeholder="you@example.com" required data-capture-email data-i18n-attr="placeholder:capture.placeholder">
               <div class="visually-hidden" aria-hidden="true">
                 <label for="capture-website">Website</label>
                 <input id="capture-website" type="text" name="website" tabindex="-1" autocomplete="off" data-capture-honeypot>
               </div>
-              <button type="submit" data-capture-submit>Subscribe</button>
+              <button type="submit" data-capture-submit data-i18n="capture.btn">Subscribe</button>
               <noscript><p class="capture__status">Enable JavaScript to subscribe, or email us at valens.gym.app@gmail.com.</p></noscript>
               <p class="capture__status" data-capture-status role="status" aria-live="polite"></p>
             </form>
@@ -299,14 +299,14 @@
     <section class="cta-band">
       <img class="cta-band__mark" src="assets/valens.svg" alt="" aria-hidden="true">
       <div class="container cta-band__inner" data-reveal>
-        <h2 class="grad-text">Start training with VALENS</h2>
+        <h2 class="grad-text" data-i18n="cta.title">Start training with VALENS</h2>
         <div class="app-badges">
           <a href="https://play.google.com/store/apps/details?id=rs.valens.app">
             <img class="play-badge" src="assets/google-play-badge.png" alt="Get it on Google Play">
           </a>
           <span class="app-badge--soon" aria-label="Download on the App Store — coming soon">
             <img class="app-badge" src="assets/apple-app-store-badge.svg" alt="">
-            <span class="app-badge__soon">Soon</span>
+            <span class="app-badge__soon" data-i18n="badge.soon">Soon</span>
           </span>
         </div>
       </div>
@@ -321,11 +321,11 @@
         <span class="chip">Early Access</span>
       </div>
       <ul class="footer__links">
-        <li><a href="ebooks.html">E-books</a></li>
-        <li><a href="store.html">Store</a></li>
-        <li><a href="https://tomicadev.github.io/valens-legal/privacy-policy.html">Privacy</a></li>
-        <li><a href="https://tomicadev.github.io/valens-legal/account-deletion.html">Account deletion</a></li>
-        <li><a href="mailto:valens.gym.app@gmail.com">Contact</a></li>
+        <li><a href="ebooks.html" data-i18n="nav.ebooks">E-books</a></li>
+        <li><a href="store.html" data-i18n="nav.store">Store</a></li>
+        <li><a href="https://tomicadev.github.io/valens-legal/privacy-policy.html" data-i18n="footer.privacy">Privacy</a></li>
+        <li><a href="https://tomicadev.github.io/valens-legal/account-deletion.html" data-i18n="footer.deletion">Account deletion</a></li>
+        <li><a href="mailto:valens.gym.app@gmail.com" data-i18n="footer.contact">Contact</a></li>
       </ul>
     </div>
   </footer>
