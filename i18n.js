@@ -23,6 +23,8 @@
     'a11y.menu': 'Meni',
     'a11y.lang': 'Jezik',
     'a11y.close': 'Zatvori',
+    'a11y.nav.primary': 'Glavna',
+    'store.cart.aria': 'Korpa',
     'social.x.aria': 'X (uskoro)',
     'social.email.aria': 'Imejl',
     'footer.privacy': 'Privatnost',
