@@ -17,8 +17,6 @@
     'cat.nutrition': 'Ishrana',
     'cat.merch': 'Odeća',
     'cat.accessories': 'Oprema',
-    'badge.soon': 'Uskoro',
-    'badge.soon.aria': 'Preuzimanje na App Store-u — uskoro',
     'a11y.skip': 'Preskoči na sadržaj',
     'a11y.menu': 'Meni',
     'a11y.lang': 'Jezik',
@@ -40,7 +38,7 @@
     'hero.line3': 'Napreduj brže.',
     'hero.subtitle': 'Beleži svaki trening, obaraj lične rekorde i treniraj rame uz rame sa društvom.',
     'hero.trust.exercises': '700+ vežbi',
-    'hero.trust.meta': 'Besplatno · Kupovina u aplikaciji · PEGI 3',
+    'hero.trust.meta': 'Besplatno · Kupovina u aplikaciji',
 
     'feat.eyebrow': 'Mogućnosti',
     'feat.title': 'Sve što ti treba za pametniji trening',
@@ -62,12 +60,13 @@
 
     'reviews.eyebrow': 'Recenzije',
     'reviews.title': 'Prve recenzije stižu',
-    'reviews.sub': 'VALENS je tek izašao. Kako dizači budu ocenjivali aplikaciju na Google Play-u, prave recenzije stižu pravo ovde — bez izmišljenih citata i lažnih zvezdica.',
+    'reviews.sub': 'VALENS je tek izašao. Kako dizači budu ocenjivali aplikaciju na Google Play-u i App Store-u, prave recenzije stižu pravo ovde — bez izmišljenih citata i lažnih zvezdica.',
     'reviews.pending.1': 'Čeka se prva recenzija',
     'reviews.pending.2': 'Ovde mogu da stoje tvoje reči',
     'reviews.pending.3': 'Tvoja bi mogla da bude prva',
     'reviews.cta.text': 'Već treniraš uz VALENS?',
-    'reviews.cta.btn': '★ Oceni nas na Google Play-u',
+    'reviews.cta.play': '★ Oceni na Google Play-u',
+    'reviews.cta.appstore': '★ Oceni na App Store-u',
 
     'teaser.ebooks.eyebrow': 'E-knjige',
     'teaser.ebooks.title': 'Programi napravljeni da se prate',

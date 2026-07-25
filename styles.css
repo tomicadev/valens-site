@@ -474,36 +474,52 @@ a.visually-hidden:focus {
 .feature-card.is-visible .mini-log__row:nth-child(5) { transition-delay: 0.75s; }
 .feature-card.is-visible .mini-log__add { transition-delay: 0.95s; }
 
-/* Smart Coach — muscle-focus mini */
-.mini-focus { margin-top: 28px; display: grid; gap: 11px; }
-.mini-focus__row {
-  display: grid;
-  grid-template-columns: 66px 1fr;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.75rem;
+/* Smart Coach — weekly volume vs last week + lagging-group insight (mirrors the app's Coach screen) */
+.mini-coach { margin-top: 24px; display: grid; gap: 9px; }
+.mini-coach__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--muted);
 }
-.mini-focus__row i {
+.mini-coach__streak { font-weight: 500; letter-spacing: 0.02em; text-transform: none; opacity: 0.85; }
+.mini-coach__row {
+  display: grid;
+  grid-template-columns: 50px 1fr 38px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+/* two stacked bars per group: this week over last week */
+.mini-coach__bars { display: grid; gap: 3px; }
+.mini-coach__bars i {
   position: relative;
   display: block;
-  height: 7px;
+  height: 5px;
   border-radius: 999px;
   background: var(--elevated);
   overflow: hidden;
 }
-.mini-focus__row i::after {
+.mini-coach__bars i::after {
   content: '';
   position: absolute;
   inset: 0;
   width: 0; /* grows to --v when the card reveals */
   border-radius: 999px;
-  background: rgba(155, 120, 212, 0.4);
   transition: width 0.9s var(--ease) var(--bar-d, 0s);
 }
-.feature-card.is-visible .mini-focus__row i::after { width: var(--v, 50%); }
-.mini-focus__row--low { color: var(--light-purple); font-weight: 600; }
-.mini-focus__row--low i::after {
+.mini-coach__now::after { background: linear-gradient(90deg, rgba(155, 120, 212, 0.55), rgba(155, 120, 212, 0.9)); }
+.mini-coach__prev::after { background: rgba(155, 120, 212, 0.2); }
+.feature-card.is-visible .mini-coach__bars i::after { width: var(--v, 50%); }
+.mini-coach__sets { text-align: right; font-size: 0.68rem; font-variant-numeric: tabular-nums; }
+.mini-coach__row--low { color: var(--light-purple); font-weight: 600; }
+.mini-coach__row--low .mini-coach__now::after {
   background: linear-gradient(90deg, var(--purple), var(--light-purple));
   box-shadow: 0 0 14px rgba(155, 120, 212, 0.55);
   animation: focusPulse 2.4s ease-in-out infinite;
@@ -511,12 +527,22 @@ a.visually-hidden:focus {
 @keyframes focusPulse {
   50% { box-shadow: 0 0 22px rgba(155, 120, 212, 0.85); }
 }
-.mini-focus__tag {
-  margin-top: 4px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--light-purple);
+/* the Coach's verdict card — slides in once the bars have drawn */
+.mini-coach__insight {
+  margin-top: 3px;
+  display: grid;
+  gap: 2px;
+  padding: 9px 11px;
+  border: 1px solid rgba(155, 120, 212, 0.28);
+  border-radius: 12px;
+  background: rgba(155, 120, 212, 0.06);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s var(--ease) 0.8s, transform 0.5s var(--ease) 0.8s;
 }
+.feature-card.is-visible .mini-coach__insight { opacity: 1; transform: none; }
+.mini-coach__insight strong { font-size: 0.72rem; font-weight: 700; color: var(--light-purple); }
+.mini-coach__insight span { font-size: 0.66rem; color: var(--muted); }
 
 /* Exercises / Routines — one row of chips fills the wider half cards */
 .mini-chips { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -1256,21 +1282,10 @@ a.visually-hidden:focus {
 /* Apple's badge art fills its box edge-to-edge, while Google's PNG has ~33% built-in
    transparent padding — so at equal element height Apple renders visually larger. Size the
    Apple badge to Google's *visible* pill height (50px x 0.672) so the two read the same size. */
-.app-badge { height: 34px; width: auto; display: block; border-radius: 9px; }
-.app-badge--soon { position: relative; display: inline-flex; opacity: 0.5; cursor: default; }
-.app-badge__soon {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  font-size: 0.54rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: var(--purple);
-  color: #fff;
-  border: 1px solid rgba(155, 120, 212, 0.5);
+.app-badge { height: 34px; width: auto; display: block; border-radius: 9px; transition: transform 0.3s var(--ease), filter 0.3s ease; }
+a:hover > .app-badge {
+  transform: translateY(-2px) scale(1.02);
+  filter: drop-shadow(0 8px 24px rgba(111, 77, 179, 0.45));
 }
 
 @media (min-width: 960px) {
@@ -1333,6 +1348,7 @@ a.visually-hidden:focus {
 
 .reviews__cta { margin-top: 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
 .reviews__cta-text { color: var(--muted); font-size: 0.95rem; }
+.reviews__cta-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 
 @media (min-width: 640px) { .reviews__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 960px) { .reviews__grid { grid-template-columns: repeat(3, 1fr); } }

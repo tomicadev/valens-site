@@ -42,7 +42,7 @@
           <button type="button" data-lang-btn="en" class="is-active" aria-pressed="true">EN</button>
           <button type="button" data-lang-btn="sr" aria-pressed="false">SR</button>
         </div>
-        <a class="nav__cta btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app" data-i18n="nav.cta">Get the app</a>
+        <a class="nav__cta btn-pill" href="#get" data-i18n="nav.cta">Get the app</a>
       </div>
     </div>
   </header>
@@ -67,17 +67,16 @@
             <a href="https://play.google.com/store/apps/details?id=rs.valens.app">
               <img class="play-badge" src="assets/google-play-badge.png" alt="Get it on Google Play">
             </a>
-            <span class="app-badge--soon" aria-label="Download on the App Store — coming soon" data-i18n-attr="aria-label:badge.soon.aria">
-              <img class="app-badge" src="assets/apple-app-store-badge.svg" alt="">
-              <span class="app-badge__soon" data-i18n="badge.soon">Soon</span>
-            </span>
+            <a href="https://apps.apple.com/us/app/valens-workout-tracker/id6792130521">
+              <img class="app-badge" src="assets/apple-app-store-badge.svg" alt="Download on the App Store">
+            </a>
           </div>
           <p class="hero__trust intro" style="--d:0.62s">
             <span><span class="star" aria-hidden="true">★</span> Early Access</span>
             <span class="sep" aria-hidden="true">·</span>
             <span data-i18n="hero.trust.exercises">700+ exercises</span>
             <span class="sep" aria-hidden="true">·</span>
-            <span data-i18n="hero.trust.meta">Free · In-app purchases · PEGI 3</span>
+            <span data-i18n="hero.trust.meta">Free · In-app purchases</span>
           </p>
         </div>
         <div class="hero__art intro" style="--d:0.5s">
@@ -120,12 +119,39 @@
             </div>
             <h3 data-i18n="feat.coach.title">Smart Coach</h3>
             <p data-i18n="feat.coach.desc">Your Coach spots lagging muscle groups and suggests what to train next.</p>
-            <div class="mini-focus" aria-hidden="true">
-              <div class="mini-focus__row"><span>Chest</span><i style="--v:80%; --bar-d:0.1s"></i></div>
-              <div class="mini-focus__row"><span>Back</span><i style="--v:72%; --bar-d:0.25s"></i></div>
-              <div class="mini-focus__row mini-focus__row--low"><span>Legs</span><i style="--v:34%; --bar-d:0.4s"></i></div>
-              <div class="mini-focus__row"><span>Shoulders</span><i style="--v:64%; --bar-d:0.55s"></i></div>
-              <p class="mini-focus__tag">Train next: Legs</p>
+            <div class="mini-coach" aria-hidden="true">
+              <div class="mini-coach__head">
+                <span>This week</span>
+                <span class="mini-coach__streak">5 workouts · 4w streak</span>
+              </div>
+              <div class="mini-coach__row">
+                <span class="mini-coach__name">Chest</span>
+                <span class="mini-coach__bars">
+                  <i class="mini-coach__now" style="--v:52%; --bar-d:0.10s"></i>
+                  <i class="mini-coach__prev" style="--v:39%; --bar-d:0.16s"></i>
+                </span>
+                <span class="mini-coach__sets">12·9</span>
+              </div>
+              <div class="mini-coach__row">
+                <span class="mini-coach__name">Back</span>
+                <span class="mini-coach__bars">
+                  <i class="mini-coach__now" style="--v:100%; --bar-d:0.24s"></i>
+                  <i class="mini-coach__prev" style="--v:100%; --bar-d:0.30s"></i>
+                </span>
+                <span class="mini-coach__sets">23·23</span>
+              </div>
+              <div class="mini-coach__row mini-coach__row--low">
+                <span class="mini-coach__name">Quads</span>
+                <span class="mini-coach__bars">
+                  <i class="mini-coach__now" style="--v:22%; --bar-d:0.38s"></i>
+                  <i class="mini-coach__prev" style="--v:22%; --bar-d:0.44s"></i>
+                </span>
+                <span class="mini-coach__sets">5·5</span>
+              </div>
+              <div class="mini-coach__insight">
+                <strong>Quads: 5 sets/week</strong>
+                <span>Aim for ~10+ weekly sets</span>
+              </div>
             </div>
           </article>
           <article class="feature-card feature-card--half" data-reveal>
@@ -209,7 +235,7 @@
         <div class="section-head" data-reveal>
           <p class="eyebrow" data-i18n="reviews.eyebrow">Reviews</p>
           <h2 class="section-title" data-i18n="reviews.title">The first reviews are coming</h2>
-          <p class="section-sub" data-i18n="reviews.sub">VALENS just launched. As lifters rate it on Google Play, real reviews land right here — no invented quotes, no fake stars.</p>
+          <p class="section-sub" data-i18n="reviews.sub">VALENS just launched. As lifters rate it on Google Play and the App Store, real reviews land right here — no invented quotes, no fake stars.</p>
         </div>
         <div class="reviews__grid" data-reveal-stagger>
           <article class="review review--ghost" data-reveal aria-hidden="true">
@@ -230,7 +256,10 @@
         </div>
         <div class="reviews__cta" data-reveal>
           <p class="reviews__cta-text" data-i18n="reviews.cta.text">Already training with VALENS?</p>
-          <a class="btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app" target="_blank" rel="noopener" data-i18n="reviews.cta.btn">★ Rate us on Google Play</a>
+          <div class="reviews__cta-actions">
+            <a class="btn-pill" href="https://play.google.com/store/apps/details?id=rs.valens.app" target="_blank" rel="noopener" data-i18n="reviews.cta.play">★ Rate on Google Play</a>
+            <a class="btn-ghost" href="https://apps.apple.com/us/app/valens-workout-tracker/id6792130521" target="_blank" rel="noopener" data-i18n="reviews.cta.appstore">★ Rate on the App Store</a>
+          </div>
         </div>
       </div>
     </section>
@@ -296,7 +325,7 @@
         </div>
       </div>
     </section>
-    <section class="cta-band">
+    <section class="cta-band" id="get">
       <img class="cta-band__mark" src="assets/valens.svg" alt="" aria-hidden="true">
       <div class="container cta-band__inner" data-reveal>
         <h2 class="grad-text" data-i18n="cta.title">Start training with VALENS</h2>
@@ -304,10 +333,9 @@
           <a href="https://play.google.com/store/apps/details?id=rs.valens.app">
             <img class="play-badge" src="assets/google-play-badge.png" alt="Get it on Google Play">
           </a>
-          <span class="app-badge--soon" aria-label="Download on the App Store — coming soon" data-i18n-attr="aria-label:badge.soon.aria">
-            <img class="app-badge" src="assets/apple-app-store-badge.svg" alt="">
-            <span class="app-badge__soon" data-i18n="badge.soon">Soon</span>
-          </span>
+          <a href="https://apps.apple.com/us/app/valens-workout-tracker/id6792130521">
+            <img class="app-badge" src="assets/apple-app-store-badge.svg" alt="Download on the App Store">
+          </a>
         </div>
       </div>
     </section>
