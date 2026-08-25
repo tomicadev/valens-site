@@ -12,7 +12,7 @@ Then open http://localhost:8080
 
 1. Open `config.js` and paste the Supabase **anon/publishable** key (Project Settings → API
    in the Supabase dashboard for project `lkkijojnuqnrjyqrqgnd`). Never use the `service_role` key.
-2. Apply the newsletter table migration from the app repo (`D:\valens_app`), not from here:
+2. Apply the newsletter table migration from the app repo, not from here:
 
        supabase db push
 
