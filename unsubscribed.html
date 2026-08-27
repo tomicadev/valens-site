@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Unsubscribed · VALENS</title>
+<!--
+  Landing page for the unsubscribe link in VALENS emails.
+
+  The work happens in the `email-unsubscribe` Edge Function, which flips the
+  preference and then redirects here. It cannot render this page itself:
+  Supabase forces `Content-Type: text/plain` on Edge Function responses so
+  that *.supabase.co cannot be used to serve HTML, which is a sensible
+  anti-phishing rule. A confirmation on valens.rs is better anyway — people
+  trust the domain they recognise.
+
+  ?k=monthly_recap | winback  narrows the wording; absent means everything.
+-->
+<style>
+  :root {
+    --bg: #0C080D;
+    --surface: #1F1823;
+    --border: #382B3F;
+    --purple: #6F4DB3;
+    --light-purple: #9B78D4;
+    --ink: #E6E6EB;
+    --muted: #A1A1B3;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 34px 28px;
+    text-align: center;
+  }
+  .mark { display: block; width: 34px; height: 33px; margin: 0 auto 18px; }
+  h1 { margin: 0 0 10px; font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
+  p { margin: 0 0 22px; color: var(--muted); }
+  .back {
+    display: inline-block;
+    padding: 11px 22px;
+    border-radius: 10px;
+    background: var(--purple);
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .back:hover { background: var(--light-purple); }
+  .fine { margin: 20px 0 0; font-size: 12.5px; color: #6F6F85; }
+</style>
+</head>
+<body>
+  <main class="card">
+    <svg class="mark" viewBox="6 11 88 84" xmlns="http://www.w3.org/2000/svg"
+         aria-label="VALENS">
+      <path d="M10,15 L50,91 L50,59 L33,15 Z" fill="#6F4DB3"/>
+      <path d="M90,15 L50,91 L50,59 L67,15 Z" fill="#9B78D4"/>
+    </svg>
+    <h1 id="title">You're unsubscribed</h1>
+    <p id="body">You won't get any more email from VALENS.</p>
+    <a class="back" href="https://valens.rs">Back to valens.rs</a>
+    <p class="fine">Changed your mind? Email settings live in the app, under
+      your profile.</p>
+  </main>
+
+<script>
+  // Narrow the wording when the function says which kind was turned off.
+  var k = new URLSearchParams(location.search).get('k');
+  if (k === 'monthly_recap' || k === 'winback') {
+    document.getElementById('body').textContent =
+      "You won't get that kind of email again. Anything else still reaches you.";
+  } else if (k === 'invalid') {
+    document.getElementById('title').textContent = 'Link not valid';
+    document.getElementById('body').textContent =
+      'That link has expired or was already used.';
+  }
+</script>
+</body>
+</html>
