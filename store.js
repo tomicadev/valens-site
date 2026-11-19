@@ -4,6 +4,24 @@
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var config = window.VALENS_CONFIG || {};
   var I = window.VALENS_I18N || { t: function (k, f) { return f; } };
+  var T = window.VALENS_TRACK || function () {};
+
+  // GA4 item for an e-book card. Identity comes from .book__cover-title, which the
+  // dictionary deliberately leaves untranslated ("Mr. VALENS", "1800 kcal") — the
+  // .book__title does get translated, so reading that would split one product into
+  // two names depending on the visitor's language.
+  function bookItem(book) {
+    var mark = book.querySelector('.book__cover-title');
+    var id = mark ? mark.textContent.trim() : '';
+    var price = (book.dataset.price || '').match(/[\d.]+/);
+    return {
+      item_id: id,
+      item_name: id,
+      item_category: /kcal/i.test(id) ? 'Nutrition e-book' : 'Training e-book',
+      price: price ? parseFloat(price[0]) : undefined,
+      quantity: 1
+    };
+  }
 
   function setStatus(el, message, kind) {
     if (!el) return;
@@ -78,6 +96,12 @@
         buy.href = url;
         buy.rel = 'noopener';
         buy.textContent = I.t('modal.buy', 'Buy now');
+        // Checkout happens on Lemon Squeezy, so this is the last step we can see:
+        // intent, not a completed purchase. Real revenue needs an LS webhook.
+        buy.addEventListener('click', function () {
+          var it = bookItem(book);
+          T('begin_checkout', { currency: 'EUR', value: it.price, items: [it] });
+        });
         modalAction.appendChild(buy);
       } else {
         var soon = document.createElement('button');
@@ -87,6 +111,9 @@
         soon.textContent = I.t('modal.soon', 'Coming soon');
         modalAction.appendChild(soon);
       }
+
+      var item = bookItem(book);
+      T('view_item', { currency: 'EUR', value: item.price, items: [item] });
 
       modal.hidden = false;
       document.body.style.overflow = 'hidden';
@@ -156,6 +183,7 @@
         .then(function (response) {
           if (response.ok) {
             setStatus(coachStatus, I.t('coach.ok', "Application received — I'll get back to you within 48 hours."), 'success');
+            T('generate_lead', { method: 'coaching_form' });
             coachForm.reset();
           } else {
             setStatus(coachStatus, I.t('common.err.generic', 'Something went wrong. Try again in a moment.'), 'error');

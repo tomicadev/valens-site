@@ -5,6 +5,7 @@
   if (!form) return;
 
   var I = window.VALENS_I18N || { t: function (k, f) { return f; } };
+  var T = window.VALENS_TRACK || function () {};
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -78,6 +79,11 @@
     return NUTRITION_LEVELS.reduce(function (best, level) {
       return Math.abs(level - target) < Math.abs(best - target) ? level : best;
     });
+  }
+
+  function coverMark(book) {
+    var m = book && book.querySelector('.book__cover-title');
+    return m ? m.textContent.trim() : null;
   }
 
   function findBook(titleKey) {
@@ -189,6 +195,15 @@
     if (!rerender) {
       resultsEl.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'nearest' });
       fireConfetti();
+      // Custom event: which goals people actually pick, and which plans that lands
+      // them on. Reads .book__cover-title because it is never translated.
+      T('calculator_complete', {
+        goal: data.goal,
+        target_kcal: data.target,
+        plan_kcal: data.level,
+        training_match: coverMark(trainingBook),
+        nutrition_match: coverMark(nutritionBook)
+      });
     }
   }
 

@@ -4,6 +4,7 @@
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   var I = window.VALENS_I18N || { t: function (k, f) { return f; } };
+  var T = window.VALENS_TRACK || function () {};
 
   // --- Nav solid-on-scroll ---
   var nav = document.querySelector('[data-nav]');
@@ -267,6 +268,7 @@
         .then(function (response) {
           if (response.ok || response.status === 409) {
             setStatus(I.t('capture.ok', "You're in — we'll email you at launch."), 'success');
+            T('sign_up', { method: 'newsletter' });
             form.reset();
           } else {
             setStatus(I.t('common.err.generic', 'Something went wrong. Try again in a moment.'), 'error');

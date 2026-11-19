@@ -25,6 +25,17 @@
   window.VALENS_SHOP.pName = pName;
   window.VALENS_SHOP.esc = esc;
 
+  // GA4 item payload. Always reports the ENGLISH name/category so reporting stays
+  // in one language no matter which the visitor is browsing in.
+  function gaItem(line) {
+    var p = bySku(line.sku) || {};
+    var o = { item_id: line.sku, item_name: p.name, item_category: p.category,
+              price: p.price_eur, quantity: line.qty || 1 };
+    if (line.size) o.item_variant = line.size;
+    return o;
+  }
+  window.VALENS_SHOP.gaItem = gaItem;
+
   function cardHTML(p) {
     var sizes = (p.sizes || []).map(function (s) {
       return '<button type="button" class="size" data-size="' + s + '">' + s + '</button>';
@@ -91,6 +102,7 @@
   var KEY = 'valens_cart';
   var MAX_QTY = 9;
   var S = window.VALENS_SHOP;
+  var T = window.VALENS_TRACK || function () {};
   var I = window.VALENS_I18N || { t: function (k, f) { return f; }, lang: function () { return 'en'; } };
   var TRASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11.5v5M14 11.5v5M6 7l1 13h10l1-13M9.2 7V4h5.6v3"/></svg>';
 
@@ -110,12 +122,23 @@
     if (found) found.qty = Math.min(MAX_QTY, found.qty + 1); else cart.push({ sku: sku, size: size || null, qty: 1 });
     save(cart); refresh(); open();
     if (countEl) { countEl.classList.remove('bump'); void countEl.offsetWidth; countEl.classList.add('bump'); }
+    var added = S.bySku(sku);
+    if (added) T('add_to_cart', { currency: 'EUR', value: added.price_eur,
+                                  items: [S.gaItem({ sku: sku, size: size, qty: 1 })] });
   }
   function setQty(sku, size, qty) {
     qty = Math.min(qty, MAX_QTY);
     var k = lineKey(sku, size);
+    var before = 0;
+    cart.forEach(function (l) { if (lineKey(l.sku, l.size) === k) before = l.qty; });
     cart = cart.filter(function (l) { if (lineKey(l.sku, l.size) !== k) return true; l.qty = qty; return qty > 0; });
     save(cart); refresh();
+    var p = S.bySku(sku);
+    if (p && qty < before) {
+      var gone = before - qty;
+      T('remove_from_cart', { currency: 'EUR', value: p.price_eur * gone,
+                              items: [S.gaItem({ sku: sku, size: size, qty: gone })] });
+    }
   }
 
   var drawer = document.querySelector('[data-cart-drawer]');
@@ -157,7 +180,12 @@
     });
   }
 
-  if (toggle) toggle.addEventListener('click', open);
+  // bound to the toggle rather than open(), because add() opens the drawer too
+  // and that is an add_to_cart, not a cart view
+  if (toggle) toggle.addEventListener('click', function () {
+    open();
+    T('view_cart', { currency: 'EUR', value: subtotal(), items: cart.map(S.gaItem) });
+  });
   document.querySelectorAll('[data-cart-close]').forEach(function (b) { b.addEventListener('click', uiClose); });
   if (backdrop) backdrop.addEventListener('click', uiClose);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer && !drawer.hidden) uiClose(); });
@@ -171,6 +199,7 @@
 (function () {
   'use strict';
   var S = window.VALENS_SHOP, C = window.VALENS_CART, cfg = window.VALENS_CONFIG || {};
+  var T = window.VALENS_TRACK || function () {};
   var I = window.VALENS_I18N || { t: function (k, f) { return f; }, lang: function () { return 'en'; } };
   var section = document.getElementById('checkout');
   var form = document.querySelector('[data-checkout-form]');
@@ -224,6 +253,7 @@
     submit.disabled = false; status('', '');
     section.hidden = false; renderSummary();
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    T('begin_checkout', { currency: 'EUR', value: C.subtotal(), items: C.items().map(S.gaItem) });
   }
   if (checkoutBtn) checkoutBtn.addEventListener('click', openCheckout);
   if (doneContinue) doneContinue.addEventListener('click', function () {
@@ -260,6 +290,15 @@
       body: JSON.stringify(order),
     }).then(function (res) {
       if (res.ok) {
+        // COD, so the order is won the moment the row lands — there is no payment
+        // step afterwards to wait on. shipping is 0: delivery is free.
+        T('purchase', {
+          transaction_id: order.order_ref,
+          currency: 'EUR',
+          value: order.subtotal_eur,
+          shipping: 0,
+          items: order.items.map(function (i) { return S.gaItem({ sku: i.sku, size: i.size, qty: i.qty }); })
+        });
         // swap the form for the success view (form stays in the DOM so re-ordering works)
         if (doneRef) doneRef.textContent = order.order_ref;
         if (doneSummary) doneSummary.innerHTML =
